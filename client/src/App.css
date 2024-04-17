@@ -37,7 +37,7 @@ figcaption {
   width: 38px;
 }
 
-.nav {
+nav {
   background-color: var(--primary-color);
   display: flex;
   position: fixed;
