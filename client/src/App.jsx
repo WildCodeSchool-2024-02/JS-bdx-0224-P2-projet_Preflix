@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { Outlet } from "react-router-dom";
 import "./App.css";
+import { useState } from "react";
 import Btn from "./components/Btn";
 import SearchBar from "./components/Searchbar";
 
 function App() {
-  const apiToken = import.meta.env.VITE_API_TOKEN;
+  
+   const apiToken = import.meta.env.VITE_API_TOKEN;
   const urlDiscoverSeries =
     "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc";
   const urlDiscoverMovies =
@@ -18,9 +20,10 @@ function App() {
   const [currentSearch, setCurrentSearch] = useState([]);
   const [isSeriesVisible, setIsSeriesVisible] = useState(false);
   const [isMoviesVisible, setIsMoviesVisible] = useState(false);
-
+  
   return (
-    <section>
+    <main>
+      <Outlet />
       <SearchBar
         fetchData={{ url: urlSearch, data: currentSearch }}
         setData={setCurrentSearch}
@@ -42,7 +45,7 @@ function App() {
         setIsVisible={setIsMoviesVisible}
         isVisible={isMoviesVisible}
       />
-    </section>
+    </main>
   );
 }
 
