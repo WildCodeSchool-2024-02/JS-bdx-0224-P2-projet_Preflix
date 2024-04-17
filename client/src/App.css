@@ -22,6 +22,10 @@
   --secondary-font: "Oswald", "sans-serif";
 }
 
+body {
+  background-color: #313131;
+}
+
 section {
   display: flex;
   flex-wrap: wrap;
@@ -35,8 +39,8 @@ img {
   width: 38px;
 }
 
-.nav {
-  background-color: var(--primary-color);
+nav {
+  background-color: #1a1a1a;
   display: flex;
   position: fixed;
   bottom: 0;
@@ -101,5 +105,20 @@ li {
   }
   .titleNav {
     font-family: var(--primary-font);
+  }
+  nav {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .navList {
+    justify-content: space-evenly;
+  }
+  label {
+    font-size: 0;
+  }
+  .linkName {
+    font-size: 8pt;
   }
 }
