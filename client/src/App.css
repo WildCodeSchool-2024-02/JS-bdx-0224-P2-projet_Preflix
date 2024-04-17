@@ -8,6 +8,12 @@
   src: url("assets/fonts/Oswald-VariableFont_wght.ttf");
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 :root {
   --primary-color: #313131;
   --secondary-color: #ffe96e;
@@ -23,4 +29,77 @@ section {
 
 img {
   width: 150px;
+}
+
+.navIcon {
+  width: 38px;
+}
+
+.nav {
+  background-color: var(--primary-color);
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+}
+
+.navList {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+li {
+  align-content: center;
+}
+
+.navDesktop {
+  display: none;
+}
+
+.titleNav {
+  display: none;
+}
+
+.searchBar {
+  display: none;
+}
+
+.searchNavBar {
+  display: none;
+}
+
+.logo {
+  display: none;
+  width: 32px;
+}
+
+@media screen and (min-width: 992px) {
+  .navDesktop {
+    display: block;
+  }
+
+  .titleNav {
+    display: block;
+  }
+
+  .searchBar {
+    display: block;
+  }
+
+  .searchNavBar {
+    display: block;
+  }
+
+  .logo {
+    display: block;
+  }
+  .navIcon {
+    display: none;
+  }
+  .titleNav {
+    font-family: var(--primary-font);
+  }
 }
