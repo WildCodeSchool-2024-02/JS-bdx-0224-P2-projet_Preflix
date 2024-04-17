@@ -1,8 +1,10 @@
 import "./App.css";
-import SearchBar from "./components/SearchBar";
+import NavBar from "./components/NavBar";
 
 function App() {
-  return <SearchBar />;
+  return (
+      <NavBar />
+  );
 }
 
 export default App;
