@@ -1,8 +1,10 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
-import SearchBar from "./components/SearchBar";
 
 function App() {
-  return <SearchBar />;
+  <main>
+    <Outlet />
+  </main>;
 }
 
 export default App;
