@@ -2,7 +2,7 @@ import SearchBar from "./SearchBar";
 
 function NavBar() {
   return (
-    <section className="nav">
+    <nav>
       <img
         className="logo"
         src="../src/assets/images/logo.svg"
@@ -45,7 +45,7 @@ function NavBar() {
       <form className="searchNavBar">
         <SearchBar />
       </form>
-    </section>
+    </nav>
   );
 }
 
