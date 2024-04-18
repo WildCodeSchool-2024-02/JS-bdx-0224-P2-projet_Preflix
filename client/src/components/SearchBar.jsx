@@ -36,7 +36,7 @@ function SearchBar() {
         placeholder="Rechercher"
         onChange={handleChange}
       />
-      <section>
+      <section className="resultatTest">
         {movies.map((movie) => (
           <article key={movie.id}>
             <figure>

@@ -1,0 +1,106 @@
+section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+img {
+  width: 150px;
+}
+
+.navIcon {
+  width: 38px;
+}
+
+nav {
+  background-color: #1a1a1a;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+}
+
+.navList {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+li {
+  align-content: center;
+}
+
+.navDesktop {
+  display: none;
+}
+
+.titleNav {
+  display: none;
+}
+
+.searchBar {
+  display: none;
+}
+
+.searchNavBar {
+  display: none;
+}
+
+.logo {
+  display: none;
+  width: 32px;
+}
+
+@media screen and (min-width: 992px) {
+  .navDesktop {
+    display: block;
+  }
+
+  .titleNav {
+    display: block;
+  }
+
+  .searchBar {
+    display: block;
+  }
+
+  .searchNavBar {
+    display: block;
+  }
+
+  .logo {
+    display: block;
+  }
+  .navIcon {
+    display: none;
+  }
+  .titleNav {
+    font-family: var(--primary-font);
+    margin: 0;
+  }
+  nav {
+    position: relative;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .navList {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  label {
+    font-size: 0;
+  }
+  .linkName {
+    font-size: 8pt;
+    color: var(--tertiary-color);
+    text-decoration: none;
+  }
+  .linkName:hover {
+    color: var(--secondary-color);
+    transition-duration: 300ms;
+  }
+  .none {
+    display: none;
+  }
+}

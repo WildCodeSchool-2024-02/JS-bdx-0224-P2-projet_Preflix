@@ -1,46 +1,46 @@
 import { Link, useLocation } from "react-router-dom";
-
+import "../Navbar.css";
 import SearchBar from "./SearchBar";
 
-
 function NavBar() {
-
   const location = useLocation();
 
   const getIconHome = () => {
     switch (location.pathname) {
-      case '/':
-        return 'iconsaccueilyellow.svg';
-        default :
-        return 'icons-accueil.svg';
-      }
-    };
+      case "/":
+        return "iconsaccueilyellow.svg";
+      default:
+        return "icons-accueil.svg";
+    }
+  };
 
-    const getIconSearch = () => {
-      switch (location.pathname) {
-        case '/search':
-          return 'icons-search-yellow.svg';
-          default :
-          return 'icons-chercher.svg';
-        }
-      };
+  const getIconSearch = () => {
+    switch (location.pathname) {
+      case "/search":
+        return "icons-search-yellow.svg";
+      default:
+        return "icons-chercher.svg";
+    }
+  };
 
-    const getIconCredits = () => {
-      switch (location.pathname) {
-        case '/credits':
-          return 'heart-hand-shake-yellow.svg';
-          default :
-          return 'heart-hand-shake.svg';
-        }
-      };
-    
+  const getIconCredits = () => {
+    switch (location.pathname) {
+      case "/credits":
+        return "heart-hand-shake-yellow.svg";
+      default:
+        return "heart-hand-shake.svg";
+    }
+  };
+
   return (
     <nav className="nav">
-      <img
-        className="logo"
-        src="../src/assets/images/logo.svg"
-        alt="logo preflix"
-      />
+      <Link className="linkName" to="/">
+        <img
+          className="logo"
+          src="../src/assets/images/logo.svg"
+          alt="logo preflix"
+        />
+      </Link>
       <ul className="navList">
         <li>
           <Link className="linkName" to="/">
@@ -52,7 +52,7 @@ function NavBar() {
             <h2 className="titleNav">Accueil</h2>
           </Link>
         </li>
-        <li>
+        <li className="none">
           <Link className="linkName linkSearch" to="/search">
             <img
               className="navIcon"
@@ -72,10 +72,10 @@ function NavBar() {
           </Link>
         </li>
         <li className="navDesktop titleNav">
-          <h2>Séries</h2>
+          <h2 className="titleNav">Séries</h2>
         </li>
         <li className="navDesktop titleNav">
-          <h2>Films</h2>
+          <h2 className="titleNav">Films</h2>
         </li>
         <li className="navDesktop titleNav">
           <Link className="linkName" to="category">
