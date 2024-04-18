@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import "./App.css";
 import { useState } from "react";
 import Btn from "./components/Btn";
-import SearchBar from "./components/Searchbar";
+import BarSearch from "./components/BarSearch";
 
 function App() {
   
@@ -24,7 +24,7 @@ function App() {
   return (
     <main>
       <Outlet />
-      <SearchBar
+      <BarSearch
         fetchData={{ url: urlSearch, data: currentSearch }}
         setData={setCurrentSearch}
         apiToken={apiToken}
