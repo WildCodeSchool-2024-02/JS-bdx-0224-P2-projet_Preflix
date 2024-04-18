@@ -5,32 +5,27 @@ import SearchBar from "./SearchBar";
 function NavBar() {
   const location = useLocation();
 
-  const getIconHome = () => {
-    switch (location.pathname) {
-      case "/":
-        return "iconsaccueilyellow.svg";
-      default:
-        return "icons-accueil.svg";
-    }
-  };
+  const getIconHome = () =>
+    location.pathname === "/" ? "iconsaccueilyellow.svg" : "icons-accueil.svg";
 
-  const getIconSearch = () => {
-    switch (location.pathname) {
-      case "/search":
-        return "icons-search-yellow.svg";
-      default:
-        return "icons-chercher.svg";
-    }
-  };
+  const getIconSearch = () =>
+    location.pathname === "/search"
+      ? "icons-search-yellow.svg"
+      : "icons-chercher.svg";
 
-  const getIconCredits = () => {
-    switch (location.pathname) {
-      case "/credits":
-        return "heart-hand-shake-yellow.svg";
-      default:
-        return "heart-hand-shake.svg";
-    }
-  };
+  const getIconCredits = () =>
+    location.pathname === "/credits"
+      ? "heart-hand-shake-yellow.svg"
+      : "heart-hand-shake.svg";
+
+  const getTitleHomeColor = () =>
+    location.pathname === "/" ? "yellow" : "var(--tertiary-color)";
+
+  const getTitleCategoryColor = () =>
+    location.pathname === "/category" ? "yellow" : "var(--tertiary-color)";
+
+  const getTitleCreditsColor = () =>
+    location.pathname === "/credits" ? "yellow" : "var(--tertiary-color)";
 
   return (
     <nav className="nav">
@@ -49,7 +44,7 @@ function NavBar() {
               src={`../src/assets/images/${getIconHome()}`}
               alt="Accueil"
             />
-            <h2 className="titleNav">Accueil</h2>
+            <h2 className={`titleNav ${getTitleHomeColor()}`}>Accueil</h2>
           </Link>
         </li>
         <li className="none">
@@ -68,7 +63,7 @@ function NavBar() {
               src={`../src/assets/images/${getIconCredits()}`}
               alt="Crédits"
             />
-            <h2 className="titleNav">Crédits</h2>
+            <h2 className={`titleNav ${getTitleCreditsColor()}`}>Crédits</h2>
           </Link>
         </li>
         <li className="navDesktop titleNav">
@@ -79,7 +74,9 @@ function NavBar() {
         </li>
         <li className="navDesktop titleNav">
           <Link className="linkName" to="category">
-            <h2>Catégories</h2>
+            <h2 className={`titleNav ${getTitleCategoryColor()}`}>
+              Catégories
+            </h2>
           </Link>
         </li>
       </ul>

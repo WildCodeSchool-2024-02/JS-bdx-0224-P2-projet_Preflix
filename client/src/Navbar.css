@@ -100,7 +100,11 @@ li {
     color: var(--secondary-color);
     transition-duration: 300ms;
   }
+
   .none {
     display: none;
+  }
+  .yellow {
+    color: var(--secondary-color);
   }
 }
