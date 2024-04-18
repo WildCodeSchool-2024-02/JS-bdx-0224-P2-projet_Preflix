@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
 import "../Navbar.css";
-import SearchBar from "./SearchBar";
 
 function NavBar() {
   const location = useLocation();
@@ -80,9 +79,6 @@ function NavBar() {
           </Link>
         </li>
       </ul>
-      <form className="searchNavBar">
-        <SearchBar />
-      </form>
     </nav>
   );
 }
