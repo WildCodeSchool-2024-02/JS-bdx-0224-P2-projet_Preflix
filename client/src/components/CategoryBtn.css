@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/Inter-VariableFont_slnt,wght.ttf");
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url("assets/fonts/Oswald-VariableFont_wght.ttf");
+}
+
+:root {
+  --primary-color: #313131;
+  --secondary-color: #ffe96e;
+  --tertiary-color: #f5f5f5;
+  --primary-font: "Inter", "sans-serif";
+  --secondary-font: "Oswald", "sans-serif";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-color);
+}
+
+img {
+  width: 100%;
+}
+
+button {
+  color: var(--tertiary-color);
+  background-color: var(--primary-color);
+  border: solid 1.8px var(--tertiary-color);
+  border-radius: 25px;
+  padding: 1rem 2rem;
+  font-family: var(--secondary-font);
+  font-size: 1rem;
+}
+
+.li-category {
+  color: var(--secondary-color);
+}

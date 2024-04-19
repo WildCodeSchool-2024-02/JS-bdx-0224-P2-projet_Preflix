@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import "../pages/Search.css"
 
 function BarSearch({ fetchData, setData, apiToken }) {
   const [searchValue, setSearchValue] = useState("");
@@ -32,16 +33,19 @@ function BarSearch({ fetchData, setData, apiToken }) {
 
   return (
     <>
-      <label htmlFor="search">Rechercher</label>
+        <form className="form-search">
+        <label htmlFor="search" >Rechercher</label>
+        <img src="../src/assets/images/icons-chercherblack.svg" alt="loupe" className="icon-loop"/>
       <input
         name="search"
         id="search"
         type="search"
-        placeholder="Films, séries, ..."
+        placeholder="Rechercher"
         onChange={handleChange}
       />
+      </form>
+      <h1 className="title-results">Résultats de "{searchValue}"</h1>
       <section className="search-results">
-        <h1>Résultats de "{searchValue}"</h1>
         {fetchData.data.map((item) => (
           <article key={item.id}>
             <figure>
