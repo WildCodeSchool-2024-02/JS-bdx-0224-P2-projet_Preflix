@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import "./App.css";
 import { useState } from "react";
 import Btn from "./components/Btn";
-import SearchBar from "./components/Searchbar";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   
