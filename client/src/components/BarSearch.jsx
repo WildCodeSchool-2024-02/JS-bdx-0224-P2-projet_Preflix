@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import "../pages/Search.css"
+import "../Styles/BarSearch.css";
+import ArrowBack from "./ArrowBack";
 
 function BarSearch({ fetchData, setData, apiToken }) {
   const [searchValue, setSearchValue] = useState("");
@@ -33,16 +34,21 @@ function BarSearch({ fetchData, setData, apiToken }) {
 
   return (
     <>
-        <form className="form-search">
-        <label htmlFor="search" >Rechercher</label>
-        <img src="../src/assets/images/icons-chercherblack.svg" alt="loupe" className="icon-loop"/>
-      <input
-        name="search"
-        id="search"
-        type="search"
-        placeholder="Rechercher"
-        onChange={handleChange}
-      />
+      <ArrowBack />
+      <form className="form-search">
+        <label htmlFor="search">Films, séries, ...</label>
+        <img
+          src="../src/assets/images/icons-chercherblack.svg"
+          alt="Loop's icon"
+          className="icon-loop"
+        />
+        <input
+          name="search"
+          id="search"
+          type="search"
+          placeholder="Rechercher"
+          onChange={handleChange}
+        />
       </form>
       <h1 className="title-results">Résultats de "{searchValue}"</h1>
       <section className="search-results">

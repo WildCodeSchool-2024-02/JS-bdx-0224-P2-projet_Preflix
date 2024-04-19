@@ -1,0 +1,17 @@
+.firstSection {
+  position: relative;
+}
+
+picture {
+  width: 100%;
+}
+
+.test {
+  height: 10rem;
+}
+
+.logoTest {
+  position: absolute;
+  width: 3rem;
+  left: 0.5rem;
+}

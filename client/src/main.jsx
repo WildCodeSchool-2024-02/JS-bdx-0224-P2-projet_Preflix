@@ -12,6 +12,8 @@ import Credits from "./pages/Credits";
 import Series from "./pages/Series";
 import Movies from "./pages/Movies";
 
+
+
 const router = createBrowserRouter([
   {
     element: <App />,
