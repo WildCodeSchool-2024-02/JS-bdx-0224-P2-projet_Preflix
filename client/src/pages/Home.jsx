@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/Home.css";
 import Btn from "../components/Btn";
@@ -20,6 +20,45 @@ function Home() {
   const [isSeriesVisible, setIsSeriesVisible] = useState(false);
   const [isMoviesVisible, setIsMoviesVisible] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+
+  const [popularMovies, setPopularMovies] = useState([]);
+  const [newMovies, setNewMovies] = useState([]);
+
+  useEffect(() => {
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${apiToken}`,
+      },
+    };
+
+    fetch(
+      "https://api.themoviedb.org/3/trending/movie/day?language=fr-Fr",
+      options
+    )
+      .then((response) => response.json())
+      .then((data) => setPopularMovies(data.results))
+      .catch((err) => console.error(err));
+  }, []);
+
+  useEffect(() => {
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${apiToken}`,
+      },
+    };
+
+    fetch(
+      "https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=7",
+      options
+    )
+      .then((response) => response.json())
+      .then((data) => setNewMovies(data.results))
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <>
@@ -59,6 +98,38 @@ function Home() {
           isVisible={isMoviesVisible}
         />
         <Category isVisible={isVisible} setIsVisible={setIsVisible} />
+      </section>
+      <section>
+        <h2>Populaire sur Preflix</h2>
+        <section className="moviesContainer">
+          {popularMovies.map((movie) => (
+            <article key={movie.name} className="articleMovies">
+              <figure>
+                <img
+                  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                  alt={movie.title}
+                  className="posterMovie"
+                />
+              </figure>
+            </article>
+          ))}
+        </section>
+      </section>
+      <section>
+        <h2>Les nouveautés</h2>
+        <section className="moviesContainer">
+          {newMovies.map((newMovie) => (
+            <article key={newMovie.name} className="articleMovies">
+              <figure>
+                <img
+                  src={`https://image.tmdb.org/t/p/original${newMovie.poster_path}`}
+                  alt={newMovie.title}
+                  className="posterMovie"
+                />
+              </figure>
+            </article>
+          ))}
+        </section>
       </section>
     </>
   );

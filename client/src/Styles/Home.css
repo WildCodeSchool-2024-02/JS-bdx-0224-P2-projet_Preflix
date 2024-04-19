@@ -15,3 +15,17 @@ picture {
   width: 3rem;
   left: 0.5rem;
 }
+
+.moviesContainer {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.articleMovies {
+  margin: 0 0.5rem;
+}
+
+.posterMovie {
+  width: 10rem;
+}
