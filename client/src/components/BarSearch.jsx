@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-function SearchBar({ fetchData, setData, apiToken }) {
+function BarSearch({ fetchData, setData, apiToken }) {
   const [searchValue, setSearchValue] = useState("");
 
   const options = {
@@ -60,7 +60,7 @@ function SearchBar({ fetchData, setData, apiToken }) {
   );
 }
 
-SearchBar.propTypes = {
+BarSearch.propTypes = {
   fetchData: PropTypes.shape({
     url: PropTypes.string.isRequired,
     data: PropTypes.func.isRequired,
@@ -69,4 +69,4 @@ SearchBar.propTypes = {
   apiToken: PropTypes.string.isRequired,
 };
 
-export default SearchBar;
+export default BarSearch;

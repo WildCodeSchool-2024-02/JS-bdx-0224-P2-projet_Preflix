@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import Btn from "./components/Btn";
-import SearchBar from "./components/Searchbar";
+import BarSearch from "./components/BarSearch";
 
 function App() {
   const apiToken = import.meta.env.VITE_API_TOKEN;
@@ -26,7 +26,7 @@ function App() {
       <NavBar />
       <main>
         <Outlet />
-        <SearchBar
+        <BarSearch
           fetchData={{ url: urlSearch, data: currentSearch }}
           setData={setCurrentSearch}
           apiToken={apiToken}
