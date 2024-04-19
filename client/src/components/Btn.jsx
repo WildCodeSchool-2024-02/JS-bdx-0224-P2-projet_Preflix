@@ -22,13 +22,14 @@ function Btn({ label, fetchData, setData, apiToken, setIsVisible, isVisible }) {
         {label}
       </button>
       {isVisible && (
-        <section>
+        <section className="moviesContainer">
           {fetchData.data.map((item) => (
-            <article key={item.id}>
+            <article key={item.id} className="articleMovies">
               <figure>
                 <img
                   src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
                   alt={item.title}
+                  className="posterMovie"
                 />
               </figure>
             </article>

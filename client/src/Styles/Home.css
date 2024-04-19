@@ -1,3 +1,11 @@
+:root {
+  --primary-color: #313131;
+  --secondary-color: #ffe96e;
+  --tertiary-color: #f5f5f5;
+  --primary-font: "Inter", "sans-serif";
+  --secondary-font: "Oswald", "sans-serif";
+}
+
 .firstSection {
   position: relative;
 }
@@ -22,10 +30,19 @@ picture {
   white-space: nowrap;
 }
 
+h2 {
+  color: var(--tertiary-color);
+  padding: 1rem 0.5rem;
+}
+
 .articleMovies {
   margin: 0 0.5rem;
 }
 
 .posterMovie {
   width: 10rem;
+}
+
+section:nth-child(4) {
+  padding-bottom: 6rem;
 }
