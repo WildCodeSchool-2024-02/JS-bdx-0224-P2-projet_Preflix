@@ -66,10 +66,14 @@ function NavBar() {
           </Link>
         </li>
         <li className="navDesktop titleNav">
-          <h2 className="titleNav">Séries</h2>
+          <Link to="/category/series">
+            <h2 className="titleNav">Séries</h2>
+          </Link>
         </li>
         <li className="navDesktop titleNav">
-          <h2 className="titleNav">Films</h2>
+          <Link to="/category/movies">
+            <h2 className="titleNav">Films</h2>
+          </Link>
         </li>
         <li className="navDesktop titleNav">
           <Link className="linkName" to="category">

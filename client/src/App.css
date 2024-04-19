@@ -110,4 +110,10 @@ li {
   .titleNav {
     font-family: var(--primary-font);
   }
+
+  a {
+    color: var(--tertiary-color);
+    font-size: 0.7rem;
+    text-decoration: none;
+  }
 }
