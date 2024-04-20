@@ -1,13 +1,8 @@
-import { useState } from "react";
 import "./App.css";
-import ButtonMovies from "./components/ButtonMovies";
+import Banner from "./components/Banner";
 
 function App() {
-  const [movies, setMovies] = useState([]);
-
-  return <ButtonMovies labelMovies="Movies" movies={movies} setMovies={setMovies} />
-    
-  
+  return <Banner />;
 }
 
 export default App;
