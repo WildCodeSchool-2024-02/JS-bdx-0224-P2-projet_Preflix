@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import "../Styles/BarSearch.css";
-import ArrowBack from "./ArrowBack";
 
 function BarSearch({ fetchData, setData, apiToken }) {
   const [searchValue, setSearchValue] = useState("");
@@ -34,7 +33,6 @@ function BarSearch({ fetchData, setData, apiToken }) {
 
   return (
     <>
-      <ArrowBack />
       <form className="form-search">
         <label htmlFor="search">Films, séries, ...</label>
         <img

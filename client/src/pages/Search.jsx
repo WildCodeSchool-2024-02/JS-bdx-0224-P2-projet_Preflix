@@ -1,5 +1,6 @@
 import { useState } from "react";
 import BarSearch from "../components/BarSearch";
+import ArrowBack from "../components/ArrowBack";
 
 function Search() {
   const apiToken = import.meta.env.VITE_API_TOKEN;
@@ -9,11 +10,14 @@ function Search() {
   const [currentSearch, setCurrentSearch] = useState([]);
 
   return (
-    <BarSearch
-      fetchData={{ url: urlSearch, data: currentSearch }}
-      setData={setCurrentSearch}
-      apiToken={apiToken}
-    />
+    <>
+      <ArrowBack />
+      <BarSearch
+        fetchData={{ url: urlSearch, data: currentSearch }}
+        setData={setCurrentSearch}
+        apiToken={apiToken}
+      />
+    </>
   );
 }
 
