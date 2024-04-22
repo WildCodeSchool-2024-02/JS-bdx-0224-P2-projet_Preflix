@@ -1,5 +1,7 @@
+import { Outlet } from "react-router-dom";
+
 function Category() {
-  return <p>Categordsoijduzjçuejrç!jzç!edzç!ejzç!jy</p>;
+  return <Outlet />;
 }
 
 export default Category;

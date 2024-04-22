@@ -84,6 +84,10 @@ li {
   width: 32px;
 }
 
+.SearchbarMobile {
+  display: none;
+}
+
 @media screen and (min-width: 992px) {
   .navDesktop {
     display: block;
@@ -109,5 +113,15 @@ li {
   }
   .titleNav {
     font-family: var(--primary-font);
+  }
+
+  a {
+    color: var(--tertiary-color);
+    font-size: 0.7rem;
+    text-decoration: none;
+  }
+
+  .SearchBarMobile {
+    display: block;
   }
 }
