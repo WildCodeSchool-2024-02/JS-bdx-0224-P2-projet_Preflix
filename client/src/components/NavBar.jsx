@@ -3,49 +3,50 @@ import "../Navbar.css";
 
 function NavBar() {
   const location = useLocation();
+  const selectedUrl = location.pathname;
 
-  const getIconHome = () => {
-    switch (location.pathname) {
-      case "/":
-        return "iconsaccueilyellow.svg";
-      default:
-        return "icons-accueil.svg";
-    }
-  };
+  // const getIconHome = () => {
+  //   switch (location.pathname) {
+  //     case "/":
+  //       return "iconsaccueilyellow.svg";
+  //     default:
+  //       return "icons-accueil.svg";
+  //   }
+  // };
 
-  const getIconSearch = () => {
-    switch (location.pathname) {
-      case "/search":
-        return "icons-search-yellow.svg";
-      default:
-        return "icons-chercher.svg";
-    }
-  };
+  // const getIconSearch = () => {
+  //   switch (location.pathname) {
+  //     case "/search":
+  //       return "icons-search-yellow.svg";
+  //     default:
+  //       return "icons-chercher.svg";
+  //   }
+  // };
 
-  const getIconCredits = () => {
-    switch (location.pathname) {
-      case "/credits":
-        return "heart-hand-shake-yellow.svg";
-      default:
-        return "heart-hand-shake.svg";
-    }
-  };
-  const getTitleColor = () => {
-    switch (location.pathname) {
-      case "":
-        return "yellow";
-      case "/category":
-        return "yellow";
-      case "/credits":
-        return "yellow";
-      case "/category/series":
-        return "yellow";
-      case "/category/movies":
-        return "yellow";
-      default:
-        return "titleNav";
-    }
-  };
+  // const getIconCredits = () => {
+  //   switch (location.pathname) {
+  //     case "/credits":
+  //       return "heart-hand-shake-yellow.svg";
+  //     default:
+  //       return "heart-hand-shake.svg";
+  //   }
+  // };
+  // const getTitleColor = () => {
+  //   switch (location.pathname) {
+  //     case "/":
+  //       return "yellow";
+  //     case "/category":
+  //       return "titleNav";
+  //     case "/credits":
+  //       return "titleNav";
+  //     case "/category/series":
+  //       return "titleNav";
+  //     case "/category/movies":
+  //       return "titleNav";
+  //     default:
+  //       return "yellow";
+  //   }
+  // };
 
   return (
     <nav className="nav">
@@ -53,52 +54,86 @@ function NavBar() {
         <img
           className="logo"
           src="../src/assets/images/logo.svg"
-          alt="logo preflix"
+          alt="Accueil"
         />
       </Link>
       <ul className="navList">
         <li>
-          <Link className="linkName" to="/">
+          <Link to="/">
             <img
               className="navIcon"
-              src={`../src/assets/images/${getIconHome()}`}
+              src={
+                selectedUrl === "/"
+                  ? "../src/assets/images/iconsaccueilyellow.svg"
+                  : "../src/assets/images/icons-accueil.svg"
+              }
               alt="Accueil"
             />
-            <h2 className={`titleNav ${getTitleColor()}`}>Accueil</h2>
+          </Link>
+          <Link className="isMobile" to="/">
+            <h2 className={selectedUrl === "/" ? "yellow" : "titleNav"}>
+              Accueil
+            </h2>
           </Link>
         </li>
         <li className="none">
-          <Link className="linkName linkSearch" to="/search">
+          <Link to="/search">
             <img
               className="navIcon"
-              src={`../src/assets/images/${getIconSearch()}`}
+              src={
+                selectedUrl === "/search"
+                  ? "../src/assets/images/icons-search-yellow.svg"
+                  : "../src/assets/images/icons-chercher.svg"
+              }
               alt="Rechercher"
             />
           </Link>
         </li>
         <li>
-          <Link className="linkName" to="/credits">
+          <Link to="/credits">
             <img
               className="navIcon"
-              src={`../src/assets/images/${getIconCredits()}`}
+              src={
+                selectedUrl === "/credits"
+                  ? "../src/assets/images/heart-hand-shake-yellow.svg"
+                  : "../src/assets/images/heart-hand-shake.svg"
+              }
               alt="Crédits"
             />
-            <h2 className={`titleNav ${getTitleColor()}`}>Crédits</h2>
+          </Link>
+          <Link className="isMobile" to="/credits">
+            <h2 className={selectedUrl === "/credits" ? "yellow" : "titleNav"}>
+              Crédits
+            </h2>
           </Link>
         </li>
         <li className="navDesktop titleNav">
-          <Link className="linkName" to="/category/series">
-            <h2 className={`titleNav ${getTitleColor()}`}>Séries</h2>
+          <Link to="/category/series">
+            <h2
+              className={
+                selectedUrl === "/category/series" ? "yellow" : "titleNav"
+              }
+            >
+              Séries
+            </h2>
           </Link>
         </li>
         <li className="navDesktop titleNav">
-          <Link className="linkName" to="/category/movies">
-            <h2 className={`titleNav ${getTitleColor()}`}>Films</h2>
+          <Link to="/category/movies">
+            <h2
+              className={
+                selectedUrl === "/category/movies" ? "yellow" : "titleNav"
+              }
+            >
+              Films
+            </h2>
           </Link>
         </li>
         <li className="navDesktop titleNav">
-          <Link className="linkName" to="category">
-            <h2 className={`titleNav ${getTitleColor()}`}>Catégories</h2>
+          <Link to="/category">
+            <h2 className={selectedUrl === "/category" ? "yellow" : "titleNav"}>
+              Catégories
+            </h2>
           </Link>
         </li>
       </ul>
