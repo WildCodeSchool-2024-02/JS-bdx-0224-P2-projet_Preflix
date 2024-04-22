@@ -1,12 +1,3 @@
-section {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-img {
-  width: 150px;
-}
-
 .navIcon {
   width: 38px;
 }
@@ -92,7 +83,7 @@ li {
     font-size: 0;
   }
   .linkName {
-    font-size: 8pt;
+    font-size: 0.75rem;
     color: var(--tertiary-color);
     text-decoration: none;
   }

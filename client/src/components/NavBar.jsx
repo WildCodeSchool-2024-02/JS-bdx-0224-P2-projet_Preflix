@@ -4,27 +4,48 @@ import "../Navbar.css";
 function NavBar() {
   const location = useLocation();
 
-  const getIconHome = () =>
-    location.pathname === "/" ? "iconsaccueilyellow.svg" : "icons-accueil.svg";
+  const getIconHome = () => {
+    switch (location.pathname) {
+      case "/":
+        return "iconsaccueilyellow.svg";
+      default:
+        return "icons-accueil.svg";
+    }
+  };
 
-  const getIconSearch = () =>
-    location.pathname === "/search"
-      ? "icons-search-yellow.svg"
-      : "icons-chercher.svg";
+  const getIconSearch = () => {
+    switch (location.pathname) {
+      case "/search":
+        return "icons-search-yellow.svg";
+      default:
+        return "icons-chercher.svg";
+    }
+  };
 
-  const getIconCredits = () =>
-    location.pathname === "/credits"
-      ? "heart-hand-shake-yellow.svg"
-      : "heart-hand-shake.svg";
-
-  const getTitleHomeColor = () =>
-    location.pathname === "/" ? "yellow" : "var(--tertiary-color)";
-
-  const getTitleCategoryColor = () =>
-    location.pathname === "/category" ? "yellow" : "var(--tertiary-color)";
-
-  const getTitleCreditsColor = () =>
-    location.pathname === "/credits" ? "yellow" : "var(--tertiary-color)";
+  const getIconCredits = () => {
+    switch (location.pathname) {
+      case "/credits":
+        return "heart-hand-shake-yellow.svg";
+      default:
+        return "heart-hand-shake.svg";
+    }
+  };
+  const getTitleColor = () => {
+    switch (location.pathname) {
+      case "":
+        return "yellow";
+      case "/category":
+        return "yellow";
+      case "/credits":
+        return "yellow";
+      case "/category/series":
+        return "yellow";
+      case "/category/movies":
+        return "yellow";
+      default:
+        return "titleNav";
+    }
+  };
 
   return (
     <nav className="nav">
@@ -43,7 +64,7 @@ function NavBar() {
               src={`../src/assets/images/${getIconHome()}`}
               alt="Accueil"
             />
-            <h2 className={`titleNav ${getTitleHomeColor()}`}>Accueil</h2>
+            <h2 className={`titleNav ${getTitleColor()}`}>Accueil</h2>
           </Link>
         </li>
         <li className="none">
@@ -62,24 +83,22 @@ function NavBar() {
               src={`../src/assets/images/${getIconCredits()}`}
               alt="Crédits"
             />
-            <h2 className={`titleNav ${getTitleCreditsColor()}`}>Crédits</h2>
+            <h2 className={`titleNav ${getTitleColor()}`}>Crédits</h2>
           </Link>
         </li>
         <li className="navDesktop titleNav">
-          <Link to="/category/series">
-            <h2 className="titleNav">Séries</h2>
+          <Link className="linkName" to="/category/series">
+            <h2 className={`titleNav ${getTitleColor()}`}>Séries</h2>
           </Link>
         </li>
         <li className="navDesktop titleNav">
-          <Link to="/category/movies">
-            <h2 className="titleNav">Films</h2>
+          <Link className="linkName" to="/category/movies">
+            <h2 className={`titleNav ${getTitleColor()}`}>Films</h2>
           </Link>
         </li>
         <li className="navDesktop titleNav">
           <Link className="linkName" to="category">
-            <h2 className={`titleNav ${getTitleCategoryColor()}`}>
-              Catégories
-            </h2>
+            <h2 className={`titleNav ${getTitleColor()}`}>Catégories</h2>
           </Link>
         </li>
       </ul>
