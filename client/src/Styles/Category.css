@@ -45,6 +45,7 @@ img {
   padding: 0.8rem;
   gap: 0.8rem;
   z-index: -1;
+  margin-bottom: 5rem;
 }
 
 .section-category > article {
@@ -59,4 +60,10 @@ img {
 figcaption {
   color: var(--primary-color);
   position: absolute;
+}
+
+@media screen and (min-width: 992px) {
+  .icon-return-homepage {
+    display: none;
+  }
 }

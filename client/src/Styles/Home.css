@@ -80,3 +80,9 @@ button {
   font-family: var(--secondary-font);
   font-size: 0.8rem;
 }
+
+@media screen and (min-width: 992px) {
+  button {
+    display: none;
+  }
+}
