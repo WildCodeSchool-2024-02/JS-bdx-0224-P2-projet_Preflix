@@ -1,10 +1,11 @@
+import "./App.css";
+
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
-import "./App.css";
 import NavBar from "./components/NavBar";
 import Btn from "./components/Btn";
 import SearchBar from "./components/BarSearch";
-
+import Banner from "./components/Banner";
 
 function App() {
   const apiToken = import.meta.env.VITE_API_TOKEN;
@@ -32,6 +33,7 @@ function App() {
           setData={setCurrentSearch}
           apiToken={apiToken}
         />
+        <Banner />;
         <Btn
           label="Séries"
           fetchData={{ url: urlDiscoverSeries, data: series }}
