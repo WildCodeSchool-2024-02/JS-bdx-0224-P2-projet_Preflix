@@ -24,36 +24,39 @@
 
 body {
   background-color: var(--primary-color);
-  position: relative;
-}
-
-a {
-  text-decoration: none;
 }
 
 img {
   width: 100%;
 }
 
-.ul-category {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #313131;
-  opacity: 0.9;
-  z-index: 1;
-  padding-top: 3rem;
-}
-
-.li-category {
+.title-category {
   color: var(--tertiary-color);
   font-family: var(--secondary-font);
-  font-size: 2.5rem;
-  font-weight: 300;
-  padding-left: 1.5rem;
-  line-height: 4rem;
+  font-size: 1.5rem;
+  padding-left: 1.8rem;
+}
+
+.section-category {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0.8rem;
+  gap: 0.8rem;
+  z-index: -1;
+}
+
+.section-category > article {
+  width: 10rem;
+}
+
+.section-category > article > figure {
+  margin: 0;
+  position: relative;
+}
+
+figcaption {
+  color: var(--primary-color);
+  position: absolute;
 }

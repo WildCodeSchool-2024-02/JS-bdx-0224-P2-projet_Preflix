@@ -37,7 +37,7 @@ function BarSearch({ fetchData, setData, apiToken }) {
         <label htmlFor="search">Films, séries, ...</label>
         <img
           src="../src/assets/images/icons-chercherblack.svg"
-          alt="Loop's icon"
+          alt="icone de loupe"
           className="icon-loop"
         />
         <input

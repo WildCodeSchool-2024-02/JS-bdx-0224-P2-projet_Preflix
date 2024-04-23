@@ -1,48 +1,29 @@
 import PropTypes from "prop-types";
 import "../Styles/CategoryBtn.css";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CategoryContext } from "../contexts/CategoryContext";
 
-function CategoryBtn({ label, isVisible, setIsVisible }) {
+
+function CategoryBtn({ label, isVisible, setIsVisible,  }) {
+
+  const { types } = useContext(CategoryContext);
+
   const handleClick = () => {
     setIsVisible(!isVisible);
   };
 
-  const types = [
-    "Action",
-    "Animation",
-    "Comédie",
-    "Crime",
-    "Documentaire",
-    "Drame",
-    "Familial",
-    "Fantastique",
-    "Guerre",
-    "Histoire",
-    "Horreur",
-    "Kids",
-    "Musique",
-    "Mystère",
-    "News",
-    "Reality",
-    "Romance",
-    "Science-Fiction",
-    "Soap",
-    "Talk",
-    "Téléfilm",
-    "Thriller",
-    "Western",
-  ];
-
   return (
     <>
       <button type="button" onClick={handleClick}>
-        {label.toUpperCase()}
+        {label}
       </button>
       {isVisible && (
         <ul className="ul-category">
           {types.map((type) => (
-            <li className="li-category" key={type}>
-              {type}
-            </li>
+            <Link to={{pathname:`/category/${type.name}`}} key={type.name}>
+              <li className="li-category">{type.name.charAt(0).toUpperCase()}{type.name.substring(1)}</li>
+            </Link>
           ))}
         </ul>
       )}
@@ -52,10 +33,6 @@ function CategoryBtn({ label, isVisible, setIsVisible }) {
 
 CategoryBtn.propTypes = {
   label: PropTypes.string.isRequired,
-  fetchData: PropTypes.shape({
-    url: PropTypes.string.isRequired,
-    data: PropTypes.func.isRequired,
-  }).isRequired,
   setIsVisible: PropTypes.func.isRequired,
   isVisible: PropTypes.bool.isRequired,
 };

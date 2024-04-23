@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/Home.css";
 import Btn from "../components/Btn";
-import Category from "./Category";
+import CategoryBtn from "../components/CategoryBtn";
+import { TypeProvider } from "../contexts/CategoryContext";
 
 function Home() {
   const apiToken = import.meta.env.VITE_API_TOKEN;
@@ -40,7 +41,7 @@ function Home() {
       .then((response) => response.json())
       .then((data) => setPopularMovies(data.results))
       .catch((err) => console.error(err));
-  }, []);
+  }, [apiToken]);
 
   useEffect(() => {
     const options = {
@@ -58,7 +59,7 @@ function Home() {
       .then((response) => response.json())
       .then((data) => setNewMovies(data.results))
       .catch((err) => console.error(err));
-  }, []);
+  }, [apiToken]);
 
   return (
     <>
@@ -82,7 +83,7 @@ function Home() {
       </section>
       <section>
         <Btn
-          label="Séries"
+          label="SERIES"
           fetchData={{ url: urlDiscoverSeries, data: series }}
           setData={setSeries}
           apiToken={apiToken}
@@ -90,14 +91,20 @@ function Home() {
           isVisible={isSeriesVisible}
         />
         <Btn
-          label="Films"
+          label="FILMS"
           fetchData={{ url: urlDiscoverMovies, data: movies }}
           setData={setMovies}
           apiToken={apiToken}
           setIsVisible={setIsMoviesVisible}
           isVisible={isMoviesVisible}
         />
-        <Category isVisible={isVisible} setIsVisible={setIsVisible} />
+        <TypeProvider>
+          <CategoryBtn
+            label="CATEGORIES"
+            isVisible={isVisible}
+            setIsVisible={setIsVisible}
+          />
+        </TypeProvider>
       </section>
       <section>
         <h2>Populaire sur Preflix</h2>
