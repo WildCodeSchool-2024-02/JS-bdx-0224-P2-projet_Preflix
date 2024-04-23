@@ -14,7 +14,6 @@ const [types, setTypes] = useState([{
   },
   {
     name: "Aventure",
-    // adventure
     id: 12
   },
   {
@@ -31,7 +30,6 @@ const [types, setTypes] = useState([{
   },
   {
     name: "Enfants",
-          // kids
     id: 10762
   },
   {
@@ -44,7 +42,6 @@ const [types, setTypes] = useState([{
   },
   {
     name: "Guerre",
-          // war
     id: 10752
   },
   {
@@ -65,7 +62,6 @@ const [types, setTypes] = useState([{
   },
   {
     name: "Policier",
-    // crime
     id: 80
   },
   {
