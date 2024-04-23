@@ -1,5 +1,4 @@
 import "./App.css";
-
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import NavBar from "./components/NavBar";
@@ -27,13 +26,13 @@ function App() {
     <>
       <NavBar />
       <main>
+        <Banner />;
         <Outlet />
         <SearchBar
           fetchData={{ url: urlSearch, data: currentSearch }}
           setData={setCurrentSearch}
           apiToken={apiToken}
         />
-        <Banner />;
         <Btn
           label="Séries"
           fetchData={{ url: urlDiscoverSeries, data: series }}
