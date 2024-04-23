@@ -22,19 +22,11 @@ li {
   align-content: center;
 }
 
-.navDesktop {
-  display: none;
-}
-
-.titleNav {
-  display: none;
-}
-
-.searchBar {
-  display: none;
-}
-
-.searchNavBar {
+.navDesktop,
+.titleNav,
+.searchBar,
+.searchNavBar,
+.isMobile {
   display: none;
 }
 
@@ -43,31 +35,17 @@ li {
   width: 32px;
 }
 
-.isMobile {
-  display: none;
-}
-
 @media screen and (min-width: 992px) {
-  .navDesktop {
+  .navDesktop,
+  .titleNav,
+  .searchBar,
+  .searchNavBar,
+  .logo,
+  .isMobile {
     display: block;
   }
-
-  .titleNav {
-    display: block;
-  }
-
-  .searchBar {
-    display: block;
-  }
-
-  .searchNavBar {
-    display: block;
-  }
-
-  .logo {
-    display: block;
-  }
-  .navIcon {
+  .navIcon,
+  .none {
     display: none;
   }
   .titleNav {
@@ -95,15 +73,13 @@ li {
     color: var(--secondary-color);
     transition-duration: 300ms;
   }
-
-  .none {
-    display: none;
-  }
   .yellow {
     color: var(--secondary-color);
     font-family: var(--primary-font);
   }
-  .isMobile {
-    display: block;
+  a {
+    color: var(--tertiary-color);
+    font-size: 0.7rem;
+    text-decoration: none;
   }
 }
