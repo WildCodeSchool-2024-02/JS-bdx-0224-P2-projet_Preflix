@@ -5,49 +5,6 @@ function NavBar() {
   const location = useLocation();
   const selectedUrl = location.pathname;
 
-  // const getIconHome = () => {
-  //   switch (location.pathname) {
-  //     case "/":
-  //       return "iconsaccueilyellow.svg";
-  //     default:
-  //       return "icons-accueil.svg";
-  //   }
-  // };
-
-  // const getIconSearch = () => {
-  //   switch (location.pathname) {
-  //     case "/search":
-  //       return "icons-search-yellow.svg";
-  //     default:
-  //       return "icons-chercher.svg";
-  //   }
-  // };
-
-  // const getIconCredits = () => {
-  //   switch (location.pathname) {
-  //     case "/credits":
-  //       return "heart-hand-shake-yellow.svg";
-  //     default:
-  //       return "heart-hand-shake.svg";
-  //   }
-  // };
-  // const getTitleColor = () => {
-  //   switch (location.pathname) {
-  //     case "/":
-  //       return "yellow";
-  //     case "/category":
-  //       return "titleNav";
-  //     case "/credits":
-  //       return "titleNav";
-  //     case "/category/series":
-  //       return "titleNav";
-  //     case "/category/movies":
-  //       return "titleNav";
-  //     default:
-  //       return "yellow";
-  //   }
-  // };
-
   return (
     <nav className="nav">
       <Link className="linkName" to="/">
