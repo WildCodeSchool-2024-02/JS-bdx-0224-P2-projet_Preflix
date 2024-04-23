@@ -26,7 +26,7 @@ function App() {
     <>
       <NavBar />
       <main>
-        <Banner />;
+        <Banner />
         <Outlet />
         <SearchBar
           fetchData={{ url: urlSearch, data: currentSearch }}
