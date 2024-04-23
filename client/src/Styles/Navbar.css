@@ -1,7 +1,3 @@
-img {
-  width: 150px;
-}
-
 .navIcon {
   width: 38px;
 }
@@ -26,19 +22,11 @@ li {
   align-content: center;
 }
 
-.navDesktop {
-  display: none;
-}
-
-.titleNav {
-  display: none;
-}
-
-.searchBar {
-  display: none;
-}
-
-.searchNavBar {
+.navDesktop,
+.titleNav,
+.searchBar,
+.searchNavBar,
+.isMobile {
   display: none;
 }
 
@@ -48,26 +36,16 @@ li {
 }
 
 @media screen and (min-width: 992px) {
-  .navDesktop {
+  .navDesktop,
+  .titleNav,
+  .searchBar,
+  .searchNavBar,
+  .logo,
+  .isMobile {
     display: block;
   }
-
-  .titleNav {
-    display: block;
-  }
-
-  .searchBar {
-    display: block;
-  }
-
-  .searchNavBar {
-    display: block;
-  }
-
-  .logo {
-    display: block;
-  }
-  .navIcon {
+  .navIcon,
+  .none {
     display: none;
   }
   .titleNav {
@@ -87,7 +65,7 @@ li {
     font-size: 0;
   }
   .linkName {
-    font-size: 8pt;
+    font-size: 0.75rem;
     color: var(--tertiary-color);
     text-decoration: none;
   }
@@ -95,11 +73,13 @@ li {
     color: var(--secondary-color);
     transition-duration: 300ms;
   }
-
-  .none {
-    display: none;
-  }
   .yellow {
     color: var(--secondary-color);
+    font-family: var(--primary-font);
+  }
+  a {
+    color: var(--tertiary-color);
+    font-size: 0.7rem;
+    text-decoration: none;
   }
 }
