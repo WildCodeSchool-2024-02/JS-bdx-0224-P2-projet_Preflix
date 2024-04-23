@@ -1,5 +1,5 @@
-import "./Banner.css";
 import { useState } from "react";
+import "./Banner.css";
 
 const moviesList = [
   {
@@ -23,15 +23,11 @@ function Banner() {
   const [moviesIndex, setMoviesIndex] = useState(0);
 
   function showNextImg() {
-    setMoviesIndex((item) =>
-      item === moviesList.length - 1 ? 0 : item + 1
-    );
+    setMoviesIndex((item) => (item === moviesList.length - 1 ? 0 : item + 1));
   }
 
   function showPrevImg() {
-    setMoviesIndex((item) =>
-      item === 0 ? moviesList.length - 1 : item - 1
-    );
+    setMoviesIndex((item) => (item === 0 ? moviesList.length - 1 : item - 1));
   }
 
   return (
@@ -42,7 +38,7 @@ function Banner() {
             src={movie.imgSrc}
             alt={movie.name}
             key={movie.name}
-            style={{ translate: `${-100 * moviesIndex}%`}}
+            style={{ translate: `${-100 * moviesIndex}%` }}
           />
         ))}
       </figure>

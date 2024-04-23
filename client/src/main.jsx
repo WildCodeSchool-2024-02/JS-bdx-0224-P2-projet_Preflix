@@ -4,11 +4,49 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
+import Home from "./pages/Home";
+import Search from "./pages/Search";
+import Category from "./pages/Category";
+import Article from "./pages/Article";
+import Credits from "./pages/Credits";
+import Series from "./pages/Series";
+import Movies from "./pages/Movies";
 
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/search",
+        element: <Search />,
+      },
+      {
+        path: "/category",
+        element: <Category />,
+        children: [
+          {
+            path: "/category/series",
+            element: <Series />,
+          },
+          {
+            path: "/category/movies",
+            element: <Movies />,
+          },
+        ],
+      },
+      {
+        path: "/articles",
+        element: <Article />,
+      },
+      {
+        path: "/credits",
+        element: <Credits />,
+      },
+    ],
   },
 ]);
 
