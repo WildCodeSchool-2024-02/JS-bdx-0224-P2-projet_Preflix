@@ -6,6 +6,12 @@
   --secondary-font: "Oswald", "sans-serif";
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-weight: 400;
   font-size: 16px;
@@ -13,95 +19,4 @@ body {
   color: var(--tertiary-color);
   background-color: var(--primary-color);
   margin: 0;
-}
-
-figure {
-  margin: 0.5rem;
-  padding: 0;
-}
-
-article {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-img {
-  width: 10rem;
-}
-
-figcaption {
-  font-family: var(--secondary-font);
-}
-
-.navIcon {
-  width: 38px;
-}
-
-nav {
-  background-color: var(--primary-color);
-  display: flex;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 1rem;
-}
-
-.navList {
-  width: 100%;
-  list-style: none;
-  display: flex;
-  justify-content: space-around;
-}
-
-li {
-  align-content: center;
-}
-
-.navDesktop {
-  display: none;
-}
-
-.titleNav {
-  display: none;
-}
-
-.searchBar {
-  display: none;
-}
-
-.searchNavBar {
-  display: none;
-}
-
-.logo {
-  display: none;
-  width: 32px;
-}
-
-@media screen and (min-width: 992px) {
-  .navDesktop {
-    display: block;
-  }
-
-  .titleNav {
-    display: block;
-  }
-
-  .searchBar {
-    display: block;
-  }
-
-  .searchNavBar {
-    display: block;
-  }
-
-  .logo {
-    display: block;
-  }
-  .navIcon {
-    display: none;
-  }
-  .titleNav {
-    font-family: var(--primary-font);
-  }
 }

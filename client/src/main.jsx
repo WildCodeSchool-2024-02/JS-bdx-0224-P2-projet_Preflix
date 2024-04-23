@@ -9,6 +9,8 @@ import Search from "./pages/Search";
 import Category from "./pages/Category";
 import Article from "./pages/Article";
 import Credits from "./pages/Credits";
+import Series from "./pages/Series";
+import Movies from "./pages/Movies";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,16 @@ const router = createBrowserRouter([
       {
         path: "/category",
         element: <Category />,
+        children: [
+          {
+            path: "/category/series",
+            element: <Series />,
+          },
+          {
+            path: "/category/movies",
+            element: <Movies />,
+          },
+        ],
       },
       {
         path: "/articles",
