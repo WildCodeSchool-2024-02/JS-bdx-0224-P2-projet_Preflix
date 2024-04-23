@@ -42,21 +42,21 @@ function Banner() {
             src={movie.imgSrc}
             alt={movie.name}
             key={movie.name}
-            style={{ translate: `${-100 * moviesIndex}%` }}
+            style={{ translate: `${-100 * moviesIndex}%`}}
           />
         ))}
       </figure>
       <button className="buttonRight" type="button" onClick={showNextImg}>
         <img
           className="arrow"
-          src="./src/assets/images/right-arrow.png"
+          src="./src/assets/images/arrowright.png"
           alt="arrow right"
         />
       </button>
       <button className="buttonLeft" type="button" onClick={showPrevImg}>
         <img
           className="arrow"
-          src="./src/assets/images/left-arrow.png"
+          src="./src/assets/images/arrowleft.png"
           alt="arrow left"
         />
       </button>
