@@ -65,10 +65,10 @@ function NavBar() {
           </Link>
         </li>
         <li className="navDesktop titleNav">
-          <Link to="/category/series">
+          <Link to="/series">
             <h2
               className={
-                selectedUrl === "/category/series" ? "yellow" : "titleNav"
+                selectedUrl === "/series" ? "yellow" : "titleNav"
               }
             >
               Séries
@@ -76,10 +76,10 @@ function NavBar() {
           </Link>
         </li>
         <li className="navDesktop titleNav">
-          <Link to="/category/movies">
+          <Link to="/movies">
             <h2
               className={
-                selectedUrl === "/category/movies" ? "yellow" : "titleNav"
+                selectedUrl === "/movies" ? "yellow" : "titleNav"
               }
             >
               Films
@@ -87,8 +87,8 @@ function NavBar() {
           </Link>
         </li>
         <li className="navDesktop titleNav">
-          <Link to="/category">
-            <h2 className={selectedUrl === "/category" ? "yellow" : "titleNav"}>
+          <Link to="/category:categoryList">
+            <h2 className={selectedUrl === "/category:categoryList" ? "yellow" : "titleNav"}>
               Catégories
             </h2>
           </Link>
