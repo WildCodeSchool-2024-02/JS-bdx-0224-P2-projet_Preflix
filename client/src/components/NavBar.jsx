@@ -73,6 +73,17 @@ function NavBar() {
             </h2>
           </Link>
         </li>
+        <li className="navDesktop titleNav">
+          <Link to="/category:categoryList">
+            <h2
+              className={
+                selectedUrl === "/category:categoryList" ? "yellow" : "titleNav"
+              }
+            >
+              Catégories
+            </h2>
+          </Link>
+        </li>
         <li>
           <Link className="isMobile" to="/credits">
             <h2 className={selectedUrl === "/credits" ? "yellow" : "titleNav"}>
