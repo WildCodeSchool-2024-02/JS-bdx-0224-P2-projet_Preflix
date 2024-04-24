@@ -19,16 +19,18 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 p {
   font-family: var(--secondary-font);
 }
 
-img {
+.logoTmdb {
   width: 8rem;
   padding-right: 1rem;
 }
+
 @media screen and (min-width: 992px) {
   footer {
     margin-bottom: 0;
