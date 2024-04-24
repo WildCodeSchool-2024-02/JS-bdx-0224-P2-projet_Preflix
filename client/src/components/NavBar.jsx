@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import "../Styles/Navbar.css";
+import {Button, ListBox, ListBoxItem, Popover, Select} from 'react-aria-components';
 
 function NavBar() {
   const location = useLocation();
@@ -87,11 +88,21 @@ function NavBar() {
           </Link>
         </li>
         <li className="navDesktop titleNav">
-          <Link to="/category">
-            <h2 className={selectedUrl === "/category" ? "yellow" : "titleNav"}>
+          <Select>
+            <Button className="buttonCategory">
+            <h2>
               Catégories
             </h2>
-          </Link>
+            <span aria-hidden="true" className="arrowDown">▼</span>
+            </Button>
+            <Popover>
+            <ListBox className="scrollingMenu">
+              <ListBoxItem className="category">Cat</ListBoxItem>
+              <ListBoxItem className="category">Dog</ListBoxItem>
+              <ListBoxItem className="category">Kangaroo</ListBoxItem>
+            </ListBox>
+            </Popover>
+          </Select>
         </li>
       </ul>
     </nav>
