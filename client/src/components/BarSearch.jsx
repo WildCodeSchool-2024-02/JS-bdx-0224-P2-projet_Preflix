@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import "../Styles/BarSearch.css";
 
-function SearchBar({ fetchData, setData, apiToken }) {
+function BarSearch({ fetchData, setData, apiToken }) {
   const [searchValue, setSearchValue] = useState("");
 
   const options = {
@@ -32,16 +33,23 @@ function SearchBar({ fetchData, setData, apiToken }) {
 
   return (
     <>
-      <label htmlFor="search">Rechercher</label>
-      <input
-        name="search"
-        id="search"
-        type="search"
-        placeholder="Films, séries, ..."
-        onChange={handleChange}
-      />
+      <form className="form-search">
+        <label htmlFor="search">Films, séries, ...</label>
+        <img
+          src="../src/assets/images/icons-chercherblack.svg"
+          alt="icone de loupe"
+          className="icon-loop"
+        />
+        <input
+          name="search"
+          id="search"
+          type="search"
+          placeholder="Rechercher"
+          onChange={handleChange}
+        />
+      </form>
+      <h1 className="title-results">Résultats de "{searchValue}"</h1>
       <section className="search-results">
-        <h1>Résultats de "{searchValue}"</h1>
         {fetchData.data.map((item) => (
           <article key={item.id}>
             <figure>
@@ -60,7 +68,7 @@ function SearchBar({ fetchData, setData, apiToken }) {
   );
 }
 
-SearchBar.propTypes = {
+BarSearch.propTypes = {
   fetchData: PropTypes.shape({
     url: PropTypes.string.isRequired,
     data: PropTypes.func.isRequired,
@@ -69,4 +77,4 @@ SearchBar.propTypes = {
   apiToken: PropTypes.string.isRequired,
 };
 
-export default SearchBar;
+export default BarSearch;
