@@ -73,14 +73,14 @@ function NavBar() {
             </h2>
           </Link>
         </li>
-        <li>
+        {/* <li className="none">
           <Link className="isMobile" to="/credits">
             <h2 className={selectedUrl === "/credits" ? "yellow" : "titleNav"}>
               Crédits
             </h2>
           </Link>
-        </li>
-        <li>
+        </li> */}
+        <li className="isMobile">
           <Link to="/search">
             <img
               src="./src/assets/images/icons-chercher.svg"
