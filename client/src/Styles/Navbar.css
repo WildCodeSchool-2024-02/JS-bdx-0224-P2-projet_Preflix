@@ -10,6 +10,11 @@
   width: 38px;
 }
 
+.logoFull {
+  width: 5rem;
+  margin-left: 2rem;
+}
+
 nav {
   background-color: #1a1a1a;
   display: flex;
