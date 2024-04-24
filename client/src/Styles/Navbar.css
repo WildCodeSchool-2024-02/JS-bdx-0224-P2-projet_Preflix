@@ -58,7 +58,7 @@ li {
     display: none;
   }
   .titleNav {
-    font-family: var(--primary-font);
+    font-family: var(--secondary-font);
     margin: 0;
   }
   nav {
@@ -85,7 +85,7 @@ li {
   }
   .yellow {
     color: var(--secondary-color);
-    font-family: var(--primary-font);
+    font-family: var(--secondary-font);
   }
   a {
     color: var(--tertiary-color);
