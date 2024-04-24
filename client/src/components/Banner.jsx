@@ -36,6 +36,7 @@ function Banner() {
       <figure className="imgMovie">
         {moviesList.map((movie) => (
           <img
+            className="imgBanner"
             src={movie.imgSrc}
             alt={movie.name}
             key={movie.name}

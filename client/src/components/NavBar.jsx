@@ -1,6 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import "../Styles/Navbar.css";
-import {Button, ListBox, ListBoxItem, Popover, Select} from 'react-aria-components';
+import {
+  Button,
+  ListBox,
+  ListBoxItem,
+  Popover,
+  Select,
+} from "react-aria-components";
 
 function NavBar() {
   const location = useLocation();
@@ -10,8 +16,8 @@ function NavBar() {
     <nav className="nav">
       <Link className="linkName" to="/">
         <img
-          className="logo"
-          src="../src/assets/images/logo.svg"
+          className="logoFull"
+          src="../src/assets/images/Logofull.svg"
           alt="Accueil"
         />
       </Link>
@@ -47,7 +53,7 @@ function NavBar() {
             />
           </Link>
         </li>
-        <li>
+        <li className="none">
           <Link to="/credits">
             <img
               className="navIcon"
@@ -59,30 +65,17 @@ function NavBar() {
               alt="Crédits"
             />
           </Link>
-          <Link className="isMobile" to="/credits">
-            <h2 className={selectedUrl === "/credits" ? "yellow" : "titleNav"}>
-              Crédits
-            </h2>
-          </Link>
         </li>
         <li className="navDesktop titleNav">
-          <Link to="/category/series">
-            <h2
-              className={
-                selectedUrl === "/category/series" ? "yellow" : "titleNav"
-              }
-            >
+          <Link to="/series">
+            <h2 className={selectedUrl === "/series" ? "yellow" : "titleNav"}>
               Séries
             </h2>
           </Link>
         </li>
         <li className="navDesktop titleNav">
-          <Link to="/category/movies">
-            <h2
-              className={
-                selectedUrl === "/category/movies" ? "yellow" : "titleNav"
-              }
-            >
+          <Link to="/movies">
+            <h2 className={selectedUrl === "/movies" ? "yellow" : "titleNav"}>
               Films
             </h2>
           </Link>
@@ -90,20 +83,33 @@ function NavBar() {
         <li className="navDesktop titleNav">
           <Select>
             <Button className="buttonCategory">
-            <h2>
-              Catégories
-            </h2>
-            <span aria-hidden="true" className="arrowDown">▼</span>
+              <h2>Catégories</h2>
+              <span aria-hidden="true" className="arrowDown">
+                ▼
+              </span>
             </Button>
             <Popover>
-            <ListBox className="scrollingMenu">
-              <ListBoxItem className="category">Cat</ListBoxItem>
-              <ListBoxItem className="category">Dog</ListBoxItem>
-              <ListBoxItem className="category">Kangaroo</ListBoxItem>
-            </ListBox>
+              <ListBox className="scrollingMenu">
+                <ListBoxItem className="category">Cat</ListBoxItem>
+                <ListBoxItem className="category">Dog</ListBoxItem>
+                <ListBoxItem className="category">Kangaroo</ListBoxItem>
+              </ListBox>
             </Popover>
           </Select>
         </li>
+        <li>
+          <Link className="isMobile" to="/credits">
+            <h2 className={selectedUrl === "/credits" ? "yellow" : "titleNav"}>
+              Crédits
+            </h2>
+          </Link>
+        </li>
+
+        <Link className="isMobile" to="/credits">
+          <h2 className={selectedUrl === "/credits" ? "yellow" : "titleNav"}>
+            Crédits
+          </h2>
+        </Link>
       </ul>
     </nav>
   );
