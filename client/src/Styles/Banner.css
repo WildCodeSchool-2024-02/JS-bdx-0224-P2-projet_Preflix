@@ -40,6 +40,16 @@ figure {
   align-items: center;
 }
 
+.imgLogo {
+  width: 2rem;
+  height: auto;
+  position: absolute;
+  z-index: 1;
+  margin-left: 0.5rem;
+  margin-top: 0.2rem;
+  display: block;
+}
+
 .imgMovie {
   height: 100%;
   width: 100%;
@@ -137,4 +147,10 @@ img {
 .dotButton:focus-visible,
 .buttonRight:focus-visible {
   outline: auto;
+}
+
+@media screen and (min-width: 992px) {
+  .imgLogo {
+    display: none;
+  }
 }

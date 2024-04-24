@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Banner.css";
+import "../Styles/Banner.css";
 
 const moviesList = [
   {
@@ -32,6 +32,7 @@ function Banner() {
 
   return (
     <section className="containerMovies">
+      <img src="./src/assets/images/logo.svg" alt="logo" className="imgLogo" />
       <figure className="imgMovie">
         {moviesList.map((movie) => (
           <img
