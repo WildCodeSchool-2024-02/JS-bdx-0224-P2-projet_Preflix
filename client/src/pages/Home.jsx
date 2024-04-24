@@ -97,13 +97,15 @@ function Home() {
           {popular &&
             popular.map((movie) => (
               <article key={movie.id} className="articleMovies">
-                <figure>
-                  <img
-                    src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                    alt={movie.title}
-                    className="posterMovie"
-                  />
-                </figure>
+                <Link to={`/media/${movie.id}`}>
+                  <figure>
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                      alt={movie.title}
+                      className="posterMovie"
+                    />
+                  </figure>
+                </Link>
               </article>
             ))}
         </section>
@@ -114,13 +116,15 @@ function Home() {
           {newMovies &&
             newMovies.map((newMovie) => (
               <article key={newMovie.id} className="articleMovies">
-                <figure>
-                  <img
-                    src={`https://image.tmdb.org/t/p/original${newMovie.poster_path}`}
-                    alt={newMovie.title}
-                    className="posterMovie"
-                  />
-                </figure>
+                <Link to={`/media/${newMovie}`}>
+                  <figure>
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${newMovie.poster_path}`}
+                      alt={newMovie.title}
+                      className="posterMovie"
+                    />
+                  </figure>
+                </Link>
               </article>
             ))}
         </section>
@@ -131,13 +135,15 @@ function Home() {
           {popularSeries &&
             popularSeries.map((movie) => (
               <article key={movie.id} className="articleMovies">
-                <figure>
-                  <img
-                    src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                    alt={movie.title}
-                    className="posterMovie"
-                  />
-                </figure>
+                <Link to={`/media/${movie.id}`}>
+                  <figure>
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                      alt={movie.title}
+                      className="posterMovie"
+                    />
+                  </figure>
+                </Link>
               </article>
             ))}
         </section>
@@ -148,13 +154,15 @@ function Home() {
           {popularMovies &&
             popularMovies.map((newMovie) => (
               <article key={newMovie.id} className="articleMovies">
-                <figure>
-                  <img
-                    src={`https://image.tmdb.org/t/p/original${newMovie.poster_path}`}
-                    alt={newMovie.title}
-                    className="posterMovie"
-                  />
-                </figure>
+                <Link to={`/media/${newMovie}`}>
+                  <figure>
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${newMovie.poster_path}`}
+                      alt={newMovie.title}
+                      className="posterMovie"
+                    />
+                  </figure>
+                </Link>
               </article>
             ))}
         </section>

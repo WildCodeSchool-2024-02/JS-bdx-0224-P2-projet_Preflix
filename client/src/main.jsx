@@ -10,7 +10,7 @@ import Article from "./pages/Article";
 import Credits from "./pages/Credits";
 import Movies from "./pages/Movies";
 import Series from "./pages/Series";
-import Category from "./pages/Category"
+import Category from "./pages/Category";
 import { TypeProvider } from "./contexts/CategoryContext";
 
 const router = createBrowserRouter([
@@ -37,12 +37,12 @@ const router = createBrowserRouter([
         path: "/category/:categoryList",
         element: (
           <TypeProvider>
-        <Category />
-        </TypeProvider>
+            <Category />
+          </TypeProvider>
         ),
       },
       {
-        path: "/articles",
+        path: "/media/:id",
         element: <Article />,
       },
       {
