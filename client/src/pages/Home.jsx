@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/Home.css";
+import "../Styles/Banner.css";
 import CategoryBtn from "../components/CategoryBtn";
 import { TypeProvider } from "../contexts/CategoryContext";
 import Banner from "../components/Banner";
@@ -84,9 +85,9 @@ function Home() {
           ))}
         </section>
       </section>
-      <section>
-        <h2>Les nouveautés</h2>
-        <section className="moviesContainer">
+      <section className="container2">
+        <h2 className="titleDark">Les nouveautés</h2>
+        <section className="moviesContainer container2">
           {newMovies.map((newMovie) => (
             <article key={newMovie.id} className="articleMovies">
               <figure>
