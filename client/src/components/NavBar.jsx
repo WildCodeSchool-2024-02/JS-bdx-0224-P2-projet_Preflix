@@ -104,6 +104,15 @@ function NavBar() {
             </h2>
           </Link>
         </li>
+        <li>
+          <Link to="/search">
+            <img
+              src="./src/assets/images/icons-chercher.svg"
+              alt="Search's icon"
+              className={selectedUrl === "/search" ? "selected" : ""}
+            />
+          </Link>
+        </li>
       </ul>
     </nav>
   );
