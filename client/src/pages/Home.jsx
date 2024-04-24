@@ -26,16 +26,16 @@ function Home() {
       options
     )
       .then((response) => response.json())
-      .then((data) => setPopularMovies(data))
+      .then((data) => setPopularMovies(data.results))
       .catch((err) => console.error(err));
 
-      fetch(
-        "https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=7",
-        options
-      )
-        .then((response) => response.json())
-        .then((data) => setNewMovies(data.results))
-        .catch((err) => console.error(err));
+    fetch(
+      "https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=7",
+      options
+    )
+      .then((response) => response.json())
+      .then((data) => setNewMovies(data.results))
+      .catch((err) => console.error(err));
   }, [apiToken]);
 
   return (
@@ -59,12 +59,12 @@ function Home() {
         </picture>
       </section>
       <section>
-      <Link to='/movies'> 
-      <button type="button">FILMS</button>
-      </Link>
-      <Link to='/series'> 
-      <button type="button">SERIES</button>
-      </Link>
+        <Link to="/movies">
+          <button type="button">FILMS</button>
+        </Link>
+        <Link to="/series">
+          <button type="button">SERIES</button>
+        </Link>
         <TypeProvider>
           <CategoryBtn
             label="CATEGORIES"
@@ -74,8 +74,6 @@ function Home() {
         </TypeProvider>
       </section>
       <section>
-        {popularMovies.length > 0 && (
-          <>
         <h2>Populaire sur Preflix</h2>
         <section className="moviesContainer">
           {popularMovies.map((movie) => (
@@ -90,8 +88,6 @@ function Home() {
             </article>
           ))}
         </section>
-        </>
-        )}
       </section>
       <section>
         <h2>Les nouveautés</h2>
