@@ -89,7 +89,7 @@ const [types, setTypes] = useState([{
   ), [types, setTypes])
 
     TypeProvider.propTypes = {
-      children: PropTypes.string.isRequired,
+      children: PropTypes.shape({}).isRequired,
     }  
 
   return (

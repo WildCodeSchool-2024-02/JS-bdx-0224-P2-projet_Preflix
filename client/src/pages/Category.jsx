@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ArrowBack from "../components/ArrowBack";
 import { CategoryContext } from "../contexts/CategoryContext";
@@ -9,6 +9,7 @@ function Category() {
 
   const { categoryList } = useParams();
   const categoryName = categoryList;
+  
   const selectedCategoryId = types
     .filter((type) => type.name === categoryName)
     .map((selection) => selection.id);
@@ -18,6 +19,7 @@ function Category() {
 
   const apiToken = import.meta.env.VITE_API_TOKEN;
 
+  useEffect(() => {
   const options = {
     method: "GET",
     headers: {
@@ -41,6 +43,7 @@ function Category() {
     .then((response) => response.json())
     .then((data) => setSerieInfos(data.results))
     .catch((err) => console.error(err));
+  }, [apiToken]);
 
   return (
     <>

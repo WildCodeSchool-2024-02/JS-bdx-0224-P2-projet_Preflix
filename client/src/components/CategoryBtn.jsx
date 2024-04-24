@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { CategoryContext } from "../contexts/CategoryContext";
 
 
-function CategoryBtn({ label, isVisible, setIsVisible,  }) {
+function CategoryBtn({ label, isVisible, setIsVisible  }) {
 
   const { types } = useContext(CategoryContext);
 

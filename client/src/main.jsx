@@ -9,6 +9,8 @@ import Search from "./pages/Search";
 import Category from "./pages/Category";
 import Article from "./pages/Article";
 import Credits from "./pages/Credits";
+import Movies from "./pages/Movies";
+import Series from "./pages/Series";
 import { TypeProvider } from "./contexts/CategoryContext";
 
 const router = createBrowserRouter([
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: <Search />,
+      },
+      {
+        path: "/movies",
+        element: <Movies />,
+      },
+      {
+        path: "/series",
+        element: <Series />,
       },
       {
         path: "/category/:categoryList",
