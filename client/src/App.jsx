@@ -1,10 +1,11 @@
+import "./App.css";
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
-import "./App.css";
 import NavBar from "./components/NavBar";
 import Btn from "./components/Btn";
 import SearchBar from "./components/BarSearch";
 import Footer from "./components/Footer";
+import Banner from "./components/Banner";
 
 function App() {
   const apiToken = import.meta.env.VITE_API_TOKEN;
@@ -26,6 +27,7 @@ function App() {
     <>
       <NavBar />
       <main>
+        <Banner />
         <Outlet />
         <SearchBar
           fetchData={{ url: urlSearch, data: currentSearch }}

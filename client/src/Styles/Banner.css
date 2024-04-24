@@ -1,0 +1,156 @@
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/Inter-VariableFont_slnt,wght.ttf");
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url("assets/fonts/Oswald-VariableFont_wght.ttf");
+}
+
+:root {
+  --primary-color: #313131;
+  --secondary-color: #ffe96e;
+  --tertiary-color: #f5f5f5;
+  --primary-font: "Inter", "sans-serif";
+  --secondary-font: "Oswald", "sans-serif";
+}
+
+body {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--tertiary-color);
+  background-color: var(--primary-color);
+  margin: 0;
+  padding: 0;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+.containerMovies {
+  position: relative;
+  width: auto;
+  height: 100%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgLogo {
+  width: 2rem;
+  height: auto;
+  position: absolute;
+  z-index: 1;
+  margin-left: 0.5rem;
+  margin-top: 0.2rem;
+  display: block;
+}
+
+.imgMovie {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+  flex-shrink: 0;
+  flex-grow: 0;
+  transition: translate 300ms ease-in-out;
+}
+
+.buttonLeft,
+.buttonRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: block;
+  padding: 1rem;
+  cursor: pointer;
+  transition: 100ms ease-in-out;
+  background-color: rgb(0, 0, 0, 0);
+  border: none;
+  color: var(--secondary-color);
+}
+
+.buttonRight:hover,
+.buttonRight:focus-visible {
+  background-color: rgb(49, 49, 49, 0.2);
+}
+.buttonLeft:hover,
+.buttonLeft:focus-visible {
+  background-color: rgb(49, 49, 49, 0.2);
+}
+
+.buttonRight {
+  right: 0;
+}
+
+.buttonLeft {
+  left: 0;
+}
+
+.arrow {
+  width: 2rem;
+  height: auto;
+}
+
+.arrow:hover {
+  width: 3rem;
+  height: auto;
+  transition: 200ms ease-in-out;
+}
+
+.containerDotButton {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  translate: -50%;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.dotButton {
+  border-radius: 100%;
+  border: none;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  display: block;
+  transition: scale 100ms ease-in-out;
+}
+
+.dotButton:hover,
+.dotButton:focus-visible {
+  scale: 1.2;
+}
+
+.on {
+  background-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+.off {
+  background-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.buttonLeft:focus-visible,
+.dotButton:focus-visible,
+.buttonRight:focus-visible {
+  outline: auto;
+}
+
+@media screen and (min-width: 992px) {
+  .imgLogo {
+    display: none;
+  }
+}
