@@ -73,13 +73,13 @@ function NavBar() {
             </h2>
           </Link>
         </li>
-        {/* <li className="none">
-          <Link className="isMobile" to="/credits">
+        <li className="isMobile">
+          <Link to="/credits">
             <h2 className={selectedUrl === "/credits" ? "yellow" : "titleNav"}>
               Crédits
             </h2>
           </Link>
-        </li> */}
+        </li>
         <li className="isMobile">
           <Link to="/search">
             <img
