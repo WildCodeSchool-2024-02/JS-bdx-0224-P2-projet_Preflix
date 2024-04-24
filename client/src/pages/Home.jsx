@@ -9,7 +9,7 @@ function Home() {
 
   const [isVisible, setIsVisible] = useState(false);
 
-  // const [popularMovies, setPopularMovies] = useState([]);
+  const [popularMovies, setPopularMovies] = useState([]);
   const [newMovies, setNewMovies] = useState([]);
 
   useEffect(() => {
@@ -21,13 +21,13 @@ function Home() {
       },
     };
 
-    // fetch(
-    //   "https://api.themoviedb.org/3/trending/movie/day?language=fr-Fr",
-    //   options
-    // )
-    //   .then((response) => response.json())
-    //   .then((data) => setPopularMovies(data))
-    //   .catch((err) => console.error(err));
+    fetch(
+      "https://api.themoviedb.org/3/trending/movie/day?language=fr-Fr",
+      options
+    )
+      .then((response) => response.json())
+      .then((data) => setPopularMovies(data))
+      .catch((err) => console.error(err));
 
       fetch(
         "https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=7",
@@ -73,7 +73,9 @@ function Home() {
           />
         </TypeProvider>
       </section>
-      {/* <section>
+      <section>
+        {popularMovies.length > 0 && (
+          <>
         <h2>Populaire sur Preflix</h2>
         <section className="moviesContainer">
           {popularMovies.map((movie) => (
@@ -88,7 +90,9 @@ function Home() {
             </article>
           ))}
         </section>
-      </section> */}
+        </>
+        )}
+      </section>
       <section>
         <h2>Les nouveautés</h2>
         <section className="moviesContainer">
