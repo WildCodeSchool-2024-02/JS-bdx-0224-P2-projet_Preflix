@@ -4,7 +4,7 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import Btn from "./components/Btn";
 import SearchBar from "./components/BarSearch";
-
+import Footer from "./components/Footer";
 
 function App() {
   const apiToken = import.meta.env.VITE_API_TOKEN;
@@ -49,6 +49,7 @@ function App() {
           isVisible={isMoviesVisible}
         />
       </main>
+      <Footer />
     </>
   );
 }
