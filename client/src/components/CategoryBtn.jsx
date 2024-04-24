@@ -15,7 +15,7 @@ function CategoryBtn({ label, isVisible, setIsVisible  }) {
 
   return (
     <>
-      <button type="button" onClick={handleClick}>
+      <button className="buttonFilter" type="button" onClick={handleClick}>
         {label}
       </button>
       {isVisible && (

@@ -48,7 +48,9 @@ picture {
 
 h2 {
   color: var(--tertiary-color);
-  padding: 1rem 0.5rem;
+  padding: 0.5rem 0.5rem;
+  margin-top: 0.5rem;
+  font-family: var(--primary-font);
 }
 
 .articleMovies {
@@ -59,19 +61,15 @@ h2 {
   width: 10rem;
 }
 
-section:nth-child(4) {
-  padding-bottom: 6rem;
-}
-
 section:nth-of-type(2) {
   display: flex;
   justify-content: flex-start;
   gap: 1rem;
-  margin-top: 0.5rem;
-  padding-left: 0.7rem;
+  margin-top: 1rem;
+  padding-left: 1rem;
 }
 
-button {
+.buttonFilter {
   color: var(--tertiary-color);
   background-color: var(--primary-color);
   border: solid 1.8px var(--tertiary-color);
@@ -79,6 +77,14 @@ button {
   padding: 0.5rem 1.2rem;
   font-family: var(--secondary-font);
   font-size: 0.8rem;
+}
+
+.container2 {
+  background-color: var(--secondary-color);
+}
+
+.titleDark {
+  color: var(--primary-color);
 }
 
 @media screen and (min-width: 992px) {

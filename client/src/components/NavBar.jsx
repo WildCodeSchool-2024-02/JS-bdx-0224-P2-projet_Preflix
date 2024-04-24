@@ -46,7 +46,7 @@ function NavBar() {
             />
           </Link>
         </li>
-        <li>
+        <li className="none">
           <Link to="/credits">
             <img
               className="navIcon"
@@ -57,11 +57,6 @@ function NavBar() {
               }
               alt="Crédits"
             />
-          </Link>
-          <Link className="isMobile" to="/credits">
-            <h2 className={selectedUrl === "/credits" ? "yellow" : "titleNav"}>
-              Crédits
-            </h2>
           </Link>
         </li>
         <li className="navDesktop titleNav">
@@ -93,6 +88,11 @@ function NavBar() {
             </h2>
           </Link>
         </li>
+          <Link className="isMobile" to="/credits">
+            <h2 className={selectedUrl === "/credits" ? "yellow" : "titleNav"}>
+              Crédits
+            </h2>
+          </Link>
       </ul>
     </nav>
   );
