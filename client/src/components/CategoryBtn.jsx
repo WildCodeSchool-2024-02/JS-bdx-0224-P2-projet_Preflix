@@ -15,18 +15,21 @@ function CategoryBtn({ label, isVisible, setIsVisible  }) {
 
   return (
     <>
-      <button type="button" onClick={handleClick}>
+      <button type="button" onClick={handleClick} className="buttonFilter">
         {label}
       </button>
-      {isVisible && (
+      {isVisible && 
         <ul className="ul-category">
+        <Link to="/">
+        <p className="closing-cross">X</p>
+      </Link>
           {types.map((type) => (
             <Link to={{pathname:`/category/${type.name}`}} key={type.name}>
               <li className="li-category">{type.name.charAt(0).toUpperCase()}{type.name.substring(1)}</li>
             </Link>
           ))}
         </ul>
-      )}
+      }
     </>
   );
 }

@@ -71,7 +71,7 @@ section:nth-of-type(2) {
   padding-left: 0.7rem;
 }
 
-button {
+.buttonFilter {
   color: var(--tertiary-color);
   background-color: var(--primary-color);
   border: solid 1.8px var(--tertiary-color);

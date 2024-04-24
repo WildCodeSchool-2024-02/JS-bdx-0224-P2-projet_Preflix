@@ -47,6 +47,7 @@ img {
   opacity: 0.9;
   z-index: 1;
   padding-top: 3rem;
+  padding-bottom: 83rem;
 }
 
 .li-category {
@@ -56,4 +57,10 @@ img {
   font-weight: 300;
   padding-left: 1.5rem;
   line-height: 4rem;
+}
+
+.closing-cross {
+  color: var(--tertiary-color);
+  text-align: right;
+  padding-right: 2rem;
 }

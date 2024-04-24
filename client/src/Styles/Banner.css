@@ -121,8 +121,7 @@ figure {
 .dotButton {
   border-radius: 100%;
   border: none;
-  width: 1rem;
-  height: 1rem;
+  width: 0.2rem;
   cursor: pointer;
   display: block;
   transition: scale 100ms ease-in-out;

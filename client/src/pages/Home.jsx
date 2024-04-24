@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../Styles/Home.css";
 import CategoryBtn from "../components/CategoryBtn";
 import { TypeProvider } from "../contexts/CategoryContext";
+import Banner from "../components/Banner";
 
 function Home() {
   const apiToken = import.meta.env.VITE_API_TOKEN;
@@ -26,7 +27,7 @@ function Home() {
       options
     )
       .then((response) => response.json())
-      .then((data) => setPopularMovies(data))
+      .then((data) => setPopularMovies(data.results))
       .catch((err) => console.error(err));
 
       fetch(
@@ -50,20 +51,14 @@ function Home() {
             />
           </picture>
         </Link>
-        <picture>
-          <img
-            src="src/assets/images/backgroundHome.jpg"
-            alt="Cover a movie"
-            className="test"
-          />
-        </picture>
+        <Banner />
       </section>
       <section>
       <Link to='/movies'> 
-      <button type="button">FILMS</button>
+      <button type="button" className="buttonFilter">FILMS</button>
       </Link>
       <Link to='/series'> 
-      <button type="button">SERIES</button>
+      <button type="button" className="buttonFilter">SERIES</button>
       </Link>
         <TypeProvider>
           <CategoryBtn
@@ -74,8 +69,6 @@ function Home() {
         </TypeProvider>
       </section>
       <section>
-        {popularMovies.length > 0 && (
-          <>
         <h2>Populaire sur Preflix</h2>
         <section className="moviesContainer">
           {popularMovies.map((movie) => (
@@ -90,8 +83,6 @@ function Home() {
             </article>
           ))}
         </section>
-        </>
-        )}
       </section>
       <section>
         <h2>Les nouveautés</h2>
