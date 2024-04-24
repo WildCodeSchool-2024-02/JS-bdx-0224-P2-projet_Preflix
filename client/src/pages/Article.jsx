@@ -83,7 +83,7 @@ function Article() {
           displaySuggestions.results.length > 0 ? (
             displaySuggestions.results.map((item) => (
               <article key={item.id} className="articleMovies">
-                <Link to={`/media/${item}`}>
+                <Link to={`/media/${item.id}`}>
                   <picture>
                     <img
                       src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
