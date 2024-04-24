@@ -12,6 +12,20 @@
   box-sizing: border-box;
 }
 
+.moviesContainer::-webkit-scrollbar {
+  height: 3px;
+}
+.moviesContainer::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);
+}
+
+.container2::-webkit-scrollbar {
+  height: 3px;
+}
+.container2::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+}
+
 .firstSection {
   position: relative;
 }
@@ -34,12 +48,14 @@ picture {
   display: flex;
   overflow-x: auto;
   white-space: nowrap;
+  padding-left: 1rem;
 }
 
 .containerTitle {
   color: var(--tertiary-color);
   padding: 0.5rem 0.5rem;
   margin-top: 0.5rem;
+  padding-left: 1.5rem;
   font-family: var(--secondary-font);
 }
 
@@ -71,6 +87,7 @@ section:nth-of-type(2) {
 
 .container2 {
   background-color: var(--secondary-color);
+  padding-bottom: 1px;
 }
 
 .titleDark {
