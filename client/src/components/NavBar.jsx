@@ -9,8 +9,8 @@ function NavBar() {
     <nav className="nav">
       <Link className="linkName" to="/">
         <img
-          className="logo"
-          src="../src/assets/images/logo.svg"
+          className="logoFull"
+          src="../src/assets/images/Logofull.svg"
           alt="Accueil"
         />
       </Link>

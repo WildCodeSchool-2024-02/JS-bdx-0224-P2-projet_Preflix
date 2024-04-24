@@ -1,0 +1,42 @@
+:root {
+  --primary-color: #313131;
+  --secondary-color: #ffe96e;
+  --tertiary-color: #f5f5f5;
+  --primary-font: "Inter", "sans-serif";
+  --secondary-font: "Oswald", "sans-serif";
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+footer {
+  background-color: #1a1a1a;
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 6rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  font-family: var(--secondary-font);
+}
+
+.logoTmdb {
+  width: 8rem;
+  padding-right: 1rem;
+}
+
+@media screen and (min-width: 992px) {
+  footer {
+    margin-bottom: 0;
+  }
+
+  p {
+    padding-left: 1rem;
+  }
+}
