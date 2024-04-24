@@ -92,4 +92,7 @@ li {
     font-size: 0.7rem;
     text-decoration: none;
   }
+  .selected {
+    background-image: url(./../assets/images/icons-search-yellow.svg);
+  }
 }
