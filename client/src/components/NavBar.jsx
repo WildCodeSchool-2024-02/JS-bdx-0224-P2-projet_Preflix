@@ -104,12 +104,6 @@ function NavBar() {
             </h2>
           </Link>
         </li>
-
-        <Link className="isMobile" to="/credits">
-          <h2 className={selectedUrl === "/credits" ? "yellow" : "titleNav"}>
-            Crédits
-          </h2>
-        </Link>
       </ul>
     </nav>
   );

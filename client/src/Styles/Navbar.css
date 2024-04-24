@@ -6,24 +6,6 @@
   --secondary-font: "Oswald", "sans-serif";
 }
 
-@font-face {
-  font-family: "Inter";
-  src: url("../assets/fonts/Inter-VariableFont_slnt\,wght.ttf");
-}
-
-@font-face {
-  font-family: "Oswald";
-  src: url("../assets/fonts/Oswald-VariableFont_wght.ttf");
-}
-
-:root {
-  --primary-color: #313131;
-  --secondary-color: #ffe96e;
-  --tertiary-color: #f5f5f5;
-  --primary-font: "Inter", "sans-serif";
-  --secondary-font: "Oswald", "sans-serif";
-}
-
 .navIcon {
   width: 38px;
 }
@@ -59,7 +41,7 @@ li {
 .searchBar,
 .searchNavBar,
 .isMobile,
-.logoFull {
+.logoFull .buttonCategory {
   display: none;
 }
 @media screen and (min-width: 992px) {
@@ -67,9 +49,9 @@ li {
   .titleNav,
   .searchBar,
   .searchNavBar,
-  .logo,
+  .logoFull,
   .isMobile {
-    display: inline;
+    display: block;
   }
   .navIcon,
   .none {
@@ -122,9 +104,9 @@ li {
 
   .buttonCategory {
     background-color: var(--primary-color);
-
     border: none;
     cursor: pointer;
+    display: block;
   }
 
   .buttonCategory:focus {
