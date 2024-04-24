@@ -73,17 +73,6 @@ function NavBar() {
             </h2>
           </Link>
         </li>
-        <li className="navDesktop titleNav">
-          <Link to="/category:categoryList">
-            <h2
-              className={
-                selectedUrl === "/category:categoryList" ? "yellow" : "titleNav"
-              }
-            >
-              Catégories
-            </h2>
-          </Link>
-        </li>
         <li>
           <Link className="isMobile" to="/credits">
             <h2 className={selectedUrl === "/credits" ? "yellow" : "titleNav"}>
@@ -92,11 +81,11 @@ function NavBar() {
           </Link>
         </li>
         <li>
-          <Link to="/Search">
+          <Link to="/search">
             <img
               src="./src/assets/images/icons-chercher.svg"
               alt="Search's icon"
-              className={selectedUrl === "/Search" ? "selected" : ""}
+              className={selectedUrl === "/search" ? "selected" : ""}
             />
           </Link>
         </li>
