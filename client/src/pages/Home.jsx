@@ -16,6 +16,38 @@ function Home() {
   const [popularSeries, setPopularSeries] = useState([]);
   const [popular, setPopular] = useState([]);
 
+  const showNextPop = () => {
+    const firstpop = popular[0];
+    const arrpop = [...popular];
+    arrpop.push(firstpop);
+    arrpop.shift();
+    setPopular(arrpop);
+  };
+
+  const showPrevPop = () => {
+    const lastpop = popular[popular.length - 1];
+    const arrpop = [...popular];
+    arrpop.unshift(lastpop);
+    arrpop.pop();
+    setPopular(arrpop);
+  };
+
+  const showNextNew = () => {
+    const firstnew = newMovies[0];
+    const arrnew = [...newMovies];
+    arrnew.push(firstnew);
+    arrnew.shift();
+    setNewMovies(arrnew);
+  };
+
+  const showPrevNew = () => {
+    const lastnew = newMovies[newMovies.length - 1];
+    const arrnew = [...newMovies];
+    arrnew.unshift(lastnew);
+    arrnew.pop();
+    setNewMovies(arrnew);
+  };
+
   useEffect(() => {
     const options = {
       method: "GET",
@@ -93,7 +125,10 @@ function Home() {
       </section>
       <section>
         <h2 className="containerTitle">Populaire sur Preflix</h2>
-        <section className="moviesContainer">
+        <section
+          className="moviesContainer"
+          style={{ translate: `${-100 * popular}%` }}
+        >
           {popular &&
             popular.map((movie) => (
               <article key={movie.id} className="articleMovies">
@@ -106,11 +141,37 @@ function Home() {
                 </figure>
               </article>
             ))}
+          <button
+            className="buttonRight"
+            type="button"
+            onClick={() => showNextPop()}
+          >
+            <img
+              className="arrow"
+              src="./src/assets/images/arrowright.png"
+              alt="arrow right"
+            />
+          </button>
+          <button
+            className="buttonLeft"
+            type="button"
+            onClick={() => showPrevPop()}
+          >
+            <img
+              className="arrow"
+              src="./src/assets/images/arrowleft.png"
+              alt="arrow left"
+            />
+          </button>
         </section>
       </section>
+
       <section className="container2">
         <h2 className="containerTitle titleDark">Nouveautés</h2>
-        <section className="moviesContainer container2">
+        <section
+          className="moviesContainer container2"
+          style={{ translate: `${-100 * newMovies}%` }}
+        >
           {newMovies &&
             newMovies.map((newMovie) => (
               <article key={newMovie.id} className="articleMovies">
@@ -123,6 +184,28 @@ function Home() {
                 </figure>
               </article>
             ))}
+          <button
+            className="buttonRight"
+            type="button"
+            onClick={() => showNextNew()}
+          >
+            <img
+              className="arrow"
+              src="./src/assets/images/arrowright.png"
+              alt="arrow right"
+            />
+          </button>
+          <button
+            className="buttonLeft"
+            type="button"
+            onClick={() => showPrevNew()}
+          >
+            <img
+              className="arrow"
+              src="./src/assets/images/arrowleft.png"
+              alt="arrow left"
+            />
+          </button>
         </section>
       </section>
       <section>

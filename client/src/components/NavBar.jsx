@@ -7,10 +7,19 @@ import {
   Popover,
   Select,
 } from "react-aria-components";
+import { useContext, useState } from "react";
+import { CategoryContext } from "../contexts/CategoryContext";
 
 function NavBar() {
   const location = useLocation();
   const selectedUrl = location.pathname;
+  const [click, setClick] = useState(false);
+
+  const handleClick = () => {
+    setClick(true);
+  };
+
+  const { types } = useContext(CategoryContext);
 
   return (
     <nav className="nav">
@@ -81,18 +90,28 @@ function NavBar() {
           </Link>
         </li>
         <li className="navDesktop titleNav">
-          <Select>
-            <Button className="buttonCategory">
-              <h2>Catégories</h2>
-              <span aria-hidden="true" className="arrowDown">
-                ▼
-              </span>
+          <Select className="boxScroll">
+            <Button className="buttonCategory" onClick={handleClick}>
+              <h2 className={click ? "nameCategory" : ""}>Catégories ▼</h2>
             </Button>
             <Popover>
               <ListBox className="scrollingMenu">
-                <ListBoxItem className="category">Cat</ListBoxItem>
-                <ListBoxItem className="category">Dog</ListBoxItem>
-                <ListBoxItem className="category">Kangaroo</ListBoxItem>
+                {types.map((type) => (
+                  <ListBoxItem
+                    aria-label="category"
+                    className="category"
+                    key={type}
+                  >
+                    <Link
+                      to={{ pathname: `/category/${type.name}` }}
+                      key={type.name}
+                      className="genderCategory"
+                    >
+                      {type.name.charAt(0).toUpperCase()}
+                      {type.name.substring(1)}
+                    </Link>
+                  </ListBoxItem>
+                ))}
               </ListBox>
             </Popover>
           </Select>
