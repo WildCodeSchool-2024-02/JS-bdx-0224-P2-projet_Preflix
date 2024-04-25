@@ -37,6 +37,12 @@ li {
   align-content: center;
 }
 
+.nameCategory {
+  color: var(--tertiary-color);
+  font-family: var(--secondary-font);
+  font-weight: normal;
+}
+
 .navDesktop,
 .titleNav,
 .searchBar,

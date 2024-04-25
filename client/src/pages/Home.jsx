@@ -206,7 +206,7 @@ function Home() {
           className="moviesContainer container2"
           style={{ translate: `${-100 * newMovies}%` }}
         >
-          <section className="moviesContainer">
+          <section className="moviesContainer container2">
             {newMovies &&
               newMovies.map((newMovie) => (
                 <article key={newMovie.id} className="articleMovies">

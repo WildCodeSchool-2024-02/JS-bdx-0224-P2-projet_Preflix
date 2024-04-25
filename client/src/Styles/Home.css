@@ -16,12 +16,11 @@
   height: 3px;
 }
 .moviesContainer::-webkit-scrollbar-thumb {
-  background-color: var(--secondary-color);
+  background: var(--secondary-color);
 }
 
 .moviesContainer::-webkit-scrollbar-track {
   background: #474747;
-  height: 4px;
 }
 
 .moviesContainer::-webkit-scrollbar-thumb:hover {
@@ -32,11 +31,11 @@
   height: 3px;
 }
 .container2::-webkit-scrollbar-thumb {
-  background: var(--tertiary-color);
+  background: var(--primary-color);
 }
 
 .container2::-webkit-scrollbar-track {
-  background-color: #474747;
+  background-color: var(--tertiary-color);
 }
 
 .container2::-webkit-scrollbar-thumb:hover {
