@@ -20,4 +20,5 @@
   gap: 0.8rem;
   z-index: -1;
   margin-bottom: 5rem;
+  z-index: 10;
 }

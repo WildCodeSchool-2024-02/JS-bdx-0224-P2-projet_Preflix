@@ -42,7 +42,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/articles",
+        path: "/media/:id",
         element: <Article />,
       },
       {

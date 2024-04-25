@@ -10,9 +10,8 @@ function Home() {
   const apiToken = import.meta.env.VITE_API_TOKEN;
 
   const [isVisible, setIsVisible] = useState(false);
-
-  const [popularMovies, setPopularMovies] = useState([]);
   const [newMovies, setNewMovies] = useState([]);
+  const [popularMovies, setPopularMovies] = useState([]);
   const [popularSeries, setPopularSeries] = useState([]);
   const [popular, setPopular] = useState([]);
 
@@ -58,19 +57,11 @@ function Home() {
     };
 
     fetch(
-      "https://api.themoviedb.org/3/trending/movie/day?language=fr-Fr",
+      "https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=1",
       options
     )
       .then((response) => response.json())
       .then((data) => setPopularMovies(data.results))
-      .catch((err) => console.error(err));
-
-    fetch(
-      "https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=7",
-      options
-    )
-      .then((response) => response.json())
-      .then((data) => setNewMovies(data.results))
       .catch((err) => console.error(err));
 
     fetch(
@@ -79,6 +70,14 @@ function Home() {
     )
       .then((response) => response.json())
       .then((data) => setPopularSeries(data.results))
+      .catch((err) => console.error(err));
+
+    fetch(
+      "https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=7",
+      options
+    )
+      .then((response) => response.json())
+      .then((data) => setNewMovies(data.results))
       .catch((err) => console.error(err));
 
     fetch(
@@ -214,13 +213,15 @@ function Home() {
           {popularSeries &&
             popularSeries.map((movie) => (
               <article key={movie.id} className="articleMovies">
-                <figure>
-                  <img
-                    src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                    alt={movie.title}
-                    className="posterMovie"
-                  />
-                </figure>
+                <Link to={`/media/${movie.id}`}>
+                  <figure>
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                      alt={movie.title}
+                      className="posterMovie"
+                    />
+                  </figure>
+                </Link>
               </article>
             ))}
         </section>
@@ -231,13 +232,15 @@ function Home() {
           {popularMovies &&
             popularMovies.map((newMovie) => (
               <article key={newMovie.id} className="articleMovies">
-                <figure>
-                  <img
-                    src={`https://image.tmdb.org/t/p/original${newMovie.poster_path}`}
-                    alt={newMovie.title}
-                    className="posterMovie"
-                  />
-                </figure>
+                <Link to={`/media/${newMovie.id}`}>
+                  <figure>
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${newMovie.poster_path}`}
+                      alt={newMovie.title}
+                      className="posterMovie"
+                    />
+                  </figure>
+                </Link>
               </article>
             ))}
         </section>
