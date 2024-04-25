@@ -74,12 +74,7 @@ li {
   label {
     font-size: 0;
   }
-  .linkName {
-    font-size: 0.75rem;
-    color: var(--tertiary-color);
-    text-decoration: none;
-  }
-  .linkName:hover {
+  .titleNav:hover {
     color: var(--secondary-color);
     transition-duration: 300ms;
   }
@@ -94,5 +89,8 @@ li {
   }
   .selected {
     background-image: url(./../assets/images/icons-search-yellow.svg);
+  }
+  .searchDesktop {
+    width: 32px;
   }
 }
