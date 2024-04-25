@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ArrowBack from "../components/ArrowBack";
 import "../Styles/Btn.css";
 
@@ -32,13 +33,15 @@ function Series() {
       <section className="section-movies">
         {series.map((item) => (
           <article key={item.id}>
-            <figure>
-              <img
-                src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-                alt={item.title}
-                className="posterMovie"
-              />
-            </figure>
+            <Link to={`/media/${item.id}`}>
+              <figure>
+                <img
+                  src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+                  alt={item.title}
+                  className="posterMovie"
+                />
+              </figure>
+            </Link>
           </article>
         ))}
       </section>
