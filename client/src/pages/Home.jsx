@@ -60,15 +60,6 @@ function Home() {
   return (
     <>
       <section className="firstSection">
-        <Link to="/">
-          <picture>
-            <img
-              src="src/assets/images/logo.svg"
-              alt="Preflix's logo"
-              className="logoTest"
-            />
-          </picture>
-        </Link>
         <Banner />
       </section>
       <section>
