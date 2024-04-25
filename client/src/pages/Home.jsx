@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../Styles/Home.css";
-import "../Styles/Banner.css";
 import CategoryBtn from "../components/CategoryBtn";
 import { TypeProvider } from "../contexts/CategoryContext";
 import Banner from "../components/Banner";
+import "../Styles/Home.css";
+import "../Styles/Banner.css";
 
 function Home() {
   const apiToken = import.meta.env.VITE_API_TOKEN;
@@ -12,6 +12,7 @@ function Home() {
   const [isVisible, setIsVisible] = useState(false);
 
   const [popularMovies, setPopularMovies] = useState([]);
+  const [newMovies, setNewMovies] = useState([]);
   const [popularSeries, setPopularSeries] = useState([]);
   const [popular, setPopular] = useState([]);
 
@@ -30,6 +31,14 @@ function Home() {
     )
       .then((response) => response.json())
       .then((data) => setPopularMovies(data.results))
+      .catch((err) => console.error(err));
+
+    fetch(
+      "https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=7",
+      options
+    )
+      .then((response) => response.json())
+      .then((data) => setNewMovies(data.results))
       .catch((err) => console.error(err));
 
     fetch(
@@ -88,7 +97,26 @@ function Home() {
           {popular &&
             popular.map((movie) => (
               <article key={movie.id} className="articleMovies">
-                <Link to={`/media/${movie.id}`}>
+                <Link to={`/media/${movie.media_type}/${movie.id}`}>
+                  <figure>
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                      alt={movie.title}
+                      className="posterMovie"
+                    />
+                  </figure>
+                </Link>
+              </article>
+            ))}
+        </section>
+      </section>
+      <section className="container2">
+        <h2 className="containerTitle titleDark">Nouveauté</h2>
+        <section className="moviesContainer container2">
+          {newMovies &&
+            newMovies.map((movie) => (
+              <article key={movie.id} className="articleMovies">
+                <Link to={`/media/${movie.media_type}/${movie.id}`}>
                   <figure>
                     <img
                       src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
@@ -107,7 +135,7 @@ function Home() {
           {popularSeries &&
             popularSeries.map((movie) => (
               <article key={movie.id} className="articleMovies">
-                <Link to={`/media/${movie.id}`}>
+                <Link to={`/media/${movie.media_type}/${movie.id}`}>
                   <figure>
                     <img
                       src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
@@ -126,7 +154,7 @@ function Home() {
           {popularMovies &&
             popularMovies.map((newMovie) => (
               <article key={newMovie.id} className="articleMovies">
-                <Link to={`/media/${newMovie.id}`}>
+                <Link to={`/media/${newMovie.media_type}/${newMovie.id}`}>
                   <figure>
                     <img
                       src={`https://image.tmdb.org/t/p/original${newMovie.poster_path}`}

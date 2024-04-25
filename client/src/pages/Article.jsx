@@ -10,7 +10,7 @@ function Article() {
   const [displayProvider, setDisplayProvider] = useState([]);
   const [displaySuggestions, setDisplaySuggestions] = useState([]);
 
-  const { id } = useParams();
+  const { id, type } = useParams();
 
   useEffect(() => {
     const options = {
@@ -21,47 +21,62 @@ function Article() {
       },
     };
 
-    fetch(`https://api.themoviedb.org/3/movie/${id}?language=fr-FR`, options)
+    fetch(`https://api.themoviedb.org/3/${type}/${id}?language=fr-FR`, options)
       .then((response) => response.json())
       .then((data) => setDetails(data))
       .catch((err) => console.error(err));
 
-    fetch(`https://api.themoviedb.org/3/movie/${id}/watch/providers`, options)
+    fetch(`https://api.themoviedb.org/3/${type}/${id}/watch/providers`, options)
       .then((response) => response.json())
       .then((data) => setDisplayProvider(data))
       .catch((err) => console.error(err));
 
     fetch(
-      `https://api.themoviedb.org/3/movie/${id}/similar?language=fr-FR&page=1`,
+      `https://api.themoviedb.org/3/${type}/${id}/similar?language=fr-FR&page=1`,
       options
     )
       .then((response) => response.json())
       .then((data) => setDisplaySuggestions(data))
       .catch((err) => console.error(err));
-  }, [apiToken, id]);
+  }, [apiToken, type, id]);
 
   return (
     <>
       <ArrowBack />
       <section>
         <picture>
-          {details.belongs_to_collection && (
+          {details.belongs_to_collection && type === "movie" ? (
             <img
               src={`https://image.tmdb.org/t/p/original${details.belongs_to_collection.backdrop_path}`}
-              alt=""
+              alt="Beautiful poster"
+            />
+          ) : (
+            <img
+              src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
+              alt="Beautiful poster"
             />
           )}
         </picture>
         <section className="descriptionSection">
           <h1>
-            {details.title} - <span>{details.tagline}</span>
+            {details && type === "movie"
+              ? details.original_title
+              : details.original_name}
           </h1>
           <article className="descriptionThirdArticle">
             <h2>Synopsys</h2>
             <p>{details.overview}</p>
           </article>
           <article className="descriptionFirstArticle">
-            <p>Durée : {Math.round(details.runtime / 60)}h</p>
+            {details && type === "movie" ? (
+              <p>Durée : {Math.round(details.runtime / 60)}h</p>
+            ) : (
+              <>
+                <p>Nombre de saison : {details.number_of_seasons}</p>
+                <p>Nombre d'épisodes : {details.number_of_episodes}</p>
+              </>
+            )}
+            {/* <p>Durée : {Math.round(details.runtime / 60)}h</p> */}
             <p>Date de publication : {details.release_date}</p>
           </article>
           <article className="descriptionSecondArticle">
@@ -83,7 +98,7 @@ function Article() {
           displaySuggestions.results.length > 0 ? (
             displaySuggestions.results.map((item) => (
               <article key={item.id} className="articleMovies">
-                <Link to={`/media/${item.id}`}>
+                <Link to={`/media/${item.media_type}/${item.id}`}>
                   <picture>
                     <img
                       src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
