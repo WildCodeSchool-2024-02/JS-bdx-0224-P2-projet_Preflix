@@ -234,6 +234,25 @@ function Home() {
           </button>
         </section>
       </section>
+      <section className="container2">
+        <h2 className="containerTitle titleDark">Nouveauté</h2>
+        <section className="moviesContainer container2">
+          {newMovies &&
+            newMovies.map((movie) => (
+              <article key={movie.id} className="articleMovies">
+                <Link to={`/media/${movie.id}`}>
+                  <figure>
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                      alt={movie.title}
+                      className="posterMovie"
+                    />
+                  </figure>
+                </Link>
+              </article>
+            ))}
+        </section>
+      </section>
       <section>
         <h2 className="containerTitle">Séries du moment</h2>
         <section
