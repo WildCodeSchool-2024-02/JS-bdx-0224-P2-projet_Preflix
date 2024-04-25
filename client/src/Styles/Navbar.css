@@ -16,12 +16,12 @@
 }
 
 nav {
-  background-color: #1a1a1a;
+  background-color: var(--primary-color);
   display: flex;
   position: fixed;
   bottom: 0;
   width: 100%;
-  z-index: 11;
+  z-index: 10;
   height: 6rem;
 }
 
@@ -41,7 +41,7 @@ li {
 .searchBar,
 .searchNavBar,
 .isMobile,
-.logoFull {
+.logoFull .buttonCategory {
   display: none;
 }
 @media screen and (min-width: 992px) {
@@ -49,8 +49,8 @@ li {
   .titleNav,
   .searchBar,
   .searchNavBar,
-  .isMobile,
-  .logoFull {
+  .logoFull,
+  .isMobile {
     display: block;
   }
   .navIcon,
@@ -61,6 +61,11 @@ li {
     font-family: var(--secondary-font);
     margin: 0;
   }
+
+  h2 {
+    font-family: var(--secondary-font);
+  }
+
   nav {
     position: relative;
     flex-wrap: nowrap;
@@ -74,7 +79,12 @@ li {
   label {
     font-size: 0;
   }
-  .titleNav:hover {
+  .linkName {
+    font-size: 0.75rem;
+    color: var(--tertiary-color);
+    text-decoration: none;
+  }
+  .linkName:hover {
     color: var(--secondary-color);
     transition-duration: 300ms;
   }
@@ -90,6 +100,48 @@ li {
   .selected {
     background-image: url(./../assets/images/icons-search-yellow.svg);
   }
+
+  .buttonCategory {
+    background-color: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nameCategory {
+    color: var(--tertiary-color);
+    font-size: 1.4em;
+  }
+
+  .nameCategory2 {
+    color: var(--secondary-color);
+    font-size: 1.4em;
+  }
+
+  .category {
+    cursor: pointer;
+  }
+
+  .category:hover {
+    color: var(--secondary-color);
+    background-color: #313131;
+  }
+
+  .scrollingMenu {
+    background-color: rgb(49, 49, 49, 0.6);
+  }
+
+  .genderCategory {
+    font-family: var(--secondary-font);
+    font-size: 1rem;
+  }
+
+  .genderCategory:hover {
+    color: var(--secondary-color);
+  }
+
   .searchDesktop {
     width: 32px;
   }
