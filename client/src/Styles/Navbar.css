@@ -120,12 +120,6 @@ li {
     font-size: 1.4em;
   }
 
-  /* .arrowDown{
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
-    color: var(--tertiary-color);
-  } */
-
   .category {
     cursor: pointer;
   }
@@ -148,8 +142,7 @@ li {
     color: var(--secondary-color);
   }
 
-  /* .category:hover {
-    background-color: rgb(49, 49, 49, 0.2);
-    cursor: pointer;
-  } */
+  .searchDesktop {
+    width: 32px;
+  }
 }

@@ -47,6 +47,38 @@ function Home() {
     setNewMovies(arrnew);
   };
 
+  const showNextPopMov = () => {
+    const firstPopMov = popularMovies[0];
+    const arrPopMov = [...popularMovies];
+    arrPopMov.push(firstPopMov);
+    arrPopMov.shift();
+    setPopularMovies(arrPopMov);
+  };
+
+  const showPrevPopMov = () => {
+    const firstPopMov = popularMovies[popularMovies.length - 1];
+    const arrPopMov = [...popularMovies];
+    arrPopMov.unshift(firstPopMov);
+    arrPopMov.pop();
+    setPopularMovies(arrPopMov);
+  };
+
+  const showNextPopSer = () => {
+    const firstPopSer = popularSeries[0];
+    const arrPopSer = [...popularSeries];
+    arrPopSer.push(firstPopSer);
+    arrPopSer.shift();
+    setPopularSeries(arrPopSer);
+  };
+
+  const showPrevPopSer = () => {
+    const firstPopSer = popularSeries[popularSeries.length - 1];
+    const arrPopSer = [...popularSeries];
+    arrPopSer.unshift(firstPopSer);
+    arrPopSer.pop();
+    setPopularSeries(arrPopSer);
+  };
+
   useEffect(() => {
     const options = {
       method: "GET",
@@ -92,15 +124,6 @@ function Home() {
   return (
     <>
       <section className="firstSection">
-        <Link to="/">
-          <picture>
-            <img
-              src="src/assets/images/logo.svg"
-              alt="Preflix's logo"
-              className="logoTest"
-            />
-          </picture>
-        </Link>
         <Banner />
       </section>
       <section>
@@ -131,13 +154,15 @@ function Home() {
           {popular &&
             popular.map((movie) => (
               <article key={movie.id} className="articleMovies">
-                <figure>
-                  <img
-                    src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                    alt={movie.title}
-                    className="posterMovie"
-                  />
-                </figure>
+                <Link to={`/media/${movie.id}`}>
+                  <figure>
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                      alt={movie.title}
+                      className="posterMovie"
+                    />
+                  </figure>
+                </Link>
               </article>
             ))}
           <button
@@ -174,13 +199,15 @@ function Home() {
           {newMovies &&
             newMovies.map((newMovie) => (
               <article key={newMovie.id} className="articleMovies">
-                <figure>
-                  <img
-                    src={`https://image.tmdb.org/t/p/original${newMovie.poster_path}`}
-                    alt={newMovie.title}
-                    className="posterMovie"
-                  />
-                </figure>
+                <Link to={`/media/${newMovie.id}`}>
+                  <figure>
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${newMovie.poster_path}`}
+                      alt={newMovie.title}
+                      className="posterMovie"
+                    />
+                  </figure>
+                </Link>
               </article>
             ))}
           <button
@@ -209,7 +236,10 @@ function Home() {
       </section>
       <section>
         <h2 className="containerTitle">Séries du moment</h2>
-        <section className="moviesContainer">
+        <section
+          className="moviesContainer"
+          style={{ translate: `${-100 * popularSeries}%` }}
+        >
           {popularSeries &&
             popularSeries.map((movie) => (
               <article key={movie.id} className="articleMovies">
@@ -224,11 +254,36 @@ function Home() {
                 </Link>
               </article>
             ))}
+          <button
+            className="buttonRight"
+            type="button"
+            onClick={() => showNextPopSer()}
+          >
+            <img
+              className="arrow"
+              src="./src/assets/images/arrowright.png"
+              alt="arrow right"
+            />
+          </button>
+          <button
+            className="buttonLeft"
+            type="button"
+            onClick={() => showPrevPopSer()}
+          >
+            <img
+              className="arrow"
+              src="./src/assets/images/arrowleft.png"
+              alt="arrow left"
+            />
+          </button>
         </section>
       </section>
       <section>
         <h2 className="containerTitle">Films du moment</h2>
-        <section className="moviesContainer">
+        <section
+          className="moviesContainer"
+          style={{ translate: `${-100 * popularMovies}%` }}
+        >
           {popularMovies &&
             popularMovies.map((newMovie) => (
               <article key={newMovie.id} className="articleMovies">
@@ -243,6 +298,28 @@ function Home() {
                 </Link>
               </article>
             ))}
+          <button
+            className="buttonRight"
+            type="button"
+            onClick={() => showNextPopMov()}
+          >
+            <img
+              className="arrow"
+              src="./src/assets/images/arrowright.png"
+              alt="arrow right"
+            />
+          </button>
+          <button
+            className="buttonLeft"
+            type="button"
+            onClick={() => showPrevPopMov()}
+          >
+            <img
+              className="arrow"
+              src="./src/assets/images/arrowleft.png"
+              alt="arrow left"
+            />
+          </button>
         </section>
       </section>
     </>

@@ -47,20 +47,6 @@
   position: relative;
 }
 
-picture {
-  width: 100%;
-}
-
-.test {
-  height: 10rem;
-}
-
-.logoTest {
-  position: absolute;
-  width: 3rem;
-  left: 0.5rem;
-}
-
 .moviesContainer {
   display: flex;
   overflow-x: auto;
@@ -78,6 +64,7 @@ picture {
 
 .articleMovies {
   margin: 0 0.5rem;
+  transition: translate 300ms ease-in-out;
 }
 
 .posterMovie {
@@ -112,7 +99,4 @@ section:nth-of-type(2) {
 }
 
 @media screen and (min-width: 992px) {
-  button {
-    display: none;
-  }
 }
