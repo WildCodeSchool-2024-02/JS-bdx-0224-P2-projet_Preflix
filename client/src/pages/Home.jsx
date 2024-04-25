@@ -109,8 +109,8 @@ function Home() {
             ))}
         </section>
       </section>
-      <section>
-        <h2 className="containerTitle container2 titleDark">Nouveauté</h2>
+      <section className="container2">
+        <h2 className="containerTitle titleDark">Nouveauté</h2>
         <section className="moviesContainer container2">
           {newMovies &&
             newMovies.map((movie) => (
