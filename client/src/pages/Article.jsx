@@ -88,19 +88,18 @@ function Article() {
           <article className="descriptionWatchProvider">
             {displayProvider && type === "movie" ? (
               <section>
-                <p>Regarder sur :</p>
                 {displayProvider.results && displayProvider.results.FR ? (
-                  <a href={displayProvider.results.FR.link}>
-                    Regarder sur {displayProvider.results.FR}
-                  </a>
+                  <>
+                    {displayProvider.results.FR.flatrate.map((item) => (
+                      <img key={item.name} src={item.image} alt={item.name} />
+                    ))}
+                  </>
                 ) : (
-                  <p>Aucune plateforme française ne propose votre film</p>
+                  <p>Aucune plateforme n'est disponible pour votre film</p>
                 )}
               </section>
             ) : (
-              <section>
-                <p>Test</p>
-              </section>
+              <p>Aucune plateforme n'est disponible pour votre film</p>
             )}
           </article>
           <p>Vous pourriez apprécié :</p>
