@@ -1,0 +1,37 @@
+.descriptionSection {
+  margin: 1rem 2rem;
+}
+
+.descriptionSection > h1 {
+  font-size: 1.5rem;
+}
+
+.descriptionSection span {
+  font-size: 1.3rem;
+}
+
+.descriptionFirstArticle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.descriptionSecondArticle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.descriptionThirdArticle {
+  font-weight: 300;
+  padding: 1rem 0;
+}
+
+.descriptionWatchProvider {
+  padding: 2rem 0;
+}
+
+.descriptionWatchProvider > p:first-child {
+  font-weight: 700;
+}

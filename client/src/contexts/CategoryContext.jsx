@@ -5,79 +5,79 @@ export const CategoryContext = createContext();
 
 export function TypeProvider({ children }) {
 const [types, setTypes] = useState([{
-    name: "Action",
+    name: "action",
     id: 18
   },
   {
-    name: "Animation",
+    name: "animation",
     id: 16
   },
   {
-    name: "Aventure",
+    name: "aventure",
     id: 12
   },
   {
-    name: "Comédie",
+    name: "comédie",
     id: 35
   },
   {
-    name: "Documentaire",
+    name: "documentaire",
     id: 99
   },
   {
-    name: "Drame",
+    name: "drame",
     id: 18
   },
   {
-    name: "Enfants",
+    name: "enfants",
     id: 10762
   },
   {
-    name: "Familial",
+    name: "familial",
     id: 10751
   },
   {
-    name: "Fantastique",
+    name: "fantastique",
     id: 14
   },
   {
-    name: "Guerre",
+    name: "guerre",
     id: 10752
   },
   {
-    name: "Histoire",
+    name: "histoire",
     id: 36
   },
   {
-    name: "Horreur",
+    name: "horreur",
     id: 27
   },
   {
-    name: "Musique",
+    name: "musique",
     id: 10402
   },
   {
-    name: "Mystère",
+    name: "mystère",
     id: 9648
   },
   {
-    name: "Policier",
+    name: "policier",
     id: 80
   },
   {
-    name: "Romance",
+    name: "romance",
     id: 10749
   },
   {
-    name: "Science-Fiction",
+    name: "science-fiction",
     id: 878
   },
   {
-    name: "Thriller",
+    name: "thriller",
     id: 53
   },
   {
-    name: "Western",
+    name: "western",
     id: 37
   }
 ])

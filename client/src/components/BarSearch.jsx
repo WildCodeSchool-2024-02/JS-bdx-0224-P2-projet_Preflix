@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import "../Styles/BarSearch.css";
 
@@ -52,15 +53,17 @@ function BarSearch({ fetchData, setData, apiToken }) {
       <section className="search-results">
         {fetchData.data.map((item) => (
           <article key={item.id}>
-            <figure>
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-                alt={item.title}
-              />
-              <figcaption>
-                {item.title} {item.name}
-              </figcaption>
-            </figure>
+            <Link to={`/media/${item.id}`}>
+              <figure>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+                  alt={item.title}
+                />
+                <figcaption>
+                  {item.title} {item.name}
+                </figcaption>
+              </figure>
+            </Link>
           </article>
         ))}
       </section>
