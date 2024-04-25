@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CategoryContext } from "../contexts/CategoryContext";
 
-
-function CategoryBtn({ label, isVisible, setIsVisible  }) {
-
+function CategoryBtn({ label, isVisible, setIsVisible }) {
   const { types } = useContext(CategoryContext);
 
   const handleClick = () => {
@@ -21,8 +19,11 @@ function CategoryBtn({ label, isVisible, setIsVisible  }) {
       {isVisible && (
         <ul className="ul-category">
           {types.map((type) => (
-            <Link to={{pathname:`/category/${type.name}`}} key={type.name}>
-              <li className="li-category">{type.name.charAt(0).toUpperCase()}{type.name.substring(1)}</li>
+            <Link to={{ pathname: `/category/${type.name}` }} key={type.name}>
+              <li className="li-category">
+                {type.name.charAt(0).toUpperCase()}
+                {type.name.substring(1)}
+              </li>
             </Link>
           ))}
         </ul>
