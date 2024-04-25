@@ -15,6 +15,9 @@ function Home() {
   const [popularSeries, setPopularSeries] = useState([]);
   const [popular, setPopular] = useState([]);
 
+  const getTypeFromUrl = (movie) =>
+    movie.media_type || (movie.original_title ? "movie" : "tv");
+
   useEffect(() => {
     const options = {
       method: "GET",
@@ -24,6 +27,7 @@ function Home() {
       },
     };
 
+    // Films du moment ❌
     fetch(
       "https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=1",
       options
@@ -32,6 +36,7 @@ function Home() {
       .then((data) => setPopularMovies(data.results))
       .catch((err) => console.error(err));
 
+    // Nouveautés ❌
     fetch(
       "https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=7",
       options
@@ -40,6 +45,7 @@ function Home() {
       .then((data) => setNewMovies(data.results))
       .catch((err) => console.error(err));
 
+    // Série du moment ✅
     fetch(
       "https://api.themoviedb.org/3/trending/tv/week?language=fr-FR",
       options
@@ -48,14 +54,7 @@ function Home() {
       .then((data) => setPopularSeries(data.results))
       .catch((err) => console.error(err));
 
-    fetch(
-      "https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=7",
-      options
-    )
-      .then((response) => response.json())
-      .then((data) => setNewMovies(data.results))
-      .catch((err) => console.error(err));
-
+    // Populaire sur Preflix ✅
     fetch(
       "https://api.themoviedb.org/3/trending/all/week?language=fr-FR",
       options
@@ -123,26 +122,9 @@ function Home() {
           {newMovies &&
             newMovies.map((movie) => (
               <article key={movie.id} className="articleMovies">
-                <Link to={`/media/${movie.media_type}/${movie.id}`}>
-                  <figure>
-                    <img
-                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                      alt={movie.title}
-                      className="posterMovie"
-                    />
-                  </figure>
-                </Link>
-              </article>
-            ))}
-        </section>
-      </section>
-      <section className="container2">
-        <h2 className="containerTitle titleDark">Nouveauté</h2>
-        <section className="moviesContainer container2">
-          {newMovies &&
-            newMovies.map((movie) => (
-              <article key={movie.id} className="articleMovies">
-                <Link to={`/media/${movie.id}`}>
+                <Link
+                  to={`/media/${movie.media_type === "tv" ? "tv" : "movie"}/${movie.id}`}
+                >
                   <figure>
                     <img
                       src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
@@ -180,7 +162,7 @@ function Home() {
           {popularMovies &&
             popularMovies.map((newMovie) => (
               <article key={newMovie.id} className="articleMovies">
-                <Link to={`/media/${newMovie.media_type}/${newMovie.id}`}>
+                <Link to={`/media/${getTypeFromUrl(newMovie)}/${newMovie.id}`}>
                   <figure>
                     <img
                       src={`https://image.tmdb.org/t/p/original${newMovie.poster_path}`}
