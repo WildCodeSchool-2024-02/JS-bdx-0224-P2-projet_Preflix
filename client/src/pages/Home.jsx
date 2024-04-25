@@ -13,6 +13,7 @@ function Home() {
 
   const [popularMovies, setPopularMovies] = useState([]);
   const [newMovies, setNewMovies] = useState([]);
+
   const [popularSeries, setPopularSeries] = useState([]);
   const [popular, setPopular] = useState([]);
 
