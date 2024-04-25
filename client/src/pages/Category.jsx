@@ -9,7 +9,7 @@ function Category() {
 
   const { categoryList } = useParams();
   const categoryName = categoryList;
-  
+
   const selectedCategoryId = types
     .filter((type) => type.name === categoryName)
     .map((selection) => selection.id);
@@ -20,29 +20,29 @@ function Category() {
   const apiToken = import.meta.env.VITE_API_TOKEN;
 
   useEffect(() => {
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${apiToken}`,
-    },
-  };
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${apiToken}`,
+      },
+    };
 
-  fetch(
-    "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=fr-FR&page=1&sort_by=popularity.desc",
-    options
-  )
-    .then((response) => response.json())
-    .then((data) => setMovieInfos(data.results))
-    .catch((err) => console.error(err));
+    fetch(
+      "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=fr-FR&page=1&sort_by=popularity.desc",
+      options
+    )
+      .then((response) => response.json())
+      .then((data) => setMovieInfos(data.results))
+      .catch((err) => console.error(err));
 
-  fetch(
-    "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=fr-FR&page=1&sort_by=popularity.desc",
-    options
-  )
-    .then((response) => response.json())
-    .then((data) => setSerieInfos(data.results))
-    .catch((err) => console.error(err));
+    fetch(
+      "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=fr-FR&page=1&sort_by=popularity.desc",
+      options
+    )
+      .then((response) => response.json())
+      .then((data) => setSerieInfos(data.results))
+      .catch((err) => console.error(err));
   }, [apiToken]);
 
   return (

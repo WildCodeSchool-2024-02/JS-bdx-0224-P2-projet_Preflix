@@ -1,7 +1,7 @@
 import { useState } from "react";
 import BarSearch from "../components/BarSearch";
 import ArrowBack from "../components/ArrowBack";
-import "../Styles/Search.css"
+import "../Styles/Search.css";
 
 function Search() {
   const apiToken = import.meta.env.VITE_API_TOKEN;

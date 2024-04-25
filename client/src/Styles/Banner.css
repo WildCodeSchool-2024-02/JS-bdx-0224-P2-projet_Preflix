@@ -83,11 +83,11 @@ figure {
 
 .buttonRight:hover,
 .buttonRight:focus-visible {
-  background-color: rgb(49, 49, 49, 0.2);
+  background-color: rgb(49, 49, 49, 0.4);
 }
 .buttonLeft:hover,
 .buttonLeft:focus-visible {
-  background-color: rgb(49, 49, 49, 0.2);
+  background-color: rgb(49, 49, 49, 0.4);
 }
 
 .buttonRight {
