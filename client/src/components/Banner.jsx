@@ -35,7 +35,8 @@ function Banner() {
       <img src="./src/assets/images/logo.svg" alt="logo" className="imgLogo" />
       <figure className="imgMovie">
         {moviesList.map((movie) => (
-          <img className="imgBanner"
+          <img
+            className="imgBanner"
             src={movie.imgSrc}
             alt={movie.name}
             key={movie.name}
@@ -44,7 +45,7 @@ function Banner() {
         ))}
       </figure>
       <button className="buttonRight" type="button" onClick={showNextImg}>
-        <img 
+        <img
           className="arrow"
           src="./src/assets/images/arrowright.png"
           alt="arrow right"

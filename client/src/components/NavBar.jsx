@@ -83,9 +83,13 @@ function NavBar() {
         <li className="isMobile">
           <Link to="/search">
             <img
-              src="./src/assets/images/icons-chercher.svg"
-              alt="Search's icon"
-              className={selectedUrl === "/search" ? "selected" : ""}
+              className="searchDesktop"
+              src={
+                selectedUrl === "/search"
+                  ? "../src/assets/images/icons-search-yellow.svg"
+                  : "../src/assets/images/icons-chercher.svg"
+              }
+              alt="Rechercher"
             />
           </Link>
         </li>
