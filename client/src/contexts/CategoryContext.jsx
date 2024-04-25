@@ -6,7 +6,7 @@ export const CategoryContext = createContext();
 export function TypeProvider({ children }) {
 const [types, setTypes] = useState([{
     name: "Action",
-    id: 28
+    id: 18
   },
   {
     name: "Animation",
