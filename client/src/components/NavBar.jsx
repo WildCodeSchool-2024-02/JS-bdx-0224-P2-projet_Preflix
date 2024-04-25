@@ -116,7 +116,7 @@ function NavBar() {
             </Popover>
           </Select>
         </li>
-        <li>
+        <li className="isMobile">
           <Link className="isMobile" to="/credits">
             <h2 className={selectedUrl === "/credits" ? "yellow" : "titleNav"}>
               Crédits

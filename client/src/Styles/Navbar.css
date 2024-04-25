@@ -13,6 +13,7 @@
 .logoFull {
   width: 5rem;
   margin-left: 2rem;
+  display: none;
 }
 
 nav {

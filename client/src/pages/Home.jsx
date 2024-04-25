@@ -159,41 +159,24 @@ function Home() {
           className="moviesContainer"
           style={{ translate: `${-100 * popular}%` }}
         >
-          {popular &&
-            popular.map((movie) => (
-              <article key={movie.id} className="articleMovies">
-                <Link to={`/media/${movie.media_type}/${movie.id}`}>
-                  <figure>
-                    <img
-                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                      alt={movie.title}
-                      className="posterMovie"
-                    />
-                  </figure>
-                </Link>
-              </article>
-            ))}
-        </section>
-      </section>
-      <section className="container2">
-        <h2 className="containerTitle titleDark">Nouveauté</h2>
-        <section className="moviesContainer container2">
-          {newMovies &&
-            newMovies.map((movie) => (
-              <article key={movie.id} className="articleMovies">
-                <Link to={`/media/${movie.media_type}/${movie.id}`}>
-                  <figure>
-                    <img
-                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                      alt={movie.title}
-                      className="posterMovie"
-                    />
-                  </figure>
-                </Link>
-              </article>
-            ))}
+          <section className="moviesContainer">
+            {popular &&
+              popular.map((movie) => (
+                <article key={movie.id} className="articleMovies">
+                  <Link to={`/media/${movie.media_type}/${movie.id}`}>
+                    <figure>
+                      <img
+                        src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                        alt={movie.title}
+                        className="posterMovie"
+                      />
+                    </figure>
+                  </Link>
+                </article>
+              ))}
+          </section>
           <button
-            className="buttonRight"
+            className="buttonRight desktopOnly"
             type="button"
             onClick={() => showNextPop()}
           >
@@ -204,7 +187,7 @@ function Home() {
             />
           </button>
           <button
-            className="buttonLeft"
+            className="buttonLeft desktopOnly"
             type="button"
             onClick={() => showPrevPop()}
           >
@@ -223,20 +206,22 @@ function Home() {
           className="moviesContainer container2"
           style={{ translate: `${-100 * newMovies}%` }}
         >
-          {newMovies &&
-            newMovies.map((newMovie) => (
-              <article key={newMovie.id} className="articleMovies">
-                <Link to={`/media/${newMovie.id}`}>
-                  <figure>
-                    <img
-                      src={`https://image.tmdb.org/t/p/original${newMovie.poster_path}`}
-                      alt={newMovie.title}
-                      className="posterMovie"
-                    />
-                  </figure>
-                </Link>
-              </article>
-            ))}
+          <section className="moviesContainer">
+            {newMovies &&
+              newMovies.map((newMovie) => (
+                <article key={newMovie.id} className="articleMovies">
+                  <Link to={`/media/${newMovie.media_type}/${newMovie.id}`}>
+                    <figure>
+                      <img
+                        src={`https://image.tmdb.org/t/p/original${newMovie.poster_path}`}
+                        alt={newMovie.title}
+                        className="posterMovie"
+                      />
+                    </figure>
+                  </Link>
+                </article>
+              ))}
+          </section>
           <button
             className="buttonRight"
             type="button"
@@ -261,45 +246,28 @@ function Home() {
           </button>
         </section>
       </section>
-      <section className="container2">
-        <h2 className="containerTitle titleDark">Nouveauté</h2>
-        <section className="moviesContainer container2">
-          {newMovies &&
-            newMovies.map((movie) => (
-              <article key={movie.id} className="articleMovies">
-                <Link to={`/media/${movie.id}`}>
-                  <figure>
-                    <img
-                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                      alt={movie.title}
-                      className="posterMovie"
-                    />
-                  </figure>
-                </Link>
-              </article>
-            ))}
-        </section>
-      </section>
       <section>
         <h2 className="containerTitle">Séries du moment</h2>
         <section
           className="moviesContainer"
           style={{ translate: `${-100 * popularSeries}%` }}
         >
-          {popularSeries &&
-            popularSeries.map((movie) => (
-              <article key={movie.id} className="articleMovies">
-                <Link to={`/media/${movie.media_type}/${movie.id}`}>
-                  <figure>
-                    <img
-                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                      alt={movie.title}
-                      className="posterMovie"
-                    />
-                  </figure>
-                </Link>
-              </article>
-            ))}
+          <section className="moviesContainer">
+            {popularSeries &&
+              popularSeries.map((movie) => (
+                <article key={movie.id} className="articleMovies">
+                  <Link to={`/media/${movie.media_type}/${movie.id}`}>
+                    <figure>
+                      <img
+                        src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                        alt={movie.title}
+                        className="posterMovie"
+                      />
+                    </figure>
+                  </Link>
+                </article>
+              ))}
+          </section>
           <button
             className="buttonRight"
             type="button"
@@ -330,20 +298,22 @@ function Home() {
           className="moviesContainer"
           style={{ translate: `${-100 * popularMovies}%` }}
         >
-          {popularMovies &&
-            popularMovies.map((newMovie) => (
-              <article key={newMovie.id} className="articleMovies">
-                <Link to={`/media/${newMovie.media_type}/${newMovie.id}`}>
-                  <figure>
-                    <img
-                      src={`https://image.tmdb.org/t/p/original${newMovie.poster_path}`}
-                      alt={newMovie.title}
-                      className="posterMovie"
-                    />
-                  </figure>
-                </Link>
-              </article>
-            ))}
+          <section className="moviesContainer">
+            {popularMovies &&
+              popularMovies.map((newMovie) => (
+                <article key={newMovie.id} className="articleMovies">
+                  <Link to={`/media/${newMovie.media_type}/${newMovie.id}`}>
+                    <figure>
+                      <img
+                        src={`https://image.tmdb.org/t/p/original${newMovie.poster_path}`}
+                        alt={newMovie.title}
+                        className="posterMovie"
+                      />
+                    </figure>
+                  </Link>
+                </article>
+              ))}
+          </section>
           <button
             className="buttonRight"
             type="button"
