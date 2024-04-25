@@ -7,12 +7,17 @@ function Article() {
   const apiToken = import.meta.env.VITE_API_TOKEN;
 
   const [details, setDetails] = useState([]);
-  const [displayProvider, setDisplayProvider] = useState([]);
+  // const [displayProvider, setDisplayProvider] = useState([]);
   const [displaySuggestions, setDisplaySuggestions] = useState([]);
 
   const { id, type } = useParams();
 
+  const getTypeFromUrl = (movie) =>
+    movie.media_type || (movie.original_title ? "movie" : "tv");
+
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     const options = {
       method: "GET",
       headers: {
@@ -26,10 +31,10 @@ function Article() {
       .then((data) => setDetails(data))
       .catch((err) => console.error(err));
 
-    fetch(`https://api.themoviedb.org/3/${type}/${id}/watch/providers`, options)
-      .then((response) => response.json())
-      .then((data) => setDisplayProvider(data))
-      .catch((err) => console.error(err));
+    // fetch(`https://api.themoviedb.org/3/${type}/${id}/watch/providers`, options)
+    //   .then((response) => response.json())
+    //   .then((data) => setDisplayProvider(data))
+    //   .catch((err) => console.error(err));
 
     fetch(
       `https://api.themoviedb.org/3/${type}/${id}/similar?language=fr-FR&page=1`,
@@ -39,6 +44,10 @@ function Article() {
       .then((data) => setDisplaySuggestions(data))
       .catch((err) => console.error(err));
   }, [apiToken, type, id]);
+
+  // console.log(details);
+  // console.log(displayProvider);
+  // console.log(displaySuggestions);
 
   return (
     <>
@@ -52,7 +61,7 @@ function Article() {
             />
           ) : (
             <img
-              src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/original${details.poster_path}`}
               alt="Beautiful poster"
             />
           )}
@@ -85,23 +94,39 @@ function Article() {
             <p>Note : {details.vote_average} / 10</p>
             <p>Nombre d'avis : {details.vote_count}</p>
           </article>
-          <article className="descriptionWatchProvider">
-            {displayProvider && type === "movie" ? (
+          {/* <article className="descriptionWatchProvider">
+            {displayProvider &&
+            displayProvider.results &&
+            displayProvider.results.FR ? (
               <section>
-                {displayProvider.results && displayProvider.results.FR ? (
-                  <>
-                    {displayProvider.results.FR.flatrate.map((item) => (
-                      <img key={item.name} src={item.image} alt={item.name} />
-                    ))}
-                  </>
-                ) : (
-                  <p>Aucune plateforme n'est disponible pour votre film</p>
-                )}
+                <h2>Achat :</h2>
+                {displayProvider.results.FR.buy.map((item, index) => (
+                  <article key={index} className="providerList">
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${item.logo_path}`}
+                      alt=""
+                      className="providerImg"
+                    />
+                    <p>{item.provider_name}</p>
+                  </article>
+                ))}
+                <h2>Location :</h2>
+                {displayProvider.results.FR.rent.map((item, index) => (
+                  <article key={index} className="providerList">
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${item.logo_path}`}
+                      alt=""
+                      className="providerImg"
+                    />
+                    <p>{item.provider_name}</p>
+                  </article>
+                ))}
               </section>
             ) : (
               <p>Aucune plateforme n'est disponible pour votre film</p>
             )}
-          </article>
+          </article> */}
+
           <p>Vous pourriez apprécié :</p>
         </section>
         <section className="moviesContainer">
@@ -109,10 +134,10 @@ function Article() {
           displaySuggestions.results.length > 0 ? (
             displaySuggestions.results.map((item) => (
               <article key={item.id} className="articleMovies">
-                <Link to={`/media/${item.media_type}/${item.id}`}>
+                <Link to={`/media/${getTypeFromUrl(item)}/${item.id}`}>
                   <picture>
                     <img
-                      src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
+                      src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
                       alt={item.title}
                       className="posterMovie"
                     />
