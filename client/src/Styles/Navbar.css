@@ -58,7 +58,7 @@ li {
     display: none;
   }
   .titleNav {
-    font-family: var(--primary-font);
+    font-family: var(--secondary-font);
     margin: 0;
   }
   nav {
@@ -74,22 +74,23 @@ li {
   label {
     font-size: 0;
   }
-  .linkName {
-    font-size: 0.75rem;
-    color: var(--tertiary-color);
-    text-decoration: none;
-  }
-  .linkName:hover {
+  .titleNav:hover {
     color: var(--secondary-color);
     transition-duration: 300ms;
   }
   .yellow {
     color: var(--secondary-color);
-    font-family: var(--primary-font);
+    font-family: var(--secondary-font);
   }
   a {
     color: var(--tertiary-color);
     font-size: 0.7rem;
     text-decoration: none;
+  }
+  .selected {
+    background-image: url(./../assets/images/icons-search-yellow.svg);
+  }
+  .searchDesktop {
+    width: 32px;
   }
 }
