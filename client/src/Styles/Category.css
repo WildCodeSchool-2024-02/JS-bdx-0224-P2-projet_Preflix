@@ -57,6 +57,12 @@ img {
   position: relative;
 }
 
+.section-category > article > figure > img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 figcaption {
   color: var(--primary-color);
   position: absolute;
@@ -64,6 +70,10 @@ figcaption {
 
 @media screen and (min-width: 992px) {
   .icon-return-homepage {
+    display: none;
+  }
+
+  .logo-return-homepage {
     display: none;
   }
 }

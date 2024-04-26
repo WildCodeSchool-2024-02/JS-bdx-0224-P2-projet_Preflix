@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import ArrowBack from "../components/ArrowBack";
 import { CategoryContext } from "../contexts/CategoryContext";
 import "../Styles/Category.css";
+import "../Styles/Home.css";
 
 function Category() {
   const { types } = useContext(CategoryContext);
@@ -11,7 +12,7 @@ function Category() {
   const categoryName = categoryList;
 
   const selectedCategoryId = types
-    .filter((type) => type.name === categoryName)
+    .filter((type) => type.name.toLowerCase() === categoryName)
     .flatMap((selection) => selection.id)
     .join(",");
 
@@ -29,19 +30,17 @@ function Category() {
   };
 
   useEffect(() => {
-    let page = 1;
-
-    const fetchMovies = () => {
+    const fetchMovies = (page) => {
       fetch(
         `https://api.themoviedb.org/3/discover/movie?include_adult=false&language=fr-FR&page=${page}&with_genres=${selectedCategoryId}`,
         options
       )
         .then((response) => response.json())
-        .then((data) => setMovieInfos(data.results))
+        .then((data) => setMovieInfos([...movieInfos, ...data.results]))
         .catch((err) => console.error(err));
     };
 
-    const fetchSeries = () => {
+    const fetchSeries = (page) => {
       fetch(
         `https://api.themoviedb.org/3/discover/tv?include_adult=false&language=fr-FR&page=${page}&with_genres=${selectedCategoryId}`,
         options
@@ -51,14 +50,11 @@ function Category() {
         .catch((err) => console.error(err));
     };
 
-    for (page = 1; page <= 4; page += 1) {
-      fetchMovies(page);
-      fetchSeries(page);
-    }
+    fetchMovies(1);
+    fetchSeries(2);
+    fetchMovies(2);
+    fetchSeries(3);
   }, [apiToken]);
-
-  const movieCond = serieInfos.map((serie) => serie.poster_path);
-  const serieCond = serieInfos.map((serie) => serie.poster_path);
 
   return (
     <>
@@ -66,45 +62,45 @@ function Category() {
 
       <h2 className="title-category">{categoryName.toUpperCase()}</h2>
       <section className="section-category">
-        {movieCond !== null &&
-          movieInfos.map(
-            (movie) =>
-              movie.genre_ids.some((genreId) =>
-                selectedCategoryId.includes(genreId)
-              ) && (
-                <article key={movie.id}>
-                  <figure>
-                    <img
-                      src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                      alt={movie.title}
-                    />
-                    <figcaption>
-                      {movie.title} {movie.name}
-                    </figcaption>
-                  </figure>
-                </article>
-              )
-          )}
+        {movieInfos.map(
+          (movie) =>
+            movie.poster_path &&
+            movie.genre_ids.some((genreId) =>
+              selectedCategoryId.includes(genreId)
+            ) && (
+              <article key={movie.id}>
+                <figure>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                  <figcaption>
+                    {movie.title} {movie.name}
+                  </figcaption>
+                </figure>
+              </article>
+            )
+        )}
 
-        {serieCond !== null &&
-          serieInfos.map(
-            (serie) =>
-              serie.genre_ids.some((genreId) =>
-                selectedCategoryId.includes(genreId)
-              ) && (
-                <article key={serie.id}>
-                  <figure>
-                    <img
-                      src={`https://image.tmdb.org/t/p/w500/${serie.poster_path}`}
-                      alt={serie.title}
-                    />
-                    <figcaption>
-                      {serie.title} {serie.name}
-                    </figcaption>
-                  </figure>
-                </article>
-              )
-          )}
+        {serieInfos.map(
+          (serie) =>
+            serie.poster_path &&
+            serie.genre_ids.some((genreId) =>
+              selectedCategoryId.includes(genreId)
+            ) && (
+              <article key={serie.id}>
+                <figure>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500/${serie.poster_path}`}
+                    alt={serie.title}
+                  />
+                  <figcaption>
+                    {serie.title} {serie.name}
+                  </figcaption>
+                </figure>
+              </article>
+            )
+        )}
       </section>
     </>
   );

@@ -39,8 +39,8 @@ function CategoryBtn({ label, isVisible, setIsVisible }) {
           {types.map((type) => (
             <Link to={{ pathname: `/category/${type.name}` }} key={type.name}>
               <li className="li-category">
-                {type.name.charAt(0).toUpperCase()}
-                {type.name.substring(1)}
+              {type.name.charAt(0).toUpperCase()}
+                {type.name.substring(1)} 
               </li>
             </Link>
           ))}

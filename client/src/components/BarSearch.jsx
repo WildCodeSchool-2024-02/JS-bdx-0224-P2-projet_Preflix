@@ -32,9 +32,13 @@ function BarSearch({ fetchData, setData, apiToken }) {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
-      <form className="form-search">
+      <form className="form-search" onSubmit={handleSubmit}>
         <label htmlFor="search">Films, séries, ...</label>
         <img
           src="../src/assets/images/icons-chercherblack.svg"
@@ -52,6 +56,7 @@ function BarSearch({ fetchData, setData, apiToken }) {
       <h1 className="title-results">Résultats de "{searchValue}"</h1>
       <section className="search-results">
         {fetchData.data.map((item) => (
+           item.poster_path &&
           <article key={item.id}>
             <Link to={`/media/${item.id}`}>
               <figure>
