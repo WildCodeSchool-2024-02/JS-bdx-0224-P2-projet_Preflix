@@ -92,7 +92,7 @@ function NavBar() {
         <li className="navDesktop titleNav">
           <Select className="boxScroll">
             <Button className="buttonCategory" onClick={handleClick}>
-              <h2 className={click ? "nameCategory" : ""}>Catégories ▼</h2>
+              <h2 className={click ? "nameCategory" : "nameCategory"}>Catégories ▼</h2>
             </Button>
             <Popover>
               <ListBox className="scrollingMenu">
