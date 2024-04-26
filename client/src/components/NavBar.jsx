@@ -2,11 +2,11 @@ import { Link, useLocation } from "react-router-dom";
 import "../Styles/Navbar.css";
 import {
   Button,
-  Menu,
-  MenuItem,
-  MenuTrigger,
-  Popover
-} from 'react-aria-components';
+  ListBox,
+  ListBoxItem,
+  Popover,
+  Select,
+} from "react-aria-components";
 import { useContext, useState } from "react";
 import { CategoryContext } from "../contexts/CategoryContext";
 import imgCredit from "../assets/images/heart-hand-shake.svg";
@@ -84,32 +84,31 @@ function NavBar() {
           </Link>
         </li>
         <li className="navDesktop titleNav">
-          <MenuTrigger className="boxScroll">
-            <Button className="buttonCategory" onClick={handleClick} aria-label="Menu">
+          <Select className="boxScroll">
+            <Button className="buttonCategory" onClick={handleClick}>
               <h2 className={click ? "nameCategory" : ""}>Catégories ▼</h2>
             </Button>
             <Popover>
-              <Menu className="scrollingMenu" onAction={Link}>
+              <ListBox className="scrollingMenu">
                 {types.map((type) => (
-                  <MenuItem
-                  aria-label="category"
-                  className="category"
-                  key={type.name}
+                  <ListBoxItem
+                    aria-label="category"
+                    className="category"
+                    key={type}
                   >
                     <Link
-                      to={`/category/${type.name}`}
+                      to={{ pathname: `/category/${type.name}` }}
                       key={type.name}
                       className="genderCategory"
-                      aria-label={type.name}
                     >
                       {type.name.charAt(0).toUpperCase()}
                       {type.name.substring(1)}
                     </Link>
-                  </MenuItem>
+                  </ListBoxItem>
                 ))}
-              </Menu>
+              </ListBox>
             </Popover>
-          </MenuTrigger>
+          </Select>
         </li>
         <li className="isMobile">
           <Link className="isMobile" to="/credits">
