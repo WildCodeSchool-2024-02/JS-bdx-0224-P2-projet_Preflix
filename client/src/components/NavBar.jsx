@@ -19,6 +19,8 @@ function NavBar() {
     setClick(true);
   };
 
+  // fail
+
   const { types } = useContext(CategoryContext);
 
   

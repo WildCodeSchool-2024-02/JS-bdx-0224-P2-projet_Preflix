@@ -2,7 +2,7 @@ import { createContext, useMemo, useState } from "react";
 import PropTypes from "prop-types";
 
 export const CategoryContext = createContext();
-
+// fail
 export function TypeProvider({ children }) {
   const [types, setTypes] = useState([
     {

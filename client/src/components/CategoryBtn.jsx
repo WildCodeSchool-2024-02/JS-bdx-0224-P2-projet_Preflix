@@ -11,7 +11,7 @@ function CategoryBtn({ label, isVisible, setIsVisible }) {
     setIsVisible(!isVisible);
   };
   
-
+// fail
   return (
     <>
       <button className="buttonFilter" type="button" onClick={handleClick}>
