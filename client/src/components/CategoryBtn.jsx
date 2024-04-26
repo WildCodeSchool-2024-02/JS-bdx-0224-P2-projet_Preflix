@@ -10,7 +10,6 @@ function CategoryBtn({ label, isVisible, setIsVisible }) {
   const handleClick = () => {
     setIsVisible(!isVisible);
   };
-  
 
   return (
     <>
