@@ -2,11 +2,11 @@ import { Link, useLocation } from "react-router-dom";
 import "../Styles/Navbar.css";
 import {
   Button,
-  ListBox,
-  ListBoxItem,
-  Popover,
-  Select,
-} from "react-aria-components";
+  Menu,
+  MenuItem,
+  MenuTrigger,
+  Popover
+} from 'react-aria-components';
 import { useContext, useState } from "react";
 import { CategoryContext } from "../contexts/CategoryContext";
 
@@ -21,6 +21,7 @@ function NavBar() {
 
   const { types } = useContext(CategoryContext);
 
+  
   return (
     <nav className="nav">
       <Link className="linkName" to="/">
@@ -90,31 +91,32 @@ function NavBar() {
           </Link>
         </li>
         <li className="navDesktop titleNav">
-          <Select className="boxScroll">
-            <Button className="buttonCategory" onClick={handleClick}>
+          <MenuTrigger className="boxScroll">
+            <Button className="buttonCategory" onClick={handleClick} aria-label="Menu">
               <h2 className={click ? "nameCategory" : ""}>Catégories ▼</h2>
             </Button>
             <Popover>
-              <ListBox className="scrollingMenu">
+              <Menu className="scrollingMenu" onAction={Link}>
                 {types.map((type) => (
-                  <ListBoxItem
-                    aria-label="category"
-                    className="category"
-                    key={type}
+                  <MenuItem
+                  aria-label="category"
+                  className="category"
+                  key={type.name}
                   >
                     <Link
-                      to={{ pathname: `/category/${type.name}` }}
+                      to={`/category/${type.name}`}
                       key={type.name}
                       className="genderCategory"
+                      aria-label={type.name}
                     >
                       {type.name.charAt(0).toUpperCase()}
                       {type.name.substring(1)}
                     </Link>
-                  </ListBoxItem>
+                  </MenuItem>
                 ))}
-              </ListBox>
+              </Menu>
             </Popover>
-          </Select>
+          </MenuTrigger>
         </li>
         <li className="isMobile">
           <Link className="isMobile" to="/credits">
