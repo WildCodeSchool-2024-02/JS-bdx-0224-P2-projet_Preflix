@@ -1,9 +1,25 @@
 import { Link, useLocation } from "react-router-dom";
 import "../Styles/Navbar.css";
+import {
+  Button,
+  ListBox,
+  ListBoxItem,
+  Popover,
+  Select,
+} from "react-aria-components";
+import { useContext, useState } from "react";
+import { CategoryContext } from "../contexts/CategoryContext";
 
 function NavBar() {
   const location = useLocation();
   const selectedUrl = location.pathname;
+  const [click, setClick] = useState(false);
+
+  const handleClick = () => {
+    setClick(true);
+  };
+
+  const { types } = useContext(CategoryContext);
 
   return (
     <nav className="nav">
@@ -73,8 +89,35 @@ function NavBar() {
             </h2>
           </Link>
         </li>
+        <li className="navDesktop titleNav">
+          <Select className="boxScroll">
+            <Button className="buttonCategory" onClick={handleClick}>
+              <h2 className={click ? "nameCategory" : ""}>Catégories ▼</h2>
+            </Button>
+            <Popover>
+              <ListBox className="scrollingMenu">
+                {types.map((type) => (
+                  <ListBoxItem
+                    aria-label="category"
+                    className="category"
+                    key={type}
+                  >
+                    <Link
+                      to={{ pathname: `/category/${type.name}` }}
+                      key={type.name}
+                      className="genderCategory"
+                    >
+                      {type.name.charAt(0).toUpperCase()}
+                      {type.name.substring(1)}
+                    </Link>
+                  </ListBoxItem>
+                ))}
+              </ListBox>
+            </Popover>
+          </Select>
+        </li>
         <li className="isMobile">
-          <Link to="/credits">
+          <Link className="isMobile" to="/credits">
             <h2 className={selectedUrl === "/credits" ? "yellow" : "titleNav"}>
               Crédits
             </h2>
