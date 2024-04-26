@@ -90,8 +90,6 @@ function Article() {
             <p>Note : {details.vote_average} / 10</p>
             <p>Nombre d'avis : {details.vote_count}</p>
           </article>
-
-          {/* Start : Provider */}
           <article className="descriptionWatchProvider">
             <article className="descriptionWatchProvider_buy">
               {displayProvider &&

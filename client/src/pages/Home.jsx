@@ -91,7 +91,6 @@ function Home() {
       },
     };
 
-    // Films du moment ❌
     fetch(
       "https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=1",
       options
@@ -100,14 +99,13 @@ function Home() {
       .then((data) => setPopularMovies(data.results))
       .catch((err) => console.error(err));
 
-    // Nouveautés ❌
     fetch('https://api.themoviedb.org/3/trending/all/day?language=fr-FR', options)
 
       .then((response) => response.json())
       .then((data) => setNewMovies(data.results))
       .catch((err) => console.error(err));
 
-    // Série du moment ✅
+
     fetch(
       "https://api.themoviedb.org/3/trending/tv/week?language=fr-FR",
       options
@@ -116,7 +114,7 @@ function Home() {
       .then((data) => setPopularSeries(data.results))
       .catch((err) => console.error(err));
 
-    // Populaire sur Preflix ✅
+
     fetch(
       "https://api.themoviedb.org/3/trending/all/week?language=fr-FR",
       options
