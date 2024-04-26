@@ -7,7 +7,7 @@ function Article() {
   const apiToken = import.meta.env.VITE_API_TOKEN;
 
   const [details, setDetails] = useState([]);
-  // const [displayProvider, setDisplayProvider] = useState([]);
+  const [displayProvider, setDisplayProvider] = useState([]);
   const [displaySuggestions, setDisplaySuggestions] = useState([]);
 
   const { id, type } = useParams();
@@ -31,10 +31,10 @@ function Article() {
       .then((data) => setDetails(data))
       .catch((err) => console.error(err));
 
-    // fetch(`https://api.themoviedb.org/3/${type}/${id}/watch/providers`, options)
-    //   .then((response) => response.json())
-    //   .then((data) => setDisplayProvider(data))
-    //   .catch((err) => console.error(err));
+    fetch(`https://api.themoviedb.org/3/${type}/${id}/watch/providers`, options)
+      .then((response) => response.json())
+      .then((data) => setDisplayProvider(data))
+      .catch((err) => console.error(err));
 
     fetch(
       `https://api.themoviedb.org/3/${type}/${id}/similar?language=fr-FR&page=1`,
@@ -44,10 +44,6 @@ function Article() {
       .then((data) => setDisplaySuggestions(data))
       .catch((err) => console.error(err));
   }, [apiToken, type, id]);
-
-  // console.log(details);
-  // console.log(displayProvider);
-  // console.log(displaySuggestions);
 
   return (
     <>
@@ -94,39 +90,128 @@ function Article() {
             <p>Note : {details.vote_average} / 10</p>
             <p>Nombre d'avis : {details.vote_count}</p>
           </article>
-          {/* <article className="descriptionWatchProvider">
+
+          {/* Start : Provider */}
+          <article className="descriptionWatchProvider">
+            <article className="descriptionWatchProvider_buy">
+              {displayProvider &&
+              displayProvider.results &&
+              displayProvider.results.FR &&
+              displayProvider.results.FR.buy ? (
+                <section>
+                  {displayProvider.results ? (
+                    <>
+                      <h2>Achat</h2>
+                      {displayProvider.results.FR.buy.map((item) => (
+                        <article key={item.index} className="providerList">
+                          <a href={displayProvider.results.FR.link}>
+                            <img
+                              src={`https://image.tmdb.org/t/p/original${item.logo_path}`}
+                              alt="Providers"
+                            />
+                          </a>
+                        </article>
+                      ))}
+                    </>
+                  ) : null}
+                </section>
+              ) : (
+                <>
+                  <h2>Achat</h2>
+                  <p>Aucun site français pour l'acheter</p>
+                </>
+              )}
+            </article>
+          </article>
+          <article className="descriptionWatchProvider_flatrate">
             {displayProvider &&
             displayProvider.results &&
-            displayProvider.results.FR ? (
+            displayProvider.results.FR &&
+            displayProvider.results.FR.flatrate ? (
               <section>
-                <h2>Achat :</h2>
-                {displayProvider.results.FR.buy.map((item, index) => (
-                  <article key={index} className="providerList">
-                    <img
-                      src={`https://image.tmdb.org/t/p/original${item.logo_path}`}
-                      alt=""
-                      className="providerImg"
-                    />
-                    <p>{item.provider_name}</p>
-                  </article>
-                ))}
-                <h2>Location :</h2>
-                {displayProvider.results.FR.rent.map((item, index) => (
-                  <article key={index} className="providerList">
-                    <img
-                      src={`https://image.tmdb.org/t/p/original${item.logo_path}`}
-                      alt=""
-                      className="providerImg"
-                    />
-                    <p>{item.provider_name}</p>
-                  </article>
-                ))}
+                {displayProvider.results ? (
+                  <>
+                    <h2>Forfait</h2>
+                    {displayProvider.results.FR.flatrate.map((item) => (
+                      <article key={item.index} className="providerList">
+                        <a href={displayProvider.results.FR.link}>
+                          <img
+                            src={`https://image.tmdb.org/t/p/original${item.logo_path}`}
+                            alt="Providers"
+                          />
+                        </a>
+                      </article>
+                    ))}
+                  </>
+                ) : null}
               </section>
             ) : (
-              <p>Aucune plateforme n'est disponible pour votre film</p>
+              <>
+                <h2>Forfait</h2>
+                <p>
+                  Aucun site français proposant un forfait pour votre recherche
+                </p>
+              </>
             )}
-          </article> */}
-
+          </article>
+          <article className="descriptionWatchProvider_free">
+            {displayProvider &&
+            displayProvider.results &&
+            displayProvider.results.FR &&
+            displayProvider.results.FR.free ? (
+              <section>
+                {displayProvider.results ? (
+                  <>
+                    <h2>Gratuitement</h2>
+                    {displayProvider.results.FR.free.map((item) => (
+                      <article key={item.index} className="providerList">
+                        <a href={displayProvider.results.FR.link}>
+                          <img
+                            src={`https://image.tmdb.org/t/p/original${item.logo_path}`}
+                            alt="Providers"
+                          />
+                        </a>
+                      </article>
+                    ))}
+                  </>
+                ) : null}
+              </section>
+            ) : (
+              <>
+                <h2>Gratuitement</h2>
+                <p>Aucun site français gratuit à disposition</p>
+              </>
+            )}
+          </article>
+          <article className="descriptionWatchProvider_rent">
+            {displayProvider &&
+            displayProvider.results &&
+            displayProvider.results.FR &&
+            displayProvider.results.FR.rent ? (
+              <section>
+                {displayProvider.results ? (
+                  <>
+                    <h2>Gratuitement</h2>
+                    {displayProvider.results.FR.rent.map((item) => (
+                      <article key={item.index} className="providerList">
+                        <a href={displayProvider.results.FR.link}>
+                          <img
+                            src={`https://image.tmdb.org/t/p/original${item.logo_path}`}
+                            alt="Providers"
+                          />
+                        </a>
+                      </article>
+                    ))}
+                  </>
+                ) : null}
+              </section>
+            ) : (
+              <>
+                <h2>Location</h2>
+                <p>Aucun site français de location à disposition</p>
+              </>
+            )}
+          </article>
           <p>Vous pourriez apprécié :</p>
         </section>
         <section className="moviesContainer">
