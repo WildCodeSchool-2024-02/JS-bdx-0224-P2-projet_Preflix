@@ -44,19 +44,17 @@ function Article() {
     <>
       <ArrowBack />
       <section>
-        <picture>
-          {details.belongs_to_collection && type === "movie" ? (
-            <img
-              src={`https://image.tmdb.org/t/p/original${details.belongs_to_collection.backdrop_path}`}
-              alt="Beautiful poster"
-            />
-          ) : (
-            <img
-              src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
-              alt="Beautiful poster"
-            />
-          )}
-        </picture>
+        {details.belongs_to_collection && type === "movie" ? (
+          <img
+            src={`https://image.tmdb.org/t/p/original${details.belongs_to_collection.backdrop_path}`}
+            alt="Beautiful poster"
+          />
+        ) : (
+          <img
+            src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
+            alt="Beautiful poster"
+          />
+        )}
         <section className="descriptionSection">
           <h1>
             {details && type === "movie"
@@ -110,13 +108,11 @@ function Article() {
             displaySuggestions.results.map((item) => (
               <article key={item.id} className="articleMovies">
                 <Link to={`/media/${item.media_type}/${item.id}`}>
-                  <picture>
-                    <img
-                      src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
-                      alt={item.title}
-                      className="posterMovie"
-                    />
-                  </picture>
+                  <img
+                    src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
+                    alt={item.title}
+                    className="posterMovie"
+                  />
                 </Link>
               </article>
             ))
