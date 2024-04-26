@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 export const CategoryContext = createContext();
 
+// fixed
 export function TypeProvider({ children }) {
   const [types, setTypes] = useState([
     {
