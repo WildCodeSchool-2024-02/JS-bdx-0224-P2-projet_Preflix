@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ArrowBack from "../components/ArrowBack";
 import { CategoryContext } from "../contexts/CategoryContext";
 import "../Styles/Category.css";
@@ -56,15 +56,17 @@ function Category() {
               selectedCategoryId.includes(genreId)
             ) && (
               <article key={movie.id}>
-                <figure>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                    alt={movie.title}
-                  />
-                  <figcaption>
-                    {movie.title} {movie.name}
-                  </figcaption>
-                </figure>
+                <Link to={`/media/movie/${movie.id}`}>
+                  <figure>
+                    <img
+                      src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                      alt={movie.title}
+                    />
+                    <figcaption>
+                      {movie.title} {movie.name}
+                    </figcaption>
+                  </figure>
+                </Link>
               </article>
             )
         )}
@@ -74,15 +76,17 @@ function Category() {
               selectedCategoryId.includes(genreId)
             ) && (
               <article key={serie.id}>
-                <figure>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500/${serie.poster_path}`}
-                    alt={serie.title}
-                  />
-                  <figcaption>
-                    {serie.title} {serie.name}
-                  </figcaption>
-                </figure>
+                <Link to={`/media/tv/${serie.id}`}>
+                  <figure>
+                    <img
+                      src={`https://image.tmdb.org/t/p/w500/${serie.poster_path}`}
+                      alt={serie.title}
+                    />
+                    <figcaption>
+                      {serie.title} {serie.name}
+                    </figcaption>
+                  </figure>
+                </Link>
               </article>
             )
         )}
