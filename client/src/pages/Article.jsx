@@ -10,7 +10,7 @@ function Article() {
   const [displayProvider, setDisplayProvider] = useState([]);
   const [displaySuggestions, setDisplaySuggestions] = useState([]);
 
-  const { id } = useParams();
+  const { id, type } = useParams();
 
   useEffect(() => {
     const options = {
@@ -21,59 +21,83 @@ function Article() {
       },
     };
 
-    fetch(`https://api.themoviedb.org/3/movie/${id}?language=fr-FR`, options)
+    fetch(`https://api.themoviedb.org/3/${type}/${id}?language=fr-FR`, options)
       .then((response) => response.json())
       .then((data) => setDetails(data))
       .catch((err) => console.error(err));
 
-    fetch(`https://api.themoviedb.org/3/movie/${id}/watch/providers`, options)
+    fetch(`https://api.themoviedb.org/3/${type}/${id}/watch/providers`, options)
       .then((response) => response.json())
       .then((data) => setDisplayProvider(data))
       .catch((err) => console.error(err));
 
     fetch(
-      `https://api.themoviedb.org/3/movie/${id}/similar?language=fr-FR&page=1`,
+      `https://api.themoviedb.org/3/${type}/${id}/similar?language=fr-FR&page=1`,
       options
     )
       .then((response) => response.json())
       .then((data) => setDisplaySuggestions(data))
       .catch((err) => console.error(err));
-  }, [apiToken, id]);
+  }, [apiToken, type, id]);
 
   return (
     <>
       <ArrowBack />
       <section>
-        <picture>
-          {details.belongs_to_collection && (
-            <img
-              src={`https://image.tmdb.org/t/p/original${details.belongs_to_collection.backdrop_path}`}
-              alt=""
-            />
-          )}
-        </picture>
+        {details.belongs_to_collection && type === "movie" ? (
+          <img
+            src={`https://image.tmdb.org/t/p/original${details.belongs_to_collection.backdrop_path}`}
+            alt="Beautiful poster"
+          />
+        ) : (
+          <img
+            src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
+            alt="Beautiful poster"
+          />
+        )}
         <section className="descriptionSection">
           <h1>
-            {details.title} - <span>{details.tagline}</span>
+            {details && type === "movie"
+              ? details.original_title
+              : details.original_name}
           </h1>
-          <article className="descriptionThirdArticle">
-            <h2>Synopsys</h2>
+          <article className="descriptionNameOverview">
+            <h2>Synopsis</h2>
             <p>{details.overview}</p>
           </article>
-          <article className="descriptionFirstArticle">
-            <p>Durée : {Math.round(details.runtime / 60)}h</p>
-            <p>Date de publication : {details.release_date}</p>
+          <article>
+            {details && type === "movie" ? (
+              <section className="descriptionPublicationTime">
+                <p>Durée : {Math.round(details.runtime / 60)}h</p>
+                <p>Date de publication : {details.release_date}</p>
+              </section>
+            ) : (
+              <section className="descriptionPublicationTime">
+                <p>Nombre de saison : {details.number_of_seasons}</p>
+                <p>Nombre d'épisodes : {details.number_of_episodes}</p>
+                <p>Date de publication: {details.first_air_date}</p>
+              </section>
+            )}
           </article>
-          <article className="descriptionSecondArticle">
+          <article className="descriptionNotes">
             <p>Note : {details.vote_average} / 10</p>
             <p>Nombre d'avis : {details.vote_count}</p>
           </article>
           <article className="descriptionWatchProvider">
-            <p>Regarder sur :</p>
-            {displayProvider.results && displayProvider.results.FR ? (
-              <a href={displayProvider.results.FR.link}>Regarder sur CA</a>
+            {displayProvider && type === "movie" ? (
+              <section>
+                {displayProvider.results && displayProvider.results.FR ? (
+                  <>
+                    {displayProvider.results.FR.flatrate.map((item) => (
+                      <img key={item.name} src={item.image} alt={item.name} />
+                    ))}
+                  </>
+                ) : (
+                  <p>Aucune plateforme n'est disponible pour votre film</p>
+                )}
+              </section>
             ) : (
-              <p>Aucune plateforme française ne propose votre film</p>
+              <p>Aucune plateforme n'est disponible pour votre film</p>
             )}
           </article>
           <p>Vous pourriez apprécié :</p>
@@ -83,14 +107,12 @@ function Article() {
           displaySuggestions.results.length > 0 ? (
             displaySuggestions.results.map((item) => (
               <article key={item.id} className="articleMovies">
-                <Link to={`/media/${item.id}`}>
-                  <picture>
-                    <img
-                      src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
-                      alt={item.title}
-                      className="posterMovie"
-                    />
-                  </picture>
+                <Link to={`/media/${item.media_type}/${item.id}`}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
+                    alt={item.title}
+                    className="posterMovie"
+                  />
                 </Link>
               </article>
             ))

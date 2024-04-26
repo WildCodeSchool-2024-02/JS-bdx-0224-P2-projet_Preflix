@@ -13,6 +13,7 @@
 .logoFull {
   width: 5rem;
   margin-left: 2rem;
+  display: none;
 }
 
 nav {
@@ -34,6 +35,12 @@ nav {
 
 li {
   align-content: center;
+}
+
+.nameCategory {
+  color: var(--tertiary-color);
+  font-family: var(--secondary-font);
+  font-weight: normal;
 }
 
 .navDesktop,
