@@ -1,26 +1,32 @@
+:root {
+  --primary-color: #313131;
+  --secondary-color: #ffe96e;
+  --tertiary-color: #f5f5f5;
+  --primary-font: "Inter", "sans-serif";
+  --secondary-font: "Oswald", "sans-serif";
+}
+
 .descriptionSection {
   margin: 1rem 2rem;
 }
 
 .descriptionSection > h1 {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  font-family: var(--secondary-font);
 }
 
 .descriptionSection span {
   font-size: 1.3rem;
 }
 
-.descriptionPublicationTime {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-}
-
+.descriptionPublicationTime,
 .descriptionNotes {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
+  gap: 1rem;
   align-items: center;
+  color: var(--secondary-color);
+  padding: 0.5rem 0;
 }
 
 .descriptionNameOverview {
@@ -30,10 +36,14 @@
 
 .descriptionWatchProvider {
   padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .descriptionWatchProvider > p:first-child {
   font-weight: 700;
+  font-family: var(--primary-font);
 }
 
 .providerList {
@@ -41,5 +51,73 @@
 }
 
 .providerImg {
-  width: 100px;
+  width: 65px;
+  border-radius: 15%;
+}
+
+.descriptionPublicationSerie {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: var(--secondary-color);
+}
+
+.title {
+  font-family: var(--secondary-font);
+  font-size: 1.5rem;
+}
+
+.synopsisText {
+  padding-top: 1rem;
+  font-size: 1em;
+}
+
+.providerSection {
+  padding-top: 1rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 992px) {
+  .imgHorizontalDesktop {
+    height: 30rem;
+  }
+
+  .imgVerticalDesktop {
+    width: 30rem;
+  }
+
+  .descriptionNotes,
+  .descriptionPublicationTime {
+    font-size: 1.25rem;
+  }
+
+  .descriptionNotes,
+  .descriptionPublicationTime {
+    justify-content: start;
+    gap: 2rem;
+  }
+
+  .synopsisText {
+    font-size: 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .descriptionSection > h1 {
+    font-size: 3rem;
+  }
+
+  .descriptionWatchProvider {
+    font-size: 1.25rem;
+  }
+
+  .descriptionPublicationSerie {
+    justify-content: start;
+    gap: 2rem;
+    font-size: 1.25rem;
+  }
 }

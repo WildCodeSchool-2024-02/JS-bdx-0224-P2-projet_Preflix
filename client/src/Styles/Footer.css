@@ -23,7 +23,7 @@ footer {
 }
 
 p {
-  font-family: var(--secondary-font);
+  font-family: var(--primary-font);
 }
 
 .logoTmdb {
@@ -36,7 +36,7 @@ p {
     margin-bottom: 0;
   }
 
-  p {
+  .p_Footer {
     padding-left: 1rem;
   }
 }
