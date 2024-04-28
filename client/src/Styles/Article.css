@@ -35,3 +35,11 @@
 .descriptionWatchProvider > p:first-child {
   font-weight: 700;
 }
+
+.providerList {
+  display: flex;
+}
+
+.providerImg {
+  width: 100px;
+}
