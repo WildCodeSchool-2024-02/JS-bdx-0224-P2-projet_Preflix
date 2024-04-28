@@ -16,12 +16,11 @@
   height: 3px;
 }
 .moviesContainer::-webkit-scrollbar-thumb {
-  background-color: var(--secondary-color);
+  background: var(--secondary-color);
 }
 
 .moviesContainer::-webkit-scrollbar-track {
   background: #474747;
-  height: 4px;
 }
 
 .moviesContainer::-webkit-scrollbar-thumb:hover {
@@ -32,11 +31,11 @@
   height: 3px;
 }
 .container2::-webkit-scrollbar-thumb {
-  background: var(--tertiary-color);
+  background: var(--primary-color);
 }
 
 .container2::-webkit-scrollbar-track {
-  background-color: #474747;
+  background-color: var(--tertiary-color);
 }
 
 .container2::-webkit-scrollbar-thumb:hover {
@@ -45,20 +44,6 @@
 
 .firstSection {
   position: relative;
-}
-
-picture {
-  width: 100%;
-}
-
-.test {
-  height: 10rem;
-}
-
-.logoTest {
-  position: absolute;
-  width: 3rem;
-  left: 0.5rem;
 }
 
 .moviesContainer {
@@ -78,6 +63,7 @@ picture {
 
 .articleMovies {
   margin: 0 0.5rem;
+  transition: translate 300ms ease-in-out;
 }
 
 .posterMovie {
@@ -112,19 +98,20 @@ section:nth-of-type(2) {
   color: var(--primary-color);
 }
 
-.logo-return-homepage {
-  width: 2rem;
-  position: absolute;
-  top: 1rem;
-  right: 2.2rem;
+.buttonLeft {
+  background-color: #3131316c;
+}
+
+.buttonRight {
+  background-color: #3131316c;
+}
+
+.desktopOnly {
+  display: none;
 }
 
 @media screen and (min-width: 992px) {
-  button {
-    display: none;
-  }
-
-  .logo-return-homepage {
-    display: none;
+  .desktopOnly {
+    display: block;
   }
 }

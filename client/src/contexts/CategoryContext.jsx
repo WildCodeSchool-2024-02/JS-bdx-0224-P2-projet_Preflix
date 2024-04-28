@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 export const CategoryContext = createContext();
 
+// fixed
 export function TypeProvider({ children }) {
 const [types, setTypes] = useState([{
     name: "action",
@@ -82,19 +83,21 @@ const [types, setTypes] = useState([{
   }
 ])
 
-  const contextValue = useMemo(() => (
-    {
-        types, setTypes
-    }
-  ), [types, setTypes])
+  const contextValue = useMemo(
+    () => ({
+      types,
+      setTypes,
+    }),
+    [types, setTypes]
+  );
 
-    TypeProvider.propTypes = {
-      children: PropTypes.shape({}).isRequired,
-    }  
+  TypeProvider.propTypes = {
+    children: PropTypes.shape({}).isRequired,
+  };
 
   return (
     <CategoryContext.Provider value={contextValue}>
-        {children}
+      {children}
     </CategoryContext.Provider>
-  )
+  );
 }

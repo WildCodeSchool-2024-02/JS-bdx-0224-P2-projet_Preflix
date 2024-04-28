@@ -58,7 +58,7 @@ function BarSearch({ fetchData, setData, apiToken }) {
         {fetchData.data.map((item) => (
            item.poster_path &&
           <article key={item.id}>
-            <Link to={`/media/${item.id}`}>
+            <Link to={`/media/${item.media_type}/${item.id}`}>
               <figure>
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
