@@ -1,45 +1,13 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import "../Styles/BarSearch.css";
 
-function BarSearch({ fetchData, setData, apiToken }) {
-  const [searchValue, setSearchValue] = useState("");
-
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${apiToken}`,
-    },
-  };
-
-  const getMovie = (url) => {
-    fetch(url, options)
-      .then((response) => response.json())
-      .then((data) => setData(data.results))
-      .catch((err) => console.error(err));
-  };
-
-  const handleChange = (e) => {
-    const { value } = e.target;
-    setSearchValue(value);
-
-    if (value.trim() !== "") {
-      getMovie(`${fetchData.url}=${value}`);
-    } else {
-      setData([]);
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+function BarSearch({ fetchData, handleChange, handleSubmit, searchValue }) {
 
   return (
     <>
       <form className="form-search" onSubmit={handleSubmit}>
-        <label htmlFor="search">Films, séries, ...</label>
+        <label htmlFor="search">Rechercher un film ou une série</label>
         <img
           src="../src/assets/images/icons-chercherblack.svg"
           alt="icone de loupe"
@@ -49,7 +17,7 @@ function BarSearch({ fetchData, setData, apiToken }) {
           name="search"
           id="search"
           type="search"
-          placeholder="Rechercher"
+          placeholder="Rechercher un film, une série..."
           onChange={handleChange}
         />
       </form>
@@ -79,10 +47,13 @@ function BarSearch({ fetchData, setData, apiToken }) {
 BarSearch.propTypes = {
   fetchData: PropTypes.shape({
     url: PropTypes.string.isRequired,
-    data: PropTypes.func.isRequired,
+    data: PropTypes.arrayOf(
+      PropTypes.string.isRequired,
+    ).isRequired,
   }).isRequired,
-  setData: PropTypes.func.isRequired,
-  apiToken: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  searchValue: PropTypes.string.isRequired,
 };
 
 export default BarSearch;

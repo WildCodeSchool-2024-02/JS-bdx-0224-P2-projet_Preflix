@@ -7,7 +7,7 @@ export const CategoryContext = createContext();
 export function TypeProvider({ children }) {
 const [types, setTypes] = useState([{
     name: "action",
-    id: 18
+    id: [28, 10759]
   },
   {
     name: "animation",
@@ -15,7 +15,7 @@ const [types, setTypes] = useState([{
   },
   {
     name: "aventure",
-    id: 12
+    id: [12, 10759]
   },
   {
     name: "comédie",
@@ -35,15 +35,15 @@ const [types, setTypes] = useState([{
   },
   {
     name: "familial",
-    id: 10751
+    id: [10751, 10762]
   },
   {
     name: "fantastique",
-    id: 14
+    id: [14, 10765]
   },
   {
     name: "guerre",
-    id: 10752
+    id: [10752, 10768]
   },
   {
     name: "histoire",
@@ -63,7 +63,7 @@ const [types, setTypes] = useState([{
   },
   {
     name: "policier",
-    id: 80
+    id: [80, 9648]
   },
   {
     name: "romance",
@@ -71,7 +71,7 @@ const [types, setTypes] = useState([{
   },
   {
     name: "science-fiction",
-    id: 878
+    id: [878, 10765]
   },
   {
     name: "thriller",

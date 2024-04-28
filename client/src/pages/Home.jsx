@@ -129,7 +129,7 @@ function Home() {
       <section className="firstSection">
         <Banner />
       </section>
-      <section>
+      <section className="section-buttons">
         <Link to="/movies">
           <button className="buttonFilter" type="button">
             FILMS
