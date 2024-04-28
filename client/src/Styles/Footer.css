@@ -26,6 +26,10 @@ p {
   font-family: var(--secondary-font);
 }
 
+a {
+  color: var(--tertiary-color);
+}
+
 .logoTmdb {
   width: 8rem;
   padding-right: 1rem;

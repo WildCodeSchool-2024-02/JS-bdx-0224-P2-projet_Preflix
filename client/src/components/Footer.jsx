@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../Styles/Footer.css";
 
 function Footer() {
@@ -9,7 +10,9 @@ function Footer() {
         alt="TMDB logo"
       />
       <p>PREFLIX © 2024</p>
-      <p>Conditions d'utilisation - Politique de confidentialité</p>
+      <Link to="/terms-of-use">
+        <p>Conditions d'utilisation - Politique de confidentialité</p>
+      </Link>
     </footer>
   );
 }
