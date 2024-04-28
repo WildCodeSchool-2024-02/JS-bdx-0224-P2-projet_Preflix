@@ -58,6 +58,10 @@ img {
   line-height: 4rem;
 }
 
+.li-category:hover {
+  color: var(--secondary-color);
+}
+
 .button-closing {
   position: absolute;
   top: 1.5rem; /* Ajustez la valeur selon vos besoins */
@@ -73,4 +77,8 @@ img {
   background-color: var(--primary-color);
   color: var(--tertiary-color);
   text-align: right;
+}
+
+.closing-cross:hover {
+  color: var(--secondary-color);
 }
