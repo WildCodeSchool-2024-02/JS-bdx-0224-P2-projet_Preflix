@@ -12,6 +12,7 @@ import Movies from "./pages/Movies";
 import Series from "./pages/Series";
 import Category from "./pages/Category";
 import { TypeProvider } from "./contexts/CategoryContext";
+import TermsOfUse from "./pages/TermsOfUse";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/credits",
         element: <Credits />,
+      },
+      {
+        path: "/terms-of-use",
+        element: <TermsOfUse />,
       },
     ],
   },
