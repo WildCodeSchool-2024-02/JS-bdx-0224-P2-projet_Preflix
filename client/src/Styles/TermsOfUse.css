@@ -1,0 +1,29 @@
+:root {
+  --primary-color: #313131;
+  --secondary-color: #ffe96e;
+  --tertiary-color: #f5f5f5;
+  --primary-font: "Inter", "sans-serif";
+  --secondary-font: "Oswald", "sans-serif";
+}
+
+.sectionTerms {
+  margin: 1rem 2rem;
+}
+
+.sectionTerms p {
+  margin: 2rem 0;
+  line-height: 1.75;
+}
+
+.sectionTerms li {
+  color: var(--tertiary-color);
+  font-size: 1em;
+  font-family: var(--secondary-font);
+  margin: 1rem 0;
+  line-height: 1.75;
+}
+
+.sectionTerms span {
+  font-weight: 800;
+  margin-right: 0.5rem;
+}
