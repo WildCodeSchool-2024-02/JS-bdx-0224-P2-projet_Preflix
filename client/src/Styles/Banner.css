@@ -153,4 +153,8 @@ figure {
   .imgLogo {
     display: none;
   }
+
+  .imgMovie {
+    height: 30rem;
+  }
 }
