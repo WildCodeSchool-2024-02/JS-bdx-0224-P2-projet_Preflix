@@ -3,3 +3,11 @@
   padding-top: 1rem;
   padding-left: 2.2rem;
 }
+
+.section-popular-search {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0.8rem;
+  gap: 0.8rem;
+}

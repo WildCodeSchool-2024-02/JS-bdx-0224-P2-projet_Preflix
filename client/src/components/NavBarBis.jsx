@@ -5,8 +5,8 @@ import {
   Menu,
   MenuItem,
   MenuTrigger,
-  Popover
-} from 'react-aria-components';
+  Popover,
+} from "react-aria-components";
 import { useContext, useState } from "react";
 import { CategoryContext } from "../contexts/CategoryContextBis";
 
@@ -21,7 +21,6 @@ function NavBar() {
 
   const { types } = useContext(CategoryContext);
 
-  
   return (
     <nav className="nav">
       <Link className="linkName" to="/">
@@ -92,16 +91,20 @@ function NavBar() {
         </li>
         <li className="navDesktop titleNav">
           <MenuTrigger className="boxScroll">
-            <Button className="buttonCategory" onClick={handleClick} aria-label="Menu">
+            <Button
+              className="buttonCategory"
+              onClick={handleClick}
+              aria-label="Menu"
+            >
               <h2 className={click ? "nameCategory" : ""}>Catégories ▼</h2>
             </Button>
             <Popover>
               <Menu className="scrollingMenu" onAction={Link}>
                 {types.map((type) => (
                   <MenuItem
-                  aria-label="category"
-                  className="category"
-                  key={type.name}
+                    aria-label="category"
+                    className="category"
+                    key={type.name}
                   >
                     <Link
                       to={`/category/${type.name}`}

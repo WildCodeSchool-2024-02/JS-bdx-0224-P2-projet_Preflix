@@ -6,6 +6,9 @@ function Credits() {
     <>
       <ArrowBack />
       <section className="creditsSection">
+        <figure className="logo-tmdb">
+          <img src="../src/assets/images/logo-tmdb.svg" alt="TMDB logo" />
+        </figure>
         <p>PREFLIX a été fait avec amour par :</p>
         <p className="nameYellow">Alice, Adrien, Sylvain et Axel</p>
         <p>

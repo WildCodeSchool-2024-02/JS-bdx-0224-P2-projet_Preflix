@@ -99,12 +99,13 @@ function Home() {
       .then((data) => setPopularMovies(data.results))
       .catch((err) => console.error(err));
 
-    fetch('https://api.themoviedb.org/3/trending/all/day?language=fr-FR', options)
-
+    fetch(
+      "https://api.themoviedb.org/3/trending/all/day?language=fr-FR",
+      options
+    )
       .then((response) => response.json())
       .then((data) => setNewMovies(data.results))
       .catch((err) => console.error(err));
-
 
     fetch(
       "https://api.themoviedb.org/3/trending/tv/week?language=fr-FR",
@@ -113,7 +114,6 @@ function Home() {
       .then((response) => response.json())
       .then((data) => setPopularSeries(data.results))
       .catch((err) => console.error(err));
-
 
     fetch(
       "https://api.themoviedb.org/3/trending/all/week?language=fr-FR",
@@ -129,7 +129,7 @@ function Home() {
       <section className="firstSection">
         <Banner />
       </section>
-      <section className="mobileOnly">
+      <section className="section-buttons">
         <Link to="/movies">
           <button className="buttonFilter" type="button">
             FILMS
@@ -194,7 +194,6 @@ function Home() {
           </button>
         </section>
       </section>
-
       <section className="container2">
         <h2 className="containerTitle titleDark">Nouveautés</h2>
         <section
@@ -242,102 +241,101 @@ function Home() {
             />
           </button>
         </section>
-        </section>
-        <section>
-          <h2 className="containerTitle">Séries du moment</h2>
-          <section
-            className="moviesContainer"
-            style={{ translate: `${-100 * popularSeries}%` }}
-          >
-            <section className="moviesContainer">
-              {popularSeries &&
-                popularSeries.map((movie) => (
-                  <article key={movie.id} className="articleMovies">
-                    <Link to={`/media/${movie.media_type}/${movie.id}`}>
-                      <figure>
-                        <img
-                          src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                          alt={movie.title}
-                          className="posterMovie"
-                        />
-                      </figure>
-                    </Link>
-                  </article>
-                ))}
-            </section>
-            <button
-              className="buttonRight"
-              type="button"
-              onClick={() => showNextPopSer()}
-            >
-              <img
-                className="arrow"
-                src="./src/assets/images/arrowright.png"
-                alt="arrow right"
-              />
-            </button>
-            <button
-              className="buttonLeft"
-              type="button"
-              onClick={() => showPrevPopSer()}
-            >
-              <img
-                className="arrow"
-                src="./src/assets/images/arrowleft.png"
-                alt="arrow left"
-              />
-            </button>
+      </section>
+      <section>
+        <h2 className="containerTitle">Séries du moment</h2>
+        <section
+          className="moviesContainer"
+          style={{ translate: `${-100 * popularSeries}%` }}
+        >
+          <section className="moviesContainer">
+            {popularSeries &&
+              popularSeries.map((movie) => (
+                <article key={movie.id} className="articleMovies">
+                  <Link to={`/media/${movie.media_type}/${movie.id}`}>
+                    <figure>
+                      <img
+                        src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                        alt={movie.title}
+                        className="posterMovie"
+                      />
+                    </figure>
+                  </Link>
+                </article>
+              ))}
           </section>
-        </section>
-        <section>
-          <h2 className="containerTitle">Films du moment</h2>
-          <section
-            className="moviesContainer"
-            style={{ translate: `${-100 * popularMovies}%` }}
+          <button
+            className="buttonRight"
+            type="button"
+            onClick={() => showNextPopSer()}
           >
-            <section className="moviesContainer">
-              {popularMovies &&
-                popularMovies.map((newMovie) => (
-                  <article key={newMovie.id} className="articleMovies">
-                    <Link
-                      to={`/media/${getTypeFromUrl(newMovie)}/${newMovie.id}`}
-                    >
-                      <figure>
-                        <img
-                          src={`https://image.tmdb.org/t/p/original${newMovie.poster_path}`}
-                          alt={newMovie.title}
-                          className="posterMovie"
-                        />
-                      </figure>
-                    </Link>
-                  </article>
-                ))}
-            </section>
-            <button
-              className="buttonRight"
-              type="button"
-              onClick={() => showNextPopMov()}
-            >
-              <img
-                className="arrow"
-                src="./src/assets/images/arrowright.png"
-                alt="arrow right"
-              />
-            </button>
-            <button
-              className="buttonLeft"
-              type="button"
-              onClick={() => showPrevPopMov()}
-            >
-              <img
-                className="arrow"
-                src="./src/assets/images/arrowleft.png"
-                alt="arrow left"
-              />
-            </button>
-          </section>
+            <img
+              className="arrow"
+              src="./src/assets/images/arrowright.png"
+              alt="arrow right"
+            />
+          </button>
+          <button
+            className="buttonLeft"
+            type="button"
+            onClick={() => showPrevPopSer()}
+          >
+            <img
+              className="arrow"
+              src="./src/assets/images/arrowleft.png"
+              alt="arrow left"
+            />
+          </button>
         </section>
-      
+      </section>
+      <section>
+        <h2 className="containerTitle">Films du moment</h2>
+        <section
+          className="moviesContainer"
+          style={{ translate: `${-100 * popularMovies}%` }}
+        >
+          <section className="moviesContainer">
+            {popularMovies &&
+              popularMovies.map((newMovie) => (
+                <article key={newMovie.id} className="articleMovies">
+                  <Link
+                    to={`/media/${getTypeFromUrl(newMovie)}/${newMovie.id}`}
+                  >
+                    <figure>
+                      <img
+                        src={`https://image.tmdb.org/t/p/original${newMovie.poster_path}`}
+                        alt={newMovie.title}
+                        className="posterMovie"
+                      />
+                    </figure>
+                  </Link>
+                </article>
+              ))}
+          </section>
+          <button
+            className="buttonRight"
+            type="button"
+            onClick={() => showNextPopMov()}
+          >
+            <img
+              className="arrow"
+              src="./src/assets/images/arrowright.png"
+              alt="arrow right"
+            />
+          </button>
+          <button
+            className="buttonLeft"
+            type="button"
+            onClick={() => showPrevPopMov()}
+          >
+            <img
+              className="arrow"
+              src="./src/assets/images/arrowleft.png"
+              alt="arrow left"
+            />
+          </button>
+        </section>
+      </section>
     </>
   );
 }

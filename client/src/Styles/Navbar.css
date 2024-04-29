@@ -22,7 +22,7 @@ nav {
   position: fixed;
   bottom: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 11;
   height: 6rem;
 }
 
@@ -110,21 +110,22 @@ li {
 
   .buttonCategory {
     background-color: var(--primary-color);
+    color: var(--tertiary-color);
     border: none;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 0.72rem;
   }
 
   .nameCategory {
     color: var(--tertiary-color);
-    font-size: 1.4em;
   }
 
-  .nameCategory2 {
+  .nameCategory:hover {
     color: var(--secondary-color);
-    font-size: 1.4em;
+    font-size: 1.1rem;
   }
 
   .category {

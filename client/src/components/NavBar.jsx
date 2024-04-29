@@ -13,8 +13,8 @@ import imgCredit from "../assets/images/heart-hand-shake.svg";
 import imgCreditYellow from "../assets/images/heart-hand-shake-yellow.svg";
 import imgHome from "../assets/images/icons-accueil.svg";
 import imgHomeYellow from "../assets/images/iconsaccueilyellow.svg";
-import imgSearch from "../assets/images/icons-chercher.svg"
-import imgSearchYellow from "../assets/images/icons-search-yellow.svg"
+import imgSearch from "../assets/images/icons-chercher.svg";
+import imgSearchYellow from "../assets/images/icons-search-yellow.svg";
 
 function NavBar() {
   const location = useLocation();
@@ -22,11 +22,11 @@ function NavBar() {
   const [click, setClick] = useState(false);
 
   const handleClick = () => {
-    setClick(true)
+    setClick(true);
   };
 
   const handleVisible = () => {
-    setClick(false)
+    setClick(false);
   };
 
   const { types } = useContext(CategoryContext);
@@ -47,11 +47,7 @@ function NavBar() {
       <ul className="navList">
         <li>
           <Link to="/">
-            <img
-              className="navIcon"
-              src={home("/")} 
-              alt="Accueil"
-            />
+            <img className="navIcon" src={home("/")} alt="Accueil" />
           </Link>
           <Link className="isMobile" to="/">
             <h2 className={selectedUrl === "/" ? "yellow" : "titleNav"}>
@@ -61,11 +57,7 @@ function NavBar() {
         </li>
         <li className="none">
           <Link to="/search">
-            <img
-              className="navIcon"
-              src= {search("/search")}
-              alt="Rechercher"
-            />
+            <img className="navIcon" src={search("/search")} alt="Rechercher" />
           </Link>
         </li>
         <li className="none">
@@ -88,35 +80,38 @@ function NavBar() {
           </Link>
         </li>
         <li className="navDesktop titleNav">
-        <MenuTrigger className="boxScroll">
-            <Button className="buttonCategory" onClick={handleClick} aria-label="Menu">
-              <h2 className={click}>Catégories ▼</h2>
+          <MenuTrigger className="boxScroll">
+            <Button
+              className="buttonCategory"
+              onClick={handleClick}
+              aria-label="Menu"
+            >
+              <h2 className={click ? "nameCategory" : ""}>Catégories ▼</h2>
             </Button>
-                  {click && ( 
-            <Popover>
-
+            {click && (
+              <Popover>
                 <Menu className="scrollingMenu" onAction={Link}>
-                {types.map((type) => (
-                  <MenuItem
-                  aria-label="category"
-                  className="category"
-                  key={type.name}
-                  >
-                    <Link
-                      to={`/category/${type.name}`}
+                  {types.map((type) => (
+                    <MenuItem
+                      aria-label="category"
+                      className="category"
                       key={type.name}
-                      className="genderCategory"
-                      aria-label={type.name}
-                      onClick={handleVisible}
+                    >
+                      <Link
+                        to={`/category/${type.name}`}
+                        key={type.name}
+                        className="genderCategory"
+                        aria-label={type.name}
+                        onClick={handleVisible}
                       >
-                      {type.name.charAt(0).toUpperCase()}
-                      {type.name.substring(1)}
-                    </Link>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Popover>
-              )}
+                        {type.name.charAt(0).toUpperCase()}
+                        {type.name.substring(1)}
+                      </Link>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Popover>
+            )}
           </MenuTrigger>
         </li>
         <li className="isMobile">

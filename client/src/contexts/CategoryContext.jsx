@@ -7,79 +7,79 @@ export const CategoryContext = createContext();
 export function TypeProvider({ children }) {
   const [types, setTypes] = useState([
     {
-      name: "Action",
-      id: 28,
+      name: "action",
+      id: [28, 10759],
     },
     {
-      name: "Animation",
+      name: "animation",
       id: 16,
     },
     {
-      name: "Aventure",
-      id: 12,
+      name: "aventure",
+      id: [12, 10759],
     },
     {
-      name: "Comédie",
+      name: "comédie",
       id: 35,
     },
     {
-      name: "Documentaire",
+      name: "documentaire",
       id: 99,
     },
     {
-      name: "Drame",
+      name: "drame",
       id: 18,
     },
     {
-      name: "Enfants",
+      name: "enfants",
       id: 10762,
     },
     {
-      name: "Familial",
-      id: 10751,
+      name: "familial",
+      id: [10751, 10762],
     },
     {
-      name: "Fantastique",
-      id: 14,
+      name: "fantastique",
+      id: [14, 10765],
     },
     {
-      name: "Guerre",
-      id: 10752,
+      name: "guerre",
+      id: [10752, 10768],
     },
     {
-      name: "Histoire",
+      name: "histoire",
       id: 36,
     },
     {
-      name: "Horreur",
+      name: "horreur",
       id: 27,
     },
     {
-      name: "Musique",
+      name: "musique",
       id: 10402,
     },
     {
-      name: "Mystère",
+      name: "mystère",
       id: 9648,
     },
     {
-      name: "Policier",
-      id: 80,
+      name: "policier",
+      id: [80, 9648],
     },
     {
-      name: "Romance",
+      name: "romance",
       id: 10749,
     },
     {
-      name: "Science-Fiction",
-      id: 878,
+      name: "science-fiction",
+      id: [878, 10765],
     },
     {
-      name: "Thriller",
+      name: "thriller",
       id: 53,
     },
     {
-      name: "Western",
+      name: "western",
       id: 37,
     },
   ]);
