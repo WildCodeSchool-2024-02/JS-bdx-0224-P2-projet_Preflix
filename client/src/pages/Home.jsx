@@ -79,8 +79,7 @@ function Home() {
     setPopularSeries(arrPopSer);
   };
 
-  const getTypeFromUrl = (movie) =>
-    movie.media_type || (movie.original_title ? "movie" : "tv");
+  const getTypeFromUrl = (movie) => (movie.original_title ? "movie" : "tv");
 
   useEffect(() => {
     const options = {

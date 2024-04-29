@@ -86,14 +86,7 @@ input {
 }
 
 figcaption {
-  color: var(--primary-color);
-  position: absolute;
   font-size: 0px;
-}
-
-li {
-  color: red;
-  font-size: 40px;
 }
 
 @media screen and (min-width: 992px) {

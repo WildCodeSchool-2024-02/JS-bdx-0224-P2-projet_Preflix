@@ -1,20 +1,13 @@
 import PropTypes from "prop-types";
 import "../Styles/CategoryBtn.css";
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { CategoryContext } from "../contexts/CategoryContext";
 
 function CategoryBtn({ label, isVisible, setIsVisible }) {
   const { types } = useContext(CategoryContext);
 
-  const [isBackHome, setIsBackHome] = useState(true);
-
   const handleClick = () => {
-    setIsVisible(!isVisible);
-  };
-
-  const handleCross = () => {
-    setIsBackHome(!isBackHome);
     setIsVisible(!isVisible);
   };
 
@@ -28,7 +21,7 @@ function CategoryBtn({ label, isVisible, setIsVisible }) {
           <button
             type="button"
             className="button-closing"
-            onClick={handleCross}
+            onClick={handleClick}
           >
             <img
               src="../src/assets/images/cross.svg"
