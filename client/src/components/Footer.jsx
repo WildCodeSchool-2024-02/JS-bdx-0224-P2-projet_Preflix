@@ -8,7 +8,7 @@ function Footer() {
       <img className="logoTmdb" src={logoTmdb} alt="TMDB logo" />
       <p>PREFLIX © 2024</p>
       <Link to="/terms-of-use" className="Terms-of-use">
-        <p>Conditions d'utilisation - Politique de confidentialité</p>
+        Conditions d'utilisation - Politique de confidentialité
       </Link>
     </footer>
   );

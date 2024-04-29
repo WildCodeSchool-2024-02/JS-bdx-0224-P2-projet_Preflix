@@ -12,8 +12,7 @@ function Article() {
 
   const { id, type } = useParams();
 
-  const getTypeFromUrl = (movie) =>
-    movie.media_type || (movie.original_title ? "movie" : "tv");
+  const getTypeFromUrl = (movie) => (movie.original_title ? "movie" : "tv");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -49,21 +48,20 @@ function Article() {
     <>
       <ArrowBack />
       <section>
-        <picture>
-          {details.belongs_to_collection && type === "movie" ? (
-            <img
-              className="imgHorizontalDesktop"
-              src={`https://image.tmdb.org/t/p/original${details.belongs_to_collection.backdrop_path}`}
-              alt="Beautiful poster"
-            />
-          ) : (
-            <img
-              className="imgHorizontalDesktop"
-              src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
-              alt="Beautiful poster"
-            />
-          )}
-        </picture>
+        {details.belongs_to_collection && type === "movie" ? (
+          <img
+            className="imgHorizontalDesktop"
+            src={`https://image.tmdb.org/t/p/original${details.belongs_to_collection.backdrop_path}`}
+            alt="Beautiful poster"
+          />
+        ) : (
+          <img
+            className="imgHorizontalDesktop"
+            src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
+            alt="Beautiful poster"
+          />
+        )}
+
         <section className="descriptionSection">
           <h1>{details && type === "movie" ? details.title : details.name}</h1>
           <article>
@@ -210,13 +208,11 @@ function Article() {
             displaySuggestions.results.map((item) => (
               <article key={item.id} className="articleMovies">
                 <Link to={`/media/${getTypeFromUrl(item)}/${item.id}`}>
-                  <picture>
-                    <img
-                      src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-                      alt={item.title}
-                      className="posterMovie"
-                    />
-                  </picture>
+                  <img
+                    src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+                    alt={item.title}
+                    className="posterMovie"
+                  />
                 </Link>
               </article>
             ))
