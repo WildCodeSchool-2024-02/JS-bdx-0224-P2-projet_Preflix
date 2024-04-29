@@ -38,3 +38,13 @@ body {
 img {
   width: 100%;
 }
+
+p {
+  font-family: var(--primary-font);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--secondary-font);
+}
