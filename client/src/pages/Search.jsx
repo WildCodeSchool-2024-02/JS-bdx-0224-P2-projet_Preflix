@@ -4,7 +4,6 @@ import BarSearch from "../components/BarSearch";
 import ArrowBack from "../components/ArrowBack";
 import "../Styles/Search.css";
 
-
 function Search() {
   const apiToken = import.meta.env.VITE_API_TOKEN;
   const urlSearch =
@@ -14,7 +13,6 @@ function Search() {
   const [trendingMovies1, setTrendingMovies1] = useState([]);
   const [trendingMovies2, setTrendingMovies2] = useState([]);
   const [isVisible, setIsVisible] = useState(true);
-
 
   const [searchValue, setSearchValue] = useState("");
 
@@ -51,19 +49,19 @@ function Search() {
   };
 
   useEffect(() => {
-  const getTrendingMovies = (page, setTrendingMovies) => {
-  fetch(`https://api.themoviedb.org/3/trending/all/day?language=fr-FR&page=${page}`, options)
-
-      .then((response) => response.json())
-      .then((data) => setTrendingMovies(data.results))
-      .catch((err) => console.error(err));
-    }
+    const getTrendingMovies = (page, setTrendingMovies) => {
+      fetch(
+        `https://api.themoviedb.org/3/trending/all/day?language=fr-FR&page=${page}`,
+        options
+      )
+        .then((response) => response.json())
+        .then((data) => setTrendingMovies(data.results))
+        .catch((err) => console.error(err));
+    };
 
     getTrendingMovies(1, setTrendingMovies1);
     getTrendingMovies(2, setTrendingMovies2);
-    
-    }, [apiToken]);
-
+  }, [apiToken]);
 
   return (
     <>
@@ -77,32 +75,34 @@ function Search() {
         searchValue={searchValue}
       />
       <section className="section-popular-search">
-        {isVisible && trendingMovies1.map((item) => (
-          <article key={item.id}>
-            <Link to={`/media/movie/${item.id}`}>
-              <figure>
-                <img
-                  src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-                  alt={item.title}
-                  className="posterMovie"
-                />
-              </figure>
-            </Link>
-          </article>
-        ))}
-          {isVisible && trendingMovies2.map((item) => (
-          <article key={item.id}>
-            <Link to={`/media/movie/${item.id}`}>
-              <figure>
-                <img
-                  src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-                  alt={item.title}
-                  className="posterMovie"
-                />
-              </figure>
-            </Link>
-          </article>
-        ))}
+        {isVisible &&
+          trendingMovies1.map((item) => (
+            <article key={item.id}>
+              <Link to={`/media/movie/${item.id}`}>
+                <figure>
+                  <img
+                    src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+                    alt={item.title}
+                    className="posterMovie"
+                  />
+                </figure>
+              </Link>
+            </article>
+          ))}
+        {isVisible &&
+          trendingMovies2.map((item) => (
+            <article key={item.id}>
+              <Link to={`/media/movie/${item.id}`}>
+                <figure>
+                  <img
+                    src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+                    alt={item.title}
+                    className="posterMovie"
+                  />
+                </figure>
+              </Link>
+            </article>
+          ))}
       </section>
     </>
   );

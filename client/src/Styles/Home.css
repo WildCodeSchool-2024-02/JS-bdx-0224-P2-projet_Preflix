@@ -70,7 +70,7 @@
   width: 10rem;
 }
 
-.section-buttons {
+section:nth-of-type(2) {
   display: flex;
   justify-content: flex-start;
   gap: 1rem;
@@ -110,16 +110,9 @@
   display: none;
 }
 
-.logo-return-homepage {
-  width: 2rem;
-  position: absolute;
-  top: 1rem;
-  right: 2.2rem;
-}
-
 @media screen and (min-width: 992px) {
-  .desktopOnly {
-    display: block;
+  .mobileOnly {
+    display: none;
   }
 
   .logo-return-homepage {

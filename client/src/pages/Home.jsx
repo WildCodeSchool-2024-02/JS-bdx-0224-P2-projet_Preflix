@@ -171,7 +171,7 @@ function Home() {
               ))}
           </section>
           <button
-            className="buttonRight desktopOnly"
+            className="buttonRight"
             type="button"
             onClick={() => showNextPop()}
           >
@@ -182,7 +182,7 @@ function Home() {
             />
           </button>
           <button
-            className="buttonLeft desktopOnly"
+            className="buttonLeft"
             type="button"
             onClick={() => showPrevPop()}
           >

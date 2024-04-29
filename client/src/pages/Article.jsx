@@ -3,10 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import ArrowBack from "../components/ArrowBack";
 import "../Styles/Article.css";
 
-
-
 function Article() {
-
   const apiToken = import.meta.env.VITE_API_TOKEN;
 
   const [details, setDetails] = useState([]);
