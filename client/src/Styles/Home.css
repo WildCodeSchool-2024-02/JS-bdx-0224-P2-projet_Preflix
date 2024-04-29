@@ -70,7 +70,7 @@
   width: 10rem;
 }
 
-section:nth-of-type(2) {
+.mobileOnly {
   display: flex;
   justify-content: flex-start;
   gap: 1rem;
@@ -106,7 +106,7 @@ section:nth-of-type(2) {
 }
 
 @media screen and (min-width: 992px) {
-  section:nth-of-type(2) {
+  .mobileOnly {
     display: none;
   }
 }
