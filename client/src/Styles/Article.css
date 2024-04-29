@@ -79,6 +79,11 @@
   flex-wrap: wrap;
 }
 
+.suggestion {
+  margin-left: 0.8rem;
+  padding: 0.5rem 0.5rem;
+}
+
 @media screen and (min-width: 992px) {
   .imgHorizontalDesktop {
     height: 40rem;

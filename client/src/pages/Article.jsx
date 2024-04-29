@@ -202,7 +202,7 @@ function Article() {
           </article>
         </section>
         <section className="container2">
-          <h2 className="title titleDark">Suggestions</h2>
+          <h2 className="title titleDark suggestion">Suggestions</h2>
         </section>
         <section className="moviesContainer container2">
           {displaySuggestions.results &&
