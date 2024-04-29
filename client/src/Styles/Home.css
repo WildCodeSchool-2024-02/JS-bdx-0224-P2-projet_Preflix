@@ -110,6 +110,21 @@
   display: none;
 }
 
+.logo-return-homepage {
+  width: 3rem;
+}
+
+.containLogo {
+  padding-top: 0.3rem;
+  padding-right: 2.2rem;
+}
+
+.section-back-homepage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @media screen and (min-width: 992px) {
   .mobileOnly {
     display: none;
