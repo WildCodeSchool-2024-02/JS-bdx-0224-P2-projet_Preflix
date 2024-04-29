@@ -15,7 +15,7 @@ import imgHome from "../assets/images/icons-accueil.svg";
 import imgHomeYellow from "../assets/images/iconsaccueilyellow.svg";
 import imgSearch from "../assets/images/icons-chercher.svg";
 import imgSearchYellow from "../assets/images/icons-search-yellow.svg";
-import logoFull from "../assets/images/Logofull.svg"
+import logoFull from "../assets/images/Logofull.svg";
 
 function NavBar() {
   const location = useLocation();
@@ -39,11 +39,7 @@ function NavBar() {
   return (
     <nav className="nav">
       <Link className="linkName" to="/">
-        <img
-          className="logoFull"
-          src={logoFull}
-          alt="Accueil"
-        />
+        <img className="logoFull" src={logoFull} alt="Accueil" />
       </Link>
       <ul className="navList">
         <li>

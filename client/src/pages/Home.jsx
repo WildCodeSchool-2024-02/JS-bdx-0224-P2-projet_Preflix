@@ -171,23 +171,23 @@ function Home() {
               ))}
           </section>
           <button
-            className="buttonRight"
+            className="buttonRight desktopOnly"
             type="button"
             onClick={() => showNextPop()}
           >
             <img
-              className="arrow"
+              className="arrow desktopOnly"
               src="./src/assets/images/arrowright.png"
               alt="arrow right"
             />
           </button>
           <button
-            className="buttonLeft"
+            className="buttonLeft desktopOnly"
             type="button"
             onClick={() => showPrevPop()}
           >
             <img
-              className="arrow"
+              className="arrow desktopOnly"
               src="./src/assets/images/arrowleft.png"
               alt="arrow left"
             />
@@ -219,23 +219,23 @@ function Home() {
               ))}
           </section>
           <button
-            className="buttonRight"
+            className="buttonRight desktopOnly"
             type="button"
             onClick={() => showNextNew()}
           >
             <img
-              className="arrow"
+              className="arrow desktopOnly"
               src="./src/assets/images/arrowright.png"
               alt="arrow right"
             />
           </button>
           <button
-            className="buttonLeft"
+            className="buttonLeft desktopOnly"
             type="button"
             onClick={() => showPrevNew()}
           >
             <img
-              className="arrow"
+              className="arrow desktopOnly"
               src="./src/assets/images/arrowleft.png"
               alt="arrow left"
             />
@@ -265,23 +265,23 @@ function Home() {
               ))}
           </section>
           <button
-            className="buttonRight"
+            className="buttonRight desktopOnly"
             type="button"
             onClick={() => showNextPopSer()}
           >
             <img
-              className="arrow"
+              className="arrow desktopOnly"
               src="./src/assets/images/arrowright.png"
               alt="arrow right"
             />
           </button>
           <button
-            className="buttonLeft"
+            className="buttonLeft desktopOnly"
             type="button"
             onClick={() => showPrevPopSer()}
           >
             <img
-              className="arrow"
+              className="arrow desktopOnly"
               src="./src/assets/images/arrowleft.png"
               alt="arrow left"
             />
@@ -313,23 +313,23 @@ function Home() {
               ))}
           </section>
           <button
-            className="buttonRight"
+            className="buttonRight desktopOnly"
             type="button"
             onClick={() => showNextPopMov()}
           >
             <img
-              className="arrow"
+              className="arrow desktopOnly"
               src="./src/assets/images/arrowright.png"
               alt="arrow right"
             />
           </button>
           <button
-            className="buttonLeft"
+            className="buttonLeft desktopOnly"
             type="button"
             onClick={() => showPrevPopMov()}
           >
             <img
-              className="arrow"
+              className="arrow desktopOnly"
               src="./src/assets/images/arrowleft.png"
               alt="arrow left"
             />

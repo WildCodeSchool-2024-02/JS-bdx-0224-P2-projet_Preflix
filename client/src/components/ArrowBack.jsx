@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import ImgArrow from "../assets/images/icons-fleche-retour.svg";
-import logoImg from "../assets/images/logo.svg"
+import logoImg from "../assets/images/logo.svg";
 import "../Styles/Home.css";
 
 function ArrowBack() {

@@ -137,4 +137,8 @@
   .buttonFilter {
     display: none;
   }
+
+  .desktopOnly {
+    display: block;
+  }
 }
