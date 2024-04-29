@@ -22,7 +22,11 @@ function NavBar() {
   const [click, setClick] = useState(false);
 
   const handleClick = () => {
-    setClick(true);
+    setClick(true)
+  };
+
+  const handleVisible = () => {
+    setClick(false)
   };
 
   const { types } = useContext(CategoryContext);
@@ -86,10 +90,12 @@ function NavBar() {
         <li className="navDesktop titleNav">
         <MenuTrigger className="boxScroll">
             <Button className="buttonCategory" onClick={handleClick} aria-label="Menu">
-              <h2 className={click ? "nameCategory" : ""}>Catégories ▼</h2>
+              <h2 className={click}>Catégories ▼</h2>
             </Button>
+                  {click && ( 
             <Popover>
-              <Menu className="scrollingMenu" onAction={Link}>
+
+                <Menu className="scrollingMenu" onAction={Link}>
                 {types.map((type) => (
                   <MenuItem
                   aria-label="category"
@@ -101,7 +107,8 @@ function NavBar() {
                       key={type.name}
                       className="genderCategory"
                       aria-label={type.name}
-                    >
+                      onClick={handleVisible}
+                      >
                       {type.name.charAt(0).toUpperCase()}
                       {type.name.substring(1)}
                     </Link>
@@ -109,6 +116,7 @@ function NavBar() {
                 ))}
               </Menu>
             </Popover>
+              )}
           </MenuTrigger>
         </li>
         <li className="isMobile">

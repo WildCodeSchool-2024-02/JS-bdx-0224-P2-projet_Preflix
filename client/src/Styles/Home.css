@@ -105,12 +105,8 @@ section:nth-of-type(2) {
   background-color: #3131316c;
 }
 
-.desktopOnly {
-  display: none;
-}
-
 @media screen and (min-width: 992px) {
-  .desktopOnly {
-    display: block;
+  section:nth-of-type(2) {
+    display: none;
   }
 }

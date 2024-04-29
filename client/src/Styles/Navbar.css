@@ -131,10 +131,10 @@ li {
     cursor: pointer;
   }
 
-  .category:hover {
+  /* .category:hover {
     color: var(--secondary-color);
     background-color: #313131;
-  }
+  } */
 
   .scrollingMenu {
     background-color: rgb(49, 49, 49, 0.6);

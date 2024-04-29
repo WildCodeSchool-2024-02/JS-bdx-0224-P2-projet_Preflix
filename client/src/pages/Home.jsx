@@ -129,7 +129,7 @@ function Home() {
       <section className="firstSection">
         <Banner />
       </section>
-      <section>
+      <section className="">
         <Link to="/movies">
           <button className="buttonFilter" type="button">
             FILMS
@@ -171,7 +171,7 @@ function Home() {
               ))}
           </section>
           <button
-            className="buttonRight desktopOnly"
+            className="buttonRight"
             type="button"
             onClick={() => showNextPop()}
           >
@@ -182,7 +182,7 @@ function Home() {
             />
           </button>
           <button
-            className="buttonLeft desktopOnly"
+            className="buttonLeft"
             type="button"
             onClick={() => showPrevPop()}
           >
