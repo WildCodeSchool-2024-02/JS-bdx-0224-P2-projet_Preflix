@@ -53,7 +53,7 @@ footer > a:last-of-type {
   }
 
   footer > a:first-of-type {
-    padding-left: 0rem;
+    padding-left: 0;
   }
 }
 
