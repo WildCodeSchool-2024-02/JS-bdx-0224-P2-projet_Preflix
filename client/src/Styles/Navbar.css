@@ -16,6 +16,10 @@
   display: none;
 }
 
+.titleNav {
+  font-size: 1.25em;
+}
+
 nav {
   background-color: var(--primary-color);
   display: flex;
@@ -40,7 +44,12 @@ li {
 .nameCategory {
   color: var(--tertiary-color);
   font-family: var(--secondary-font);
-  font-weight: normal;
+  font-size: 1.65em;
+}
+.nameCategoryYellow {
+  color: var(--secondary-color);
+  font-family: var(--secondary-font);
+  font-size: 1.65em;
 }
 
 .navDesktop,
@@ -98,6 +107,7 @@ li {
   .yellow {
     color: var(--secondary-color);
     font-family: var(--secondary-font);
+    font-size: 1.25em;
   }
   a {
     color: var(--tertiary-color);
@@ -111,7 +121,7 @@ li {
   .buttonCategory {
     background-color: var(--primary-color);
     color: var(--tertiary-color);
-    border: none;
+    border-style: none;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -125,7 +135,6 @@ li {
 
   .nameCategory:hover {
     color: var(--secondary-color);
-    font-size: 1.1rem;
   }
 
   .category {
