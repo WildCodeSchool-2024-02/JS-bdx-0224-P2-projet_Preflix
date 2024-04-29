@@ -10,15 +10,20 @@
   margin: 1rem 2rem;
 }
 
+.sectionsTerms h2 {
+  font-family: var(--secondary-font);
+}
+
 .sectionTerms p {
   margin: 2rem 0;
   line-height: 1.75;
+  font-family: var(--primary-font);
 }
 
 .sectionTerms li {
   color: var(--tertiary-color);
   font-size: 1em;
-  font-family: var(--secondary-font);
+  font-family: var(--primary-font);
   margin: 1rem 0;
   line-height: 1.75;
 }

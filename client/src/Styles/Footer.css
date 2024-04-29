@@ -5,6 +5,7 @@
   --primary-font: "Inter", "sans-serif";
   --secondary-font: "Oswald", "sans-serif";
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -22,19 +23,12 @@ footer {
   align-items: center;
 }
 
-p {
-  font-family: var(--primary-font);
-}
-
 a {
   text-decoration: none;
   font-family: var(--secondary-font);
   color: var(--tertiary-color);
   font-size: 16px;
-}
-
-a {
-  color: var(--tertiary-color);
+  padding-bottom: 0.15rem;
 }
 
 .logoTmdb {
@@ -42,18 +36,9 @@ a {
   padding-right: 1rem;
 }
 
-footer > a:first-of-type {
-  padding-right: 0.2rem;
-}
-
-footer > a:last-of-type {
-  padding-left: 0.2rem;
-}
-
 @media screen and (min-width: 387px) {
   footer > p:first-of-type {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 0 1rem;
   }
 
   footer > a:first-of-type {
@@ -67,11 +52,6 @@ footer > a:last-of-type {
   }
 
   footer > p:first-of-type {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  footer > a:first-of-type {
-    padding-left: 1rem;
+    padding: 0 1rem;
   }
 }
