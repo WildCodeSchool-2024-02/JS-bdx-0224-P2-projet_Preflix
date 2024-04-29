@@ -12,7 +12,7 @@ function ArrowBack() {
           className="icon-return-homepage"
         />
       </Link>
-      <Link to="/">
+      <Link to="/" className="containLogo">
         <img
           className="logo-return-homepage"
           src="../src/assets/images/logo.svg"
