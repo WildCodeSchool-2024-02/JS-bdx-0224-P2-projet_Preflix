@@ -121,7 +121,7 @@ li {
   .buttonCategory {
     background-color: var(--primary-color);
     color: var(--tertiary-color);
-    border: none;
+    border-style: none;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -133,10 +133,9 @@ li {
     color: var(--tertiary-color);
   }
 
-  /* .nameCategory:hover {
+  .nameCategory:hover {
     color: var(--secondary-color);
-    font-size: 1.1rem;
-  } */
+  }
 
   .category {
     cursor: pointer;

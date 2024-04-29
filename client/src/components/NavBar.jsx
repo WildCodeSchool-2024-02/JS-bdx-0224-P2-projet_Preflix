@@ -87,7 +87,7 @@ function NavBar() {
               onClick={handleClick}
               aria-label="Menu"
             >
-              <h2 className={click ? "nameCategoryDefault" : "nameCategory" }>Catégories ▼</h2>
+              <h2 className="nameCategory">Catégories ▼</h2>
             </Button>
             {click && (
               <Popover>
