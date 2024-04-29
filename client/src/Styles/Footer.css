@@ -28,7 +28,6 @@ a {
   font-family: var(--secondary-font);
   color: var(--tertiary-color);
   font-size: 16px;
-  padding-bottom: 0.15rem;
 }
 
 .logoTmdb {
@@ -44,6 +43,10 @@ a {
   footer > a:first-of-type {
     padding-left: 0;
   }
+}
+
+.Terms-of-use > p {
+  font-size: 0.9em;
 }
 
 @media screen and (min-width: 992px) {
