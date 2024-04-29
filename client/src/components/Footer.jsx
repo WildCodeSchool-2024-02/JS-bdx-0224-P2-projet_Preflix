@@ -1,11 +1,12 @@
 import "../Styles/Footer.css";
+import logoTmdb from "../assets/images/logo-tmdb.svg"
 
 function Footer() {
   return (
     <footer>
       <img
         className="logoTmdb"
-        src="../src/assets/images/logo-tmdb.svg"
+        src={logoTmdb}
         alt="TMDB logo"
       />
       <p>PREFLIX © 2024</p>

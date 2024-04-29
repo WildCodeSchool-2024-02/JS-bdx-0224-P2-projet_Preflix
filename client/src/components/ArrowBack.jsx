@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import ImgArrow from "../assets/images/icons-fleche-retour.svg";
+import logoImg from "../assets/images/logo.svg"
 import "../Styles/Home.css";
 
 function ArrowBack() {
@@ -15,7 +16,7 @@ function ArrowBack() {
       <Link to="/">
         <img
           className="logo-return-homepage"
-          src="../src/assets/images/logo.svg"
+          src={logoImg}
           alt="logo retour vers l'accueil"
         />
       </Link>
