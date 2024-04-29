@@ -221,7 +221,7 @@ function Article() {
               </article>
             ))
           ) : (
-            <p>Rien d'intéressant</p>
+            <p className="titleDark">Pas de suggestions</p>
           )}
         </section>
       </section>
