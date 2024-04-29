@@ -126,11 +126,7 @@ function NavBar() {
           <Link to="/search">
             <img
               className="searchDesktop"
-              src={
-                selectedUrl === "/search"
-                  ? "../src/assets/images/icons-search-yellow.svg"
-                  : "../src/assets/images/icons-chercher.svg"
-              }
+              src={search("/search")}
               alt="Rechercher"
             />
           </Link>
