@@ -15,6 +15,7 @@ import imgHome from "../assets/images/icons-accueil.svg";
 import imgHomeYellow from "../assets/images/iconsaccueilyellow.svg";
 import imgSearch from "../assets/images/icons-chercher.svg";
 import imgSearchYellow from "../assets/images/icons-search-yellow.svg";
+import logoFull from "../assets/images/Logofull.svg"
 
 function NavBar() {
   const location = useLocation();
@@ -40,7 +41,7 @@ function NavBar() {
       <Link className="linkName" to="/">
         <img
           className="logoFull"
-          src="../src/assets/images/Logofull.svg"
+          src={logoFull}
           alt="Accueil"
         />
       </Link>
