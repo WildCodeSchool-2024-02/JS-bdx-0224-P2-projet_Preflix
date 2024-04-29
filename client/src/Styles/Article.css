@@ -81,11 +81,11 @@
 
 @media screen and (min-width: 992px) {
   .imgHorizontalDesktop {
-    height: 30rem;
+    height: 40rem;
   }
 
   .imgVerticalDesktop {
-    width: 30rem;
+    width: 40rem;
   }
 
   .descriptionNotes,

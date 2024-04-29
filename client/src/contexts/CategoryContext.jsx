@@ -3,85 +3,85 @@ import PropTypes from "prop-types";
 
 export const CategoryContext = createContext();
 
+// fixed
 export function TypeProvider({ children }) {
-  const [types, setTypes] = useState([
-    {
-      name: "Action",
-      id: 28,
-    },
-    {
-      name: "Animation",
-      id: 16,
-    },
-    {
-      name: "Aventure",
-      id: 12,
-    },
-    {
-      name: "Comédie",
-      id: 35,
-    },
-    {
-      name: "Documentaire",
-      id: 99,
-    },
-    {
-      name: "Drame",
-      id: 18,
-    },
-    {
-      name: "Enfants",
-      id: 10762,
-    },
-    {
-      name: "Familial",
-      id: 10751,
-    },
-    {
-      name: "Fantastique",
-      id: 14,
-    },
-    {
-      name: "Guerre",
-      id: 10752,
-    },
-    {
-      name: "Histoire",
-      id: 36,
-    },
-    {
-      name: "Horreur",
-      id: 27,
-    },
-    {
-      name: "Musique",
-      id: 10402,
-    },
-    {
-      name: "Mystère",
-      id: 9648,
-    },
-    {
-      name: "Policier",
-      id: 80,
-    },
-    {
-      name: "Romance",
-      id: 10749,
-    },
-    {
-      name: "Science-Fiction",
-      id: 878,
-    },
-    {
-      name: "Thriller",
-      id: 53,
-    },
-    {
-      name: "Western",
-      id: 37,
-    },
-  ]);
+const [types, setTypes] = useState([{
+    name: "action",
+    id: [28, 10759]
+  },
+  {
+    name: "animation",
+    id: 16
+  },
+  {
+    name: "aventure",
+    id: [12, 10759]
+  },
+  {
+    name: "comédie",
+    id: 35
+  },
+  {
+    name: "documentaire",
+    id: 99
+  },
+  {
+    name: "drame",
+    id: 18
+  },
+  {
+    name: "enfants",
+    id: 10762
+  },
+  {
+    name: "familial",
+    id: [10751, 10762]
+  },
+  {
+    name: "fantastique",
+    id: [14, 10765]
+  },
+  {
+    name: "guerre",
+    id: [10752, 10768]
+  },
+  {
+    name: "histoire",
+    id: 36
+  },
+  {
+    name: "horreur",
+    id: 27
+  },
+  {
+    name: "musique",
+    id: 10402
+  },
+  {
+    name: "mystère",
+    id: 9648
+  },
+  {
+    name: "policier",
+    id: [80, 9648]
+  },
+  {
+    name: "romance",
+    id: 10749
+  },
+  {
+    name: "science-fiction",
+    id: [878, 10765]
+  },
+  {
+    name: "thriller",
+    id: 53
+  },
+  {
+    name: "western",
+    id: 37
+  }
+])
 
   const contextValue = useMemo(
     () => ({

@@ -3,7 +3,10 @@ import { Link, useParams } from "react-router-dom";
 import ArrowBack from "../components/ArrowBack";
 import "../Styles/Article.css";
 
+
+
 function Article() {
+
   const apiToken = import.meta.env.VITE_API_TOKEN;
 
   const [details, setDetails] = useState([]);
@@ -117,7 +120,7 @@ function Article() {
               )}
             </article>
             <article className="descriptionWatchProvider_flatrate">
-              <h2 className="title">Forfait</h2>
+              <h2 className="title">Abonnements</h2>
               {displayProvider &&
               displayProvider.results &&
               displayProvider.results.FR &&

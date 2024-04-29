@@ -26,9 +26,35 @@ p {
   font-family: var(--primary-font);
 }
 
+a {
+  text-decoration: none;
+  font-family: var(--secondary-font);
+  color: var(--tertiary-color);
+  font-size: 16px;
+}
+
 .logoTmdb {
   width: 8rem;
   padding-right: 1rem;
+}
+
+footer > a:first-of-type {
+  padding-right: 0.2rem;
+}
+
+footer > a:last-of-type {
+  padding-left: 0.2rem;
+}
+
+@media screen and (min-width: 387px) {
+  footer > p:first-of-type {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  footer > a:first-of-type {
+    padding-left: 0;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -36,7 +62,12 @@ p {
     margin-bottom: 0;
   }
 
-  .p_Footer {
+  footer > p:first-of-type {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  footer > a:first-of-type {
     padding-left: 1rem;
   }
 }

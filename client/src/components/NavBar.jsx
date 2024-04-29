@@ -2,10 +2,10 @@ import { Link, useLocation } from "react-router-dom";
 import "../Styles/Navbar.css";
 import {
   Button,
-  ListBox,
-  ListBoxItem,
+  Menu,
+  MenuItem,
+  MenuTrigger,
   Popover,
-  Select,
 } from "react-aria-components";
 import { useContext, useState } from "react";
 import { CategoryContext } from "../contexts/CategoryContext";
@@ -13,8 +13,8 @@ import imgCredit from "../assets/images/heart-hand-shake.svg";
 import imgCreditYellow from "../assets/images/heart-hand-shake-yellow.svg";
 import imgHome from "../assets/images/icons-accueil.svg";
 import imgHomeYellow from "../assets/images/iconsaccueilyellow.svg";
-import imgSearch from "../assets/images/icons-chercher.svg"
-import imgSearchYellow from "../assets/images/icons-search-yellow.svg"
+import imgSearch from "../assets/images/icons-chercher.svg";
+import imgSearchYellow from "../assets/images/icons-search-yellow.svg";
 
 function NavBar() {
   const location = useLocation();
@@ -43,11 +43,7 @@ function NavBar() {
       <ul className="navList">
         <li>
           <Link to="/">
-            <img
-              className="navIcon"
-              src={home("/")} 
-              alt="Accueil"
-            />
+            <img className="navIcon" src={home("/")} alt="Accueil" />
           </Link>
           <Link className="isMobile" to="/">
             <h2 className={selectedUrl === "/" ? "yellow" : "titleNav"}>
@@ -57,11 +53,7 @@ function NavBar() {
         </li>
         <li className="none">
           <Link to="/search">
-            <img
-              className="navIcon"
-              src= {search("/search")}
-              alt="Rechercher"
-            />
+            <img className="navIcon" src={search("/search")} alt="Rechercher" />
           </Link>
         </li>
         <li className="none">
@@ -84,31 +76,36 @@ function NavBar() {
           </Link>
         </li>
         <li className="navDesktop titleNav">
-          <Select className="boxScroll">
-            <Button className="buttonCategory" onClick={handleClick}>
+          <MenuTrigger className="boxScroll">
+            <Button
+              className="buttonCategory"
+              onClick={handleClick}
+              aria-label="Menu"
+            >
               <h2 className={click ? "nameCategory" : ""}>Catégories ▼</h2>
             </Button>
             <Popover>
-              <ListBox className="scrollingMenu">
+              <Menu className="scrollingMenu" onAction={Link}>
                 {types.map((type) => (
-                  <ListBoxItem
+                  <MenuItem
                     aria-label="category"
                     className="category"
-                    key={type}
+                    key={type.name}
                   >
                     <Link
-                      to={{ pathname: `/category/${type.name}` }}
+                      to={`/category/${type.name}`}
                       key={type.name}
                       className="genderCategory"
+                      aria-label={type.name}
                     >
                       {type.name.charAt(0).toUpperCase()}
                       {type.name.substring(1)}
                     </Link>
-                  </ListBoxItem>
+                  </MenuItem>
                 ))}
-              </ListBox>
+              </Menu>
             </Popover>
-          </Select>
+          </MenuTrigger>
         </li>
         <li className="isMobile">
           <Link className="isMobile" to="/credits">

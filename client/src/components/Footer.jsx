@@ -8,10 +8,10 @@ function Footer() {
         src="../src/assets/images/logo-tmdb.svg"
         alt="TMDB logo"
       />
-      <p className="p_Footer">PREFLIX © 2024</p>
-      <p className="p_Footer">
-        Conditions d'utilisation - Politique de confidentialité
-      </p>
+      <p>PREFLIX © 2024</p>
+      <a href="https://www.themoviedb.org/terms-of-use">Conditions d'utilisation</a>
+      <p>-</p>
+      <a href="https://www.themoviedb.org/privacy-policy">Politique de confidentialité</a>
     </footer>
   );
 }
