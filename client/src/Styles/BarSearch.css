@@ -1,0 +1,96 @@
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/Inter-VariableFont_slnt,wght.ttf");
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url("assets/fonts/Oswald-VariableFont_wght.ttf");
+}
+
+:root {
+  --primary-color: #313131;
+  --secondary-color: #ffe96e;
+  --tertiary-color: #f5f5f5;
+  --primary-font: "Inter", "sans-serif";
+  --secondary-font: "Oswald", "sans-serif";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-color);
+}
+
+img {
+  width: 100%;
+}
+
+.title-results {
+  color: var(--tertiary-color);
+  font-family: var(--secondary-font);
+  font-size: 1.5rem;
+  padding-left: 1.8rem;
+}
+
+.form-search {
+  display: flex;
+  width: 90%;
+  background-color: var(--tertiary-color);
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  margin: 0.8rem auto;
+}
+
+.icon-loop {
+  width: 2rem;
+  margin-right: 0.6rem;
+}
+
+label {
+  color: var(--primary-color);
+  font-size: 0rem;
+}
+
+input {
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
+  border: solid 1px var(--tertirary-color);
+  font-family: var(--primary-font);
+  font-size: 1rem;
+  font-weight: 600;
+  width: 95%;
+}
+
+.search-results {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0.8rem;
+  gap: 0.8rem;
+  z-index: 10;
+}
+
+.search-results > article {
+  width: 10rem;
+}
+
+.search-results > article > figure {
+  margin: 0;
+  position: relative;
+}
+
+figcaption {
+  font-size: 0px;
+}
+
+@media screen and (min-width: 992px) {
+  .icon-return-homepage {
+    display: none;
+  }
+}
